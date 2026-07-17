@@ -1,0 +1,932 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Long Game — pull the levers, watch forty years unfold</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15202E; --ink-soft:#41505F; --ink-faint:#6A7682;
+    --paper:#F7F5F0; --card:#FFFFFF; --rule:#E2DDD2; --rule-strong:#CFC8B8;
+    --deferred:#1C6E8C; --deferred-tint:#EAF2F5;
+    --free:#2E7D52;    --free-tint:#EAF4ED;
+    --cash:#A9701A;    --cash-tint:#F6EFE1;
+    --flag:#9B2D2D;    --flag-tint:#F6EAE7;
+    --alt:#7A6AA5;     /* comparison/ghost path */
+    --maxw:1060px; --reading:720px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  h1,h2,h3{font-family:"Newsreader",Georgia,serif;font-weight:500;line-height:1.12;letter-spacing:-.01em}
+  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);font-weight:500}
+  .mono{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+  p{margin:0 0 1em}
+  a{color:var(--deferred)}
+  strong,b{font-weight:600}
+
+  /* ---------- hero ---------- */
+  header.hero{border-bottom:1px solid var(--rule);background:
+    radial-gradient(110% 90% at 90% -10%, rgba(28,110,140,.08), transparent 60%),
+    radial-gradient(110% 90% at 5% 0%, rgba(46,125,82,.07), transparent 55%)}
+  .hero-inner{padding:58px 0 36px}
+  .hero h1{font-size:clamp(36px,6vw,62px);margin:14px 0 14px;max-width:15ch}
+  .hero h1 em{font-style:italic;color:var(--deferred)}
+  .hero .lead{font-size:clamp(16.5px,2.1vw,20px);color:var(--ink-soft);max-width:var(--reading)}
+
+  .paths{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:34px 0 6px}
+  .path{background:var(--card);border:1px solid var(--rule);border-radius:13px;padding:18px 18px 16px;cursor:pointer;text-align:left;font:inherit;color:inherit;position:relative;overflow:hidden;transition:transform .12s ease, box-shadow .12s ease}
+  .path::before{content:"";position:absolute;left:0;top:0;right:0;height:4px;background:var(--pc,var(--ink))}
+  .path:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(21,32,46,.08)}
+  .path.active{outline:2px solid var(--pc,var(--ink));outline-offset:-2px}
+  .path .glyph{font-family:"Newsreader",serif;font-size:30px;line-height:1;display:block;margin-bottom:8px;color:var(--pc)}
+  .path h3{margin:0 0 3px;font-size:20px}
+  .path .arc{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-faint)}
+  .path .tease{font-size:13.5px;color:var(--ink-soft);margin-top:9px;line-height:1.45}
+  .p-doc{--pc:var(--flag)} .p-eng{--pc:var(--deferred)} .p-tea{--pc:var(--free)} .p-fou{--pc:var(--cash)}
+
+  /* assumptions strip */
+  .assume{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;background:var(--ink);color:#DCE3E8;border-radius:12px;padding:14px 20px;margin:26px 0 0;font-size:13.5px}
+  .assume .lab{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#93A3AE}
+  .assume .ctl{display:flex;align-items:center;gap:10px}
+  .assume input[type=range]{accent-color:#6FB3CF;width:130px}
+  .assume .val{font-family:"IBM Plex Mono",monospace;color:#fff;min-width:46px}
+  .assume .note{color:#93A3AE;flex:1;min-width:220px}
+
+  /* ---------- story ---------- */
+  main{padding:10px 0 70px}
+  .story{display:none}
+  .story.on{display:block}
+  .story-head{padding:34px 0 6px;border-bottom:1px solid var(--rule);margin-bottom:8px}
+  .story-head h2{font-size:clamp(28px,4vw,42px);margin:6px 0 8px}
+  .story-head .sub{color:var(--ink-soft);font-size:17.5px;max-width:var(--reading)}
+
+  .ch{padding:30px 0 8px;border-top:1px solid var(--rule);margin-top:26px}
+  .ch:first-of-type{border-top:none;margin-top:0}
+  .ch-k{display:flex;gap:13px;align-items:baseline;margin-bottom:4px}
+  .ch-num{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-faint)}
+  .ch h3{font-size:clamp(22px,3vw,29px);margin:0}
+  .ch .narr{max-width:var(--reading);color:var(--ink-soft);font-size:16.5px}
+  .ch .narr b{color:var(--ink)}
+
+  /* control panel */
+  .panel{background:var(--card);border:1px solid var(--rule);border-radius:13px;padding:20px 22px;margin:16px 0}
+  .panel .plab{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:12px}
+  .controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px 26px}
+  .ctlrow{min-width:0}
+  .ctlrow label{display:flex;justify-content:space-between;align-items:baseline;font-size:13.5px;color:var(--ink-soft);margin-bottom:5px;gap:10px}
+  .ctlrow label .cv{font-family:"IBM Plex Mono",monospace;font-weight:600;color:var(--ink);white-space:nowrap}
+  input[type=range]{width:100%;accent-color:var(--deferred);height:22px}
+  .seg{display:flex;border:1px solid var(--rule-strong);border-radius:9px;overflow:hidden}
+  .seg button{flex:1;font:inherit;font-size:13.5px;padding:9px 6px;background:#fff;border:none;cursor:pointer;color:var(--ink-soft);border-left:1px solid var(--rule)}
+  .seg button:first-child{border-left:none}
+  .seg button.sel{background:var(--ink);color:#fff;font-weight:600}
+  .seg.freeish button.sel{background:var(--free)}
+  .seg.defish button.sel{background:var(--deferred)}
+
+  /* readout chips */
+  .chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:11px;margin:16px 0}
+  .chip{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:13px 16px;border-top:4px solid var(--cc,var(--rule-strong))}
+  .chip .cl{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-faint);line-height:1.4}
+  .chip .cvv{font-family:"IBM Plex Mono",monospace;font-size:22px;font-weight:600;color:var(--ink);margin-top:3px;font-variant-numeric:tabular-nums}
+  .chip .cs{font-size:12.5px;color:var(--ink-soft);margin-top:3px;line-height:1.4}
+  .chip.good{--cc:var(--free)} .chip.bad{--cc:var(--flag)} .chip.info{--cc:var(--deferred)} .chip.warm{--cc:var(--cash)} .chip.alt{--cc:var(--alt)}
+
+  /* chart card */
+  .chart{background:var(--card);border:1px solid var(--rule);border-radius:13px;padding:16px 18px 10px;margin:16px 0}
+  .chart .ct{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px 16px;margin-bottom:6px}
+  .chart .ctt{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-faint)}
+  .lgnd{display:flex;flex-wrap:wrap;gap:5px 16px;font-size:12.5px;color:var(--ink-soft)}
+  .lgnd span{display:inline-flex;align-items:center;gap:6px}
+  .lgnd i{width:14px;height:3px;border-radius:2px;display:inline-block}
+  svg.plot{width:100%;height:auto;display:block}
+  .axis{font-family:"IBM Plex Mono",monospace;font-size:10px;fill:var(--ink-faint)}
+  .grid{stroke:var(--rule);stroke-width:1}
+
+  .lesson{margin:14px 0 4px;padding:13px 17px;border-radius:10px;background:var(--free-tint);border:1px solid #BFE0CB;font-size:14.5px;max-width:var(--reading)}
+  .lesson.trap{background:var(--flag-tint);border-color:#E4C2BC}
+  .lesson .ll{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;font-weight:600;display:block;margin-bottom:3px;color:var(--free)}
+  .lesson.trap .ll{color:var(--flag)}
+
+  .fine{font-size:12.5px;color:var(--ink-faint);max-width:var(--reading)}
+
+  footer{border-top:1px solid var(--rule);padding:26px 0 60px;color:var(--ink-faint);font-size:13px}
+  footer .wrap{max-width:820px}
+
+  /* ---------- site nav ---------- */
+  .sitenav{background:var(--ink);color:#DCE3E8;font-size:13.5px}
+  .sitenav .wrap{display:flex;align-items:center;gap:18px;padding-top:9px;padding-bottom:9px}
+  .sitenav .brand{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#93A3AE}
+  .sitenav a{color:#DCE3E8;text-decoration:none;padding:5px 12px;border-radius:7px}
+  .sitenav a:hover{background:#243240}
+  .sitenav a.here{background:#fff;color:var(--ink);font-weight:600}
+  .sitenav .hint{margin-left:auto;color:#7f8f9b;font-size:12px}
+  @media (max-width:640px){.sitenav .hint{display:none}}
+
+  /* ---------- hover definitions ---------- */
+  .term{border-bottom:1.5px dotted var(--ink-faint);cursor:help;position:relative;border-radius:2px}
+  .term:focus{outline:2px solid var(--deferred);outline-offset:2px}
+  .term::after{content:attr(data-def);position:absolute;left:50%;transform:translateX(-50%) translateY(4px);bottom:calc(100% + 9px);
+    width:max-content;max-width:min(300px,78vw);background:var(--ink);color:#F2EFE8;padding:10px 13px;border-radius:9px;
+    font-family:"IBM Plex Sans",sans-serif;font-size:13px;line-height:1.5;font-weight:400;font-style:normal;letter-spacing:0;text-transform:none;white-space:normal;text-align:left;
+    box-shadow:0 8px 24px rgba(21,32,46,.25);opacity:0;pointer-events:none;transition:opacity .12s ease,transform .12s ease;z-index:60}
+  .term::before{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:calc(100% + 3px);border:6px solid transparent;border-top-color:var(--ink);opacity:0;transition:opacity .12s ease;z-index:60}
+  .term:hover::after,.term:focus::after{opacity:1;transform:translateX(-50%) translateY(0)}
+  .term:hover::before,.term:focus::before{opacity:1}
+  @media (hover:none){.term{-webkit-tap-highlight-color:transparent}}
+
+  @media (max-width:860px){
+    .paths{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:560px){
+    .paths{grid-template-columns:1fr}
+    .chip .cvv{font-size:19px}
+  }
+</style>
+</head>
+<body>
+
+<nav class="sitenav" aria-label="Site">
+  <div class="wrap">
+    <span class="brand">The Long Game</span>
+    <a href="index.html">Learn — the field guide</a>
+    <a class="here" href="the-long-game.html" aria-current="page">Play — interactive stories</a>
+    <span class="hint">Dotted terms show plain-English definitions on hover or tap.</span>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="eyebrow">An interactive companion · four careers · one engine</div>
+    <h1>Pick a life. Pull the levers. <em>Watch forty years unfold.</em></h1>
+    <p class="lead">Every career hits a handful of money forks — moments where one quiet choice sends two very different futures compounding away from each other. Choose a path below, then drag the sliders inside each chapter. The charts re-run a year-by-year simulation as you move them, so you can <em>see</em> what each decision is worth.</p>
+
+    <div class="paths" role="tablist" aria-label="Choose a career story">
+      <button class="path p-doc active" data-story="doc" role="tab" aria-selected="true">
+        <span class="glyph">✚</span><h3>The Physician</h3>
+        <div class="arc">Residency → Attending</div>
+        <p class="tease">Six figures of debt, a decade of delayed earnings, and the PSLF question. The deepest story here.</p>
+      </button>
+      <button class="path p-eng" data-story="eng" role="tab" aria-selected="false">
+        <span class="glyph">⌘</span><h3>The Engineer</h3>
+        <div class="arc">High income, early</div>
+        <p class="tease">Big salary at 23. The trap isn't earning — it's tax drag, and the mega-backdoor most never turn on.</p>
+      </button>
+      <button class="path p-tea" data-story="tea" role="tab" aria-selected="false">
+        <span class="glyph">✎</span><h3>The Teacher</h3>
+        <div class="arc">Steady pay, secret doors</div>
+        <p class="tease">A modest salary — and the only profession with <em>two</em> full retirement-account limits at once.</p>
+      </button>
+      <button class="path p-fou" data-story="fou" role="tab" aria-selected="false">
+        <span class="glyph">◆</span><h3>The Founder</h3>
+        <div class="arc">Self-employed</div>
+        <p class="tease">Lumpy income, no employer match — and the single biggest tax shelter in the entire code.</p>
+      </button>
+    </div>
+
+    <div class="assume">
+      <span class="lab">Engine settings</span>
+      <span class="ctl"><span>Avg. annual return</span><input type="range" id="gRet" min="3" max="9" step="0.5" value="6"><span class="val" id="gRetV">6%</span></span>
+      <span class="note">All figures use 2026 tax rules held constant, a single filer, and this one return assumption — deliberately simple, so the <em>decisions</em> stay visible. Real life adds inflation, raises, and luck.</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ══════════════════════ PHYSICIAN ══════════════════════ -->
+<section class="story on" id="story-doc">
+  <div class="story-head">
+    <div class="eyebrow">Story one · the deep dive</div>
+    <h2>The Physician</h2>
+    <p class="sub">Meet <b>Dr. Anaya Rao</b>. She finishes medical school at 26 with a stack of federal loans and a resident's salary. In ten years she'll likely out-earn almost everyone — but the choices she makes <em>while broke</em> shape her next forty years more than anything she does rich.</p>
+  </div>
+
+  <!-- CH 1 -->
+  <div class="ch">
+    <div class="ch-k"><span class="ch-num">CH 1</span><h3>The setup — debt meets a resident's paycheck</h3></div>
+    <p class="narr">Set the shape of Anaya's start. Median med-school debt runs around $200–250k; residency pays like a teacher while working like two jobs. Her federal loans go onto an <b>income-driven repayment (IDR)</b> plan — the payment tracks her income, not her balance. Notice what happens to the "required payment" as you move her salary: the debt can be enormous while the payment stays small. That gap is the whole physician story.</p>
+    <div class="panel"><div class="plab">Her starting position</div>
+      <div class="controls">
+        <div class="ctlrow"><label>Medical-school debt <span class="cv" id="d_debtV"></span></label><input type="range" id="d_debt" min="100000" max="450000" step="10000" value="250000"></div>
+        <div class="ctlrow"><label>Residency salary <span class="cv" id="d_resSalV"></span></label><input type="range" id="d_resSal" min="55000" max="85000" step="1000" value="68000"></div>
+        <div class="ctlrow"><label>Years of residency / fellowship <span class="cv" id="d_resYrsV"></span></label><input type="range" id="d_resYrs" min="3" max="7" step="1" value="4"></div>
+      </div>
+    </div>
+    <div class="chips">
+      <div class="chip info"><div class="cl">Income-driven payment</div><div class="cvv" id="d_idrMo"></div><div class="cs">per month during residency (simplified: 10% of income above ~$25k)</div></div>
+      <div class="chip bad"><div class="cl">Interest accruing</div><div class="cvv" id="d_intMo"></div><div class="cs">per month at 6.8% — <span id="d_negam"></span></div></div>
+      <div class="chip warm"><div class="cl">Standard 10-yr payment would be</div><div class="cvv" id="d_stdMo"></div><div class="cs">what she'd owe monthly <em>without</em> an income-driven plan</div></div>
+    </div>
+    <div class="lesson trap"><span class="ll">The quiet mechanic</span>When the income-driven payment is smaller than the interest, the balance <b>grows</b> during residency. That sounds terrifying — but if she's headed for loan forgiveness, it's actually fine, and fighting it is the mistake. The next two chapters show why.</div>
+  </div>
+
+  <!-- CH 2 -->
+  <div class="ch">
+    <div class="ch-k"><span class="ch-num">CH 2</span><h3>The residency fork — Roth or Traditional?</h3></div>
+    <p class="narr">Anaya can save a little even now — set how much below. Conventional wisdom says a low earner should choose <b>Roth</b> (pay the small tax now, never again). But residents aiming for <b>Public Service Loan Forgiveness</b> have a twist: <b>Traditional (pre-tax) contributions lower her AGI</b>, and her loan payment is a percentage <em>of AGI</em>. Every pre-tax dollar cuts her required loan payment by ten cents — and under PSLF, whatever she doesn't pay eventually gets <b>forgiven</b>. Flip the toggle and watch the chips.</p>
+    <div class="panel"><div class="plab">Her residency savings choice</div>
+      <div class="controls">
+        <div class="ctlrow"><label>She saves this much of salary <span class="cv" id="d_resSaveV"></span></label><input type="range" id="d_resSave" min="0" max="15" step="1" value="8"></div>
+        <div class="ctlrow"><label>Into which bucket?</label>
+          <div class="seg" id="d_bucketSeg">
+            <button data-v="trad">Traditional 403(b)</button>
+            <button data-v="roth" class="sel">Roth 403(b)</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="chips">
+      <div class="chip info"><div class="cl">Loan payment</div><div class="cvv" id="d_payCmp"></div><div class="cs" id="d_payCmpS"></div></div>
+      <div class="chip good"><div class="cl">Cash freed per year (Traditional)</div><div class="cvv" id="d_freed"></div><div class="cs">tax saved + loan-payment reduction, vs choosing Roth</div></div>
+      <div class="chip alt"><div class="cl">Verdict for her plan</div><div class="cvv" id="d_verdict"></div><div class="cs" id="d_verdictS"></div></div>
+    </div>
+    <div class="lesson"><span class="ll">The lesson</span>The "right" bucket isn't fixed — it depends on the loan strategy. <b>Chasing forgiveness → Traditional</b> (shrink AGI, shrink payments, maximize what's forgiven). <b>Planning to refinance &amp; pay off → Roth</b> (her bracket is the lowest it will ever be). One toggle, opposite answers. This is the kind of interaction a generic "Roth when young" rule completely misses.</div>
+  </div>
+
+  <!-- CH 3 -->
+  <div class="ch">
+    <div class="ch-k"><span class="ch-num">CH 3</span><h3>The loan fork — forgiveness or the fast payoff</h3></div>
+    <p class="narr">Now the biggest fork of all. <b>Path A — PSLF:</b> she works at a nonprofit hospital (most academic hospitals qualify), makes 120 income-driven payments (10 years, residency counts!), and the entire remaining balance is <b>forgiven, tax-free</b>. <b>Path B — Refinance:</b> she takes a private loan at a lower rate and attacks it hard as an attending. Toggle between them and watch the two loan curves — the fork chart below is the signature image of her whole story.</p>
+    <div class="panel"><div class="plab">Her loan strategy</div>
+      <div class="controls">
+        <div class="ctlrow"><label>Strategy</label>
+          <div class="seg defish" id="d_pslfSeg">
+            <button data-v="pslf" class="sel">PSLF — nonprofit hospital</button>
+            <button data-v="refi">Refinance &amp; attack</button>
+          </div>
+        </div>
+        <div class="ctlrow" id="d_refiRow" style="opacity:.45"><label>Refinance payoff speed <span class="cv" id="d_refiYrsV"></span></label><input type="range" id="d_refiYrs" min="3" max="10" step="1" value="5"></div>
+      </div>
+    </div>
+    <div class="chart">
+      <div class="ct"><span class="ctt">Loan balance, both futures</span>
+        <div class="lgnd"><span><i style="background:var(--deferred)"></i>PSLF path</span><span><i style="background:var(--alt)"></i>Refinance path</span></div>
+      </div>
+      <div id="d_loanChart"></div>
+    </div>
+    <div class="chips">
+      <div class="chip good"><div class="cl">Forgiven under PSLF</div><div class="cvv" id="d_forgiven"></div><div class="cs">wiped out, tax-free, at year 10</div></div>
+      <div class="chip info"><div class="cl">Total paid — PSLF</div><div class="cvv" id="d_paidPslf"></div><div class="cs">over the life of the loan</div></div>
+      <div class="chip alt"><div class="cl">Total paid — refinance</div><div class="cvv" id="d_paidRefi"></div><div class="cs">at 5.5%, paid off in <span id="d_refiDone"></span></div></div>
+      <div class="chip warm"><div class="cl">The gap</div><div class="cvv" id="d_loanGap"></div><div class="cs" id="d_loanGapS"></div></div>
+    </div>
+    <div class="lesson"><span class="ll">The honest caveat</span>PSLF's edge grows with debt size and shrinks with income. Crank her debt down to $120k and the attending salary up — the gap narrows, and the freedom of being debt-free early has real value too. There's no universal answer; there's <em>your numbers</em>. (Also: the 2025 law reshaped income-driven plans for new borrowers — treat this as the mechanism, and check current plan terms.)</div>
+  </div>
+
+  <!-- CH 4 -->
+  <div class="ch">
+    <div class="ch-k"><span class="ch-num">CH 4</span><h3>The attending jump — and the creep</h3></div>
+    <p class="narr">At last: the attending contract. Income triples overnight — and so does the danger. The classic physician-finance advice is <b>"live like a resident"</b> for the first few years: keep resident-level spending while earning attending money, and shovel the difference into the waterfall (max 401(k), backdoor Roth — she's far over the Roth income limit now — HSA, then taxable). Slide the "live like a resident" lever and watch what those few disciplined years are worth at 65.</p>
+    <div class="panel"><div class="plab">Her attending life</div>
+      <div class="controls">
+        <div class="ctlrow"><label>Attending salary <span class="cv" id="d_attSalV"></span></label><input type="range" id="d_attSal" min="220000" max="500000" step="10000" value="320000"></div>
+        <div class="ctlrow"><label>"Live like a resident" for <span class="cv" id="d_llrV"></span></label><input type="range" id="d_llr" min="0" max="6" step="1" value="3"></div>
+        <div class="ctlrow"><label>Savings rate after that <span class="cv" id="d_attSaveV"></span></label><input type="range" id="d_attSave" min="5" max="35" step="1" value="20"></div>
+      </div>
+    </div>
+    <div class="chips">
+      <div class="chip good"><div class="cl">Saved during the LLR years</div><div class="cvv" id="d_llrSaved"></div><div class="cs">while spending like a resident (~45% savings rate)</div></div>
+      <div class="chip info"><div class="cl">Worth at 65</div><div class="cvv" id="d_llrWorth"></div><div class="cs">what just those years compound into</div></div>
+      <div class="chip warm"><div class="cl">Cost of skipping it</div><div class="cvv" id="d_llrCost"></div><div class="cs">net worth at 65 with the lever at zero vs your setting</div></div>
+    </div>
+    <div class="lesson"><span class="ll">The lesson</span>The jump years are a once-per-career anomaly: income has tripled but lifestyle hasn't caught up <em>yet</em>. Lifestyle creep is a one-way ratchet — spending is easy to raise and brutal to cut. Deciding the savings rate <b>before</b> the first attending paycheck lands is worth more than a decade of optimization later.</div>
+  </div>
+
+  <!-- CH 5 -->
+  <div class="ch">
+    <div class="ch-k"><span class="ch-num">CH 5</span><h3>The long run — forty years, one chart</h3></div>
+    <p class="narr">Everything you've set above, run to age 65. The stacked areas are her investment buckets; the red line is the loan. Go back and yank any lever — debt, PSLF, the creep — and watch this chart absorb it. This is the whole point: no single choice decides the outcome, but three or four good forks, taken early, compound into millions.</p>
+    <div class="chart">
+      <div class="ct"><span class="ctt">Dr. Rao, age 26 → 65</span>
+        <div class="lgnd"><span><i style="background:var(--deferred)"></i>Pre-tax</span><span><i style="background:var(--free)"></i>Roth</span><span><i style="background:var(--cash)"></i>Taxable</span><span><i style="background:var(--flag)"></i>Loan balance</span></div>
+      </div>
+      <div id="d_mainChart"></div>
+    </div>
+    <div class="chips">
+      <div class="chip good"><div class="cl">Net worth at 65</div><div class="cvv" id="d_nw65"></div><div class="cs">in today's dollars, at your return setting</div></div>
+      <div class="chip info"><div class="cl">Total she contributed</div><div class="cvv" id="d_contrib"></div><div class="cs">out of pocket, over the career</div></div>
+      <div class="chip warm"><div class="cl">Growth did the rest</div><div class="cvv" id="d_growth"></div><div class="cs">compounding's share of the final number</div></div>
+    </div>
+    <p class="fine">Attending years assume the funding waterfall from the companion guide: 401(k) max ($24,500), backdoor Roth IRA ($7,500), overflow to taxable. Loan payments come out of the savings budget. All in today's dollars.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════ ENGINEER ══════════════════════ -->
+<section class="story" id="story-eng">
+  <div class="story-head">
+    <div class="eyebrow">Story two</div>
+    <h2>The Engineer</h2>
+    <p class="sub"><b>Sam Okafor</b> lands a tech job at 23 — a salary most people wait twenty years for. Sam's enemies aren't scarcity; they're <b>tax drag</b> on a growing taxable pile, and a Roth door that closes fast at this income.</p>
+  </div>
+
+  <div class="ch">
+    <div class="ch-k"><span class="ch-num">CH 1</span><h3>The setup — paid a lot, early</h3></div>
+    <p class="narr">Set Sam's compensation and savings rate. At this income Sam is over the Roth IRA limit almost immediately (backdoor from day one) and hits the 24–32% brackets young — so the 401(k) goes <b>pre-tax</b>, and after maxing it, money starts piling into a <b>taxable</b> account. That taxable pile is where the next fork lives.</p>
+    <div class="panel"><div class="plab">Sam's numbers</div>
+      <div class="controls">
+        <div class="ctlrow"><label>Total comp (salary + equity) <span class="cv" id="e_compV"></span></label><input type="range" id="e_comp" min="120000" max="450000" step="10000" value="220000"></div>
+        <div class="ctlrow"><label>Savings rate <span class="cv" id="e_saveV"></span></label><input type="range" id="e_save" min="10" max="50" step="1" value="30"></div>
+      </div>
+    </div>
+    <div class="chips">
+      <div class="chip info"><div class="cl">Saved per year</div><div class="cvv" id="e_perYr"></div><div class="cs">401(k) max + backdoor Roth first, overflow to taxable</div></div>
+      <div class="chip warm"><div class="cl">Overflowing to taxable</div><div class="cvv" id="e_spill"></div><div class="cs">per year — exposed to yearly dividend &amp; gains tax</div></div>
+    </div>
+  </div>
+
+  <div class="ch">
+    <div class="ch-k"><span class="ch-num">CH 2</span><h3>The fork — is the mega-backdoor switched on?</h3></div>
+    <p class="narr">Many tech 401(k)s quietly allow <b>after-tax contributions + in-plan Roth conversion</b> — the <b>mega-backdoor Roth</b>. It reroutes up to ~$30k/yr of Sam's overflow from the taxable pile into the Roth bucket, where it compounds with <b>zero</b> tax drag, forever. Most eligible employees never check the box. Toggle it and watch the two futures split.</p>
+    <div class="panel"><div class="plab">The five-minute HR question</div>
+      <div class="controls">
+        <div class="ctlrow"><label>Mega-backdoor Roth</label>
+          <div class="seg freeish" id="e_megaSeg"><button data-v="off" class="sel">Never asked HR</button><button data-v="on">Switched on</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="chart">
+      <div class="ct"><span class="ctt">Net worth, both futures</span>
+        <div class="lgnd"><span><i style="background:var(--free)"></i>Mega-backdoor on</span><span><i style="background:var(--alt)"></i>Off — overflow stays taxable</span></div>
+      </div>
+      <div id="e_forkChart"></div>
+    </div>
+    <div class="chips">
+      <div class="chip good"><div class="cl">The five-minute question is worth</div><div class="cvv" id="e_megaGap"></div><div class="cs">extra net worth at 65 — the compounded value of removing tax drag</div></div>
+      <div class="chip info"><div class="cl">Tax drag modeled</div><div class="cvv">~0.6%/yr</div><div class="cs">yearly haircut on taxable growth from dividends &amp; realized gains</div></div>
+    </div>
+    <div class="lesson"><span class="ll">The lesson</span>Tax drag looks tiny — half a percent — but it compounds against you exactly like a fee, every year, for four decades. The mega-backdoor is the rare move that's pure upside: same investments, same risk, one bucket to the left. Ready to actually do it? The field guide has a <a href="index.html#fidelity">step-by-step Fidelity walkthrough</a>.</div>
+  </div>
+
+  <div class="ch">
+    <div class="ch-k"><span class="ch-num">CH 3</span><h3>The real prize — the work-optional age</h3></div>
+    <p class="narr">A high savings rate at a high income buys something better than luxury: <b>options</b>. A common yardstick — take it as a rough planning heuristic, not a guarantee — says work becomes optional around <b>25× annual spending</b> (the "4% rule" flipped around). Slide Sam's spending and savings rate and watch the age move. Notice which slider moves it more.</p>
+    <div class="panel"><div class="plab">The freedom dial</div>
+      <div class="controls">
+        <div class="ctlrow"><label>Annual spending <span class="cv" id="e_spendV"></span></label><input type="range" id="e_spend" min="40000" max="150000" step="5000" value="80000"></div>
+        <div class="ctlrow"><label>Savings rate (same as CH 1) <span class="cv" id="e_save2V"></span></label><input type="range" id="e_save2" min="10" max="50" step="1" value="30"></div>
+      </div>
+    </div>
+    <div class="chips">
+      <div class="chip good"><div class="cl">Work becomes optional at</div><div class="cvv" id="e_fireAge"></div><div class="cs">first age where the portfolio ≈ 25× spending</div></div>
+      <div class="chip info"><div class="cl">Target portfolio</div><div class="cvv" id="e_fireNum"></div><div class="cs">25 × annual spending</div></div>
+      <div class="chip warm"><div class="cl">Net worth at 65 anyway</div><div class="cvv" id="e_nw65"></div><div class="cs">if Sam just keeps working</div></div>
+    </div>
+    <div class="lesson"><span class="ll">The lesson</span>The spending slider moves the age <em>twice</em>: lower spending means more saved <b>and</b> a smaller target. That's why savings <em>rate</em> beats income as the predictor of financial freedom — a fact high earners discover late or never.</div>
+  </div>
+</section>
+
+<!-- ══════════════════════ TEACHER ══════════════════════ -->
+<section class="story" id="story-tea">
+  <div class="story-head">
+    <div class="eyebrow">Story three</div>
+    <h2>The Teacher</h2>
+    <p class="sub"><b>Maria Fuentes</b> teaches high-school biology. Her salary will never make headlines — but she has two structural advantages most private-sector workers would envy: a <b>pension</b>, and access to <b>two</b> retirement plans with separate limits.</p>
+  </div>
+
+  <div class="ch">
+    <div class="ch-k"><span class="ch-num">CH 1</span><h3>The setup — a steady arc</h3></div>
+    <p class="narr">Public-school pay follows a published ladder — slow, but predictable, which makes planning easy. In a 10–22% bracket for most of her career, Maria's default bucket is <b>Roth</b>: pay the small tax now, never again. Set her range below.</p>
+    <div class="panel"><div class="plab">Maria's ladder</div>
+      <div class="controls">
+        <div class="ctlrow"><label>Starting salary <span class="cv" id="t_salV"></span></label><input type="range" id="t_sal" min="42000" max="70000" step="1000" value="52000"></div>
+        <div class="ctlrow"><label>Savings rate <span class="cv" id="t_saveV"></span></label><input type="range" id="t_save" min="5" max="30" step="1" value="12"></div>
+      </div>
+    </div>
+    <div class="chips">
+      <div class="chip good"><div class="cl">Default bucket</div><div class="cvv">Roth</div><div class="cs">low bracket now → lock it in, tax-free forever</div></div>
+      <div class="chip info"><div class="cl">Saved per year (year 1)</div><div class="cvv" id="t_perYr"></div><div class="cs">salary grows ~2.5%/yr up the ladder</div></div>
+    </div>
+  </div>
+
+  <div class="ch">
+    <div class="ch-k"><span class="ch-num">CH 2</span><h3>The secret door — 403(b) <em>and</em> 457(b)</h3></div>
+    <p class="narr">Here's the structural gift: most school districts offer both a <b>403(b)</b> and a <b>457(b)</b> — and their $24,500 limits are <b>separate</b>. A teacher can shelter up to <b>$49,000</b> a year, double what a private-sector engineer gets. Better still, the governmental 457(b) has <b>no early-withdrawal penalty</b> after leaving the job — at any age. It's the cleanest early-retirement vehicle in the entire code, sitting in a staff-lounge brochure nobody reads.</p>
+    <div class="panel"><div class="plab">Does Maria use the second door?</div>
+      <div class="controls">
+        <div class="ctlrow"><label>Accounts used</label>
+          <div class="seg freeish" id="t_doorSeg"><button data-v="one" class="sel">403(b) only</button><button data-v="two">403(b) + 457(b)</button></div>
+        </div>
+        <div class="ctlrow"><label>Late-career savings surge (age 55+) <span class="cv" id="t_surgeV"></span></label><input type="range" id="t_surge" min="0" max="30" step="1" value="18"></div>
+      </div>
+    </div>
+    <div class="chips">
+      <div class="chip good"><div class="cl">Shelter available / yr</div><div class="cvv" id="t_room"></div><div class="cs">combined annual limit at her disposal</div></div>
+      <div class="chip info"><div class="cl">457(b) superpower</div><div class="cvv">Age-free</div><div class="cs">penalty-free access the day she stops working</div></div>
+      <div class="chip alt"><div class="cl">Second door worth at 65</div><div class="cvv" id="t_doorGap"></div><div class="cs">vs the same surge spilling into a taxable account</div></div>
+    </div>
+    <div class="lesson"><span class="ll">The lesson</span>Maria will rarely fill $49k of room — that's fine. The point is the <em>surge</em> years: empty-nest, top-of-ladder years when she can save hard, the second door means the shelter never runs out. The surge slider models exactly those final 10 years.</div>
+  </div>
+
+  <div class="ch">
+    <div class="ch-k"><span class="ch-num">CH 3</span><h3>The long run — pension + portfolio</h3></div>
+    <p class="narr">Her pension (modeled here as ~50% of final salary, for life) is like owning a bond portfolio she never had to buy. It means her personal savings don't have to do <em>everything</em> — they buy flexibility, early-out options, and margin. The chart runs her full arc.</p>
+    <div class="chart">
+      <div class="ct"><span class="ctt">Maria, age 23 → 65</span>
+        <div class="lgnd"><span><i style="background:var(--free)"></i>Roth savings</span><span><i style="background:var(--deferred)"></i>457(b)/pre-tax</span><span><i style="background:var(--cash)"></i>Taxable overflow</span></div>
+      </div>
+      <div id="t_mainChart"></div>
+    </div>
+    <div class="chips">
+      <div class="chip good"><div class="cl">Portfolio at 65</div><div class="cvv" id="t_nw65"></div><div class="cs">on top of the pension</div></div>
+      <div class="chip info"><div class="cl">Pension income (est.)</div><div class="cvv" id="t_pension"></div><div class="cs">~50% of final salary, for life</div></div>
+      <div class="chip warm"><div class="cl">Bond-equivalent value</div><div class="cvv" id="t_bondEq"></div><div class="cs">what it would cost to buy that income (25×)</div></div>
+    </div>
+    <div class="lesson"><span class="ll">The lesson</span>Counting the pension as "invisible wealth" changes her whole risk picture: her <em>portfolio</em> can stay stock-heavy because her <em>income floor</em> is already guaranteed. People with pensions who also invest conservatively are double-paying for safety.</div>
+  </div>
+</section>
+
+<!-- ══════════════════════ FOUNDER ══════════════════════ -->
+<section class="story" id="story-fou">
+  <div class="story-head">
+    <div class="eyebrow">Story four</div>
+    <h2>The Founder</h2>
+    <p class="sub"><b>Leo Tran</b> quits his job at 31 to consult solo. No match, no HR, no safety net — but also no ceiling. Self-employment trades security for the largest personal tax shelter in the code, if he knows to open it.</p>
+  </div>
+
+  <div class="ch">
+    <div class="ch-k"><span class="ch-num">CH 1</span><h3>The setup — lumpy money</h3></div>
+    <p class="narr">Consulting income arrives in lumps — a great quarter, then crickets. Rule one is a bigger cash buffer than any employee needs: <b>6–12 months</b>, parked in T-bills or a HYSA, before aggressive investing. Set his business profit below.</p>
+    <div class="panel"><div class="plab">Leo's practice</div>
+      <div class="controls">
+        <div class="ctlrow"><label>Net business profit <span class="cv" id="f_profitV"></span></label><input type="range" id="f_profit" min="90000" max="500000" step="10000" value="220000"></div>
+        <div class="ctlrow"><label>Savings rate <span class="cv" id="f_saveV"></span></label><input type="range" id="f_save" min="10" max="45" step="1" value="28"></div>
+      </div>
+    </div>
+    <div class="chips">
+      <div class="chip warm"><div class="cl">Cash buffer target</div><div class="cvv" id="f_buffer"></div><div class="cs">~9 months of a modest burn — lumpy income insurance</div></div>
+      <div class="chip info"><div class="cl">Saved per year</div><div class="cvv" id="f_perYr"></div><div class="cs">after the buffer is built</div></div>
+    </div>
+  </div>
+
+  <div class="ch">
+    <div class="ch-k"><span class="ch-num">CH 2</span><h3>The fork — the Solo 401(k) nobody tells you about</h3></div>
+    <p class="narr">An employee gets $24,500 of 401(k) room. Leo, as his own employer, can open a <b>Solo 401(k)</b> and contribute twice: <b>$24,500 as employee</b> plus <b>up to 25% of profit as employer</b>, to a $72,000 cap. No form from HR — because he <em>is</em> HR. Toggle whether he ever opens one; the readouts show the shelter and the tax saved at his marginal rate, live, as you move the profit slider.</p>
+    <div class="panel"><div class="plab">Does Leo open the account?</div>
+      <div class="controls">
+        <div class="ctlrow"><label>Retirement setup</label>
+          <div class="seg defish" id="f_soloSeg"><button data-v="ira" class="sel">Just an IRA ($7,500)</button><button data-v="solo">Solo 401(k)</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="chips">
+      <div class="chip info"><div class="cl">Shelter unlocked / yr</div><div class="cvv" id="f_room"></div><div class="cs" id="f_roomS"></div></div>
+      <div class="chip good"><div class="cl">Tax saved this year</div><div class="cvv" id="f_taxSaved"></div><div class="cs">pre-tax contributions × his marginal rate</div></div>
+      <div class="chip alt"><div class="cl">Bonus it protects</div><div class="cvv">Backdoor</div><div class="cs">unlike a SEP-IRA, a Solo 401(k) doesn't poison the backdoor Roth's pro-rata math</div></div>
+    </div>
+    <div class="chart">
+      <div class="ct"><span class="ctt">Net worth, both futures</span>
+        <div class="lgnd"><span><i style="background:var(--deferred)"></i>Solo 401(k) opened</span><span><i style="background:var(--alt)"></i>IRA only — overflow taxable</span></div>
+      </div>
+      <div id="f_forkChart"></div>
+    </div>
+    <div class="chips">
+      <div class="chip good"><div class="cl">The paperwork is worth</div><div class="cvv" id="f_gap"></div><div class="cs">extra net worth at 65 — shelter + reinvested tax savings</div></div>
+    </div>
+    <div class="lesson"><span class="ll">The lesson</span>The Solo 401(k) is an afternoon of paperwork that most solo earners never do, because no employer ever hands them the form. It's the single biggest lever self-employment offers — and it scales with success: every extra dollar of profit adds 25 cents of shelter, up to the cap.</div>
+  </div>
+
+  <div class="ch">
+    <div class="ch-k"><span class="ch-num">CH 3</span><h3>The variance tax — and what smooths it</h3></div>
+    <p class="narr">One more founder-only truth: bad years happen. The engine here models a rough patch — profit cut in half for two years in his 40s. Watch how little it dents the long run <em>when the buffer and the shelter are in place</em>. The system absorbs the shock; panic-selling in the dip is what turns a bad year into a bad decade.</p>
+    <div class="chips">
+      <div class="chip good"><div class="cl">Net worth at 65</div><div class="cvv" id="f_nw65"></div><div class="cs">including the modeled rough patch</div></div>
+      <div class="chip warm"><div class="cl">The rough patch cost</div><div class="cvv" id="f_dipCost"></div><div class="cs">vs a career with no bad years — smaller than it feels</div></div>
+    </div>
+    <div class="lesson"><span class="ll">The lesson</span>For the self-employed, the emergency fund isn't dead money — it's what lets the portfolio stay untouched through the lumps. Its return is measured in decisions <em>not</em> made under pressure.</div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>What this is:</b> an educational simulator, not financial advice, a forecast, or a plan. The engine deliberately simplifies — 2026 federal tax rules held constant, single filer, one steady return, simplified income-driven loan payments (10% of income above ~$25k), no state tax, inflation handled by working in today's dollars. The 2025 loan law (OBBBA) reshaped income-driven plans for new borrowers; PSLF itself remains, but check current plan terms. Real decisions deserve your real numbers and, for the big forks, a fee-only fiduciary advisor and a CPA. Companion to the "Where Should the Next Dollar Go" field guide.</p>
+  </div>
+</footer>
+
+<script>
+"use strict";
+/* ══════════════ shared engine ══════════════ */
+const BR=[[12400,.10],[50400,.12],[105700,.22],[201775,.24],[256225,.32],[640600,.35],[Infinity,.37]];
+const STD=16100;
+function fedTax(ti){ti=Math.max(0,ti);let t=0,p=0;for(const[cap,r]of BR){if(ti<=p)break;t+=(Math.min(ti,cap)-p)*r;p=cap;}return t;}
+function marg(ti){ti=Math.max(0,ti);let p=0;for(const[cap,r]of BR){if(ti<=cap)return r;p=cap;}return .37;}
+function idrPay(agi){return Math.max(0,.10*(agi-25000));} // simplified annual IDR
+function amortPay(P,r,n){return P*r/(1-Math.pow(1+r,-n));}
+const fmt$=v=>{const a=Math.abs(v);const s=v<0?"−$":"$";
+  if(a>=1e6)return s+(a/1e6).toFixed(a>=1e7?1:2).replace(/\.0+$/,"")+"M";
+  if(a>=1e3)return s+Math.round(a/1e3)+"k";
+  return s+Math.round(a);};
+const fmtMo=v=>"$"+Math.round(v).toLocaleString();
+function ret(){return parseFloat(document.getElementById("gRet").value)/100;}
+
+/* svg line chart: series=[{pts:[[x,y]...],color,w,dash,fill}] */
+function drawChart(el,series,o){
+  o=o||{};const W=720,H=o.h||290,mL=54,mR=12,mT=12,mB=28;
+  let xmin=1/0,xmax=-1/0,ymin=0,ymax=-1/0;
+  series.forEach(s=>s.pts.forEach(p=>{if(p[0]<xmin)xmin=p[0];if(p[0]>xmax)xmax=p[0];if(p[1]>ymax)ymax=p[1];if(p[1]<ymin)ymin=p[1];}));
+  if(ymax<=0)ymax=1;ymax*=1.06;
+  const X=x=>mL+(x-xmin)/(xmax-xmin)*(W-mL-mR);
+  const Y=y=>H-mB-(y-ymin)/(ymax-ymin)*(H-mT-mB);
+  let g='<svg class="plot" viewBox="0 0 '+W+' '+H+'" role="img">';
+  const ticks=4;
+  for(let i=0;i<=ticks;i++){const yv=ymin+(ymax-ymin)*i/ticks,yy=Y(yv);
+    g+='<line class="grid" x1="'+mL+'" y1="'+yy+'" x2="'+(W-mR)+'" y2="'+yy+'"/>';
+    g+='<text class="axis" x="'+(mL-6)+'" y="'+(yy+3)+'" text-anchor="end">'+fmt$(yv)+'</text>';}
+  const xt=Math.max(1,Math.round((xmax-xmin)/6));
+  for(let x=xmin;x<=xmax;x+=xt){g+='<text class="axis" x="'+X(x)+'" y="'+(H-8)+'" text-anchor="middle">'+x+'</text>';}
+  g+='<text class="axis" x="'+(W-mR)+'" y="'+(H-8)+'" text-anchor="end">age</text>';
+  series.forEach(s=>{
+    const d=s.pts.map((p,i)=>(i?"L":"M")+X(p[0]).toFixed(1)+" "+Y(p[1]).toFixed(1)).join(" ");
+    if(s.fill){const d2=d+" L"+X(s.pts[s.pts.length-1][0]).toFixed(1)+" "+Y(Math.max(0,ymin))+" L"+X(s.pts[0][0]).toFixed(1)+" "+Y(Math.max(0,ymin))+" Z";
+      g+='<path d="'+d2+'" fill="'+s.color+'" opacity="'+(s.fillOp||0.18)+'" stroke="none"/>';}
+    g+='<path d="'+d+'" fill="none" stroke="'+s.color+'" stroke-width="'+(s.w||2.5)+'"'+(s.dash?' stroke-dasharray="'+s.dash+'"':'')+' stroke-linejoin="round"/>';
+  });
+  g+='</svg>';el.innerHTML=g;
+}
+/* stacked areas: layers=[{vals:[y...],color}], xs=[x...] ; extraLine optional */
+function drawStack(el,xs,layers,extra,o){
+  o=o||{};const W=720,H=o.h||300,mL=54,mR=12,mT=12,mB=28;
+  const n=xs.length;const cum=layers.map(()=>new Array(n).fill(0));
+  let run=new Array(n).fill(0);
+  layers.forEach((L,li)=>{for(let i=0;i<n;i++){run[i]+=L.vals[i];cum[li][i]=run[i];}});
+  let ymax=Math.max(...run, extra?Math.max(...extra.vals):0)*1.06||1;
+  const X=i=>mL+i/(n-1)*(W-mL-mR), Y=y=>H-mB-y/ymax*(H-mT-mB);
+  let g='<svg class="plot" viewBox="0 0 '+W+' '+H+'" role="img">';
+  for(let i=0;i<=4;i++){const yv=ymax*i/4,yy=Y(yv);
+    g+='<line class="grid" x1="'+mL+'" y1="'+yy+'" x2="'+(W-mR)+'" y2="'+yy+'"/>';
+    g+='<text class="axis" x="'+(mL-6)+'" y="'+(yy+3)+'" text-anchor="end">'+fmt$(yv)+'</text>';}
+  const xt=Math.max(1,Math.round((xs[n-1]-xs[0])/6));
+  for(let x=xs[0];x<=xs[n-1];x+=xt){const i=x-xs[0];g+='<text class="axis" x="'+X(i)+'" y="'+(H-8)+'" text-anchor="middle">'+x+'</text>';}
+  for(let li=layers.length-1;li>=0;li--){
+    const top=cum[li], bot=li?cum[li-1]:new Array(n).fill(0);
+    let d="M"+X(0)+" "+Y(bot[0]);
+    for(let i=0;i<n;i++)d+=" L"+X(i).toFixed(1)+" "+Y(top[i]).toFixed(1);
+    for(let i=n-1;i>=0;i--)d+=" L"+X(i).toFixed(1)+" "+Y(bot[i]).toFixed(1);
+    g+='<path d="'+d+' Z" fill="'+layers[li].color+'" opacity=".78" stroke="none"/>';
+  }
+  if(extra){let d=extra.vals.map((v,i)=>(i?"L":"M")+X(i).toFixed(1)+" "+Y(v).toFixed(1)).join(" ");
+    g+='<path d="'+d+'" fill="none" stroke="'+extra.color+'" stroke-width="2.5" stroke-linejoin="round"/>';}
+  g+='</svg>';el.innerHTML=g;
+}
+
+/* seg-control helper */
+function seg(id,cb){const el=document.getElementById(id);
+  el.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{
+    el.querySelectorAll("button").forEach(x=>x.classList.remove("sel"));
+    b.classList.add("sel");cb(b.dataset.v);}));
+  return ()=>el.querySelector(".sel").dataset.v;}
+function bindRange(id,fmt,cb){const el=document.getElementById(id),v=document.getElementById(id+"V");
+  const f=()=>{if(v)v.textContent=fmt(parseFloat(el.value));cb&&cb();};
+  el.addEventListener("input",f);return f;}
+const $=id=>document.getElementById(id);
+const pct=v=>v+"%", money=v=>fmt$(v), yrs=v=>v+" yr"+(v==1?"":"s");
+
+/* ══════════════ DOCTOR ══════════════ */
+const D={debt:250000,resSal:68000,resYrs:4,resSave:.08,bucket:"roth",loan:"pslf",refiYrs:5,attSal:320000,llr:3,attSave:.20};
+const FED_RATE=.068, REFI_RATE=.055, LLR_SAVE=.45;
+
+function simDoctor(s){
+  const r=ret();let loan=s.debt,pre=0,roth=0,txb=0,pay12=0,forgiven=0,paid=0,contrib=0;
+  const rows=[];const refiPay=amortPay(s.debt*Math.pow(1+FED_RATE,0),REFI_RATE,s.refiYrs); // refi at start of attending on then-balance: compute dynamically below
+  let refiAnnual=null;
+  for(let age=26;age<=65;age++){
+    const yr=age-26,inRes=yr<s.resYrs,inLLR=!inRes&&yr<s.resYrs+s.llr;
+    const salary=inRes?s.resSal:s.attSal;
+    const saveRate=inRes?s.resSave:(inLLR?LLR_SAVE:s.attSave);
+    let budget=salary*saveRate;
+    // contributions by phase
+    let pc=0,rc=0,tc=0;
+    // loan payment first (comes from budget conceptually; we let it reduce taxable spill)
+    let loanPay=0;
+    if(loan>0){
+      if(s.loan==="pslf"){
+        // AGI depends on pretax contribution -> decide contributions first for residency
+        if(inRes){ if(s.bucket==="trad")pc=budget; else rc=budget; }
+        else { pc=Math.min(budget,24500); }
+        const agi=salary-pc;
+        loanPay=Math.min(idrPay(agi),loan*(1+FED_RATE));
+        loan=loan*(1+FED_RATE)-loanPay;paid+=loanPay;pay12+=12;
+        if(pay12>=120){forgiven+=Math.max(0,loan);loan=0;}
+      } else {
+        if(inRes){ if(s.bucket==="trad")pc=budget; else rc=budget;
+          const agi=salary-pc;loanPay=Math.min(idrPay(agi),loan*(1+FED_RATE));
+          loan=loan*(1+FED_RATE)-loanPay;paid+=loanPay;
+        } else {
+          if(refiAnnual===null)refiAnnual=amortPay(loan,REFI_RATE,s.refiYrs);
+          pc=Math.min(budget,24500);
+          loanPay=Math.min(refiAnnual,loan*(1+REFI_RATE));
+          loan=loan*(1+REFI_RATE)-loanPay;paid+=loanPay;
+        }
+      }
+      if(loan<1)loan=0;
+    } else if(inRes){ if(s.bucket==="trad")pc=budget; else rc=budget; }
+      else pc=Math.min(budget,24500);
+    // attending: after 401k, backdoor roth, spill to taxable; loan payment eats spill
+    if(!inRes){
+      let left=budget-pc-loanPay;
+      rc=Math.min(Math.max(0,left),7500);left-=rc;
+      tc=Math.max(0,left);
+    } else {
+      // resident: freed cash from trad choice (tax + IDR savings) also invested taxable
+      if(s.bucket==="trad"){
+        const taxSave=fedTax(Math.max(0,salary-STD))-fedTax(Math.max(0,salary-pc-STD));
+        tc=taxSave; // IDR saving already reflected in smaller loanPay leaving budget intact
+      }
+    }
+    pre=pre*(1+r)+pc;roth=roth*(1+r)+rc;txb=txb*(1+r*0.94)+tc; // slight drag on taxable
+    contrib+=pc+rc+tc;
+    rows.push({age,loan,pre,roth,txb,nw:pre+roth+txb-loan});
+  }
+  return{rows,forgiven,paid,contrib};
+}
+function docUI(){
+  const s={...D};
+  const res=simDoctor(s);
+  // CH1 chips
+  const agiRes=s.resSal-(s.bucket==="trad"?s.resSal*s.resSave:0);
+  $("d_idrMo").textContent=fmtMo(idrPay(agiRes)/12);
+  const int0=s.debt*FED_RATE/12;$("d_intMo").textContent=fmtMo(int0);
+  $("d_negam").textContent=(idrPay(agiRes)/12<int0)?"payment doesn't cover it → balance grows":"payment covers interest";
+  $("d_stdMo").textContent=fmtMo(amortPay(s.debt,FED_RATE,10)/12);
+  // CH2: compare trad vs roth
+  const sT={...s,bucket:"trad"},sR={...s,bucket:"roth"};
+  const payT=idrPay(s.resSal-s.resSal*s.resSave),payR=idrPay(s.resSal);
+  $("d_payCmp").textContent=fmtMo(payT/12)+" vs "+fmtMo(payR/12);
+  $("d_payCmpS").textContent="monthly, Traditional vs Roth (lower AGI → lower payment)";
+  const taxFree=fedTax(Math.max(0,s.resSal-STD))-fedTax(Math.max(0,s.resSal-s.resSal*s.resSave-STD));
+  $("d_freed").textContent=fmt$(taxFree+(payR-payT))+"/yr";
+  if(s.loan==="pslf"){$("d_verdict").textContent="Traditional";$("d_verdictS").textContent="she's chasing forgiveness — shrink AGI, pay less, forgive more";}
+  else{$("d_verdict").textContent="Roth";$("d_verdictS").textContent="she'll pay every dollar anyway — lock in today's low bracket";}
+  // CH3 fork chart: run both loan strategies
+  const rP=simDoctor({...s,loan:"pslf"}),rR=simDoctor({...s,loan:"refi"});
+  const horizon=Math.min(26+Math.max(10,s.resYrs+s.refiYrs)+3,45);
+  drawChart($("d_loanChart"),[
+    {pts:rP.rows.filter(x=>x.age<=horizon).map(x=>[x.age,x.loan]),color:"var(--deferred)",fill:1},
+    {pts:rR.rows.filter(x=>x.age<=horizon).map(x=>[x.age,x.loan]),color:"var(--alt)",dash:"6 5"}
+  ],{h:250});
+  $("d_forgiven").textContent=fmt$(rP.forgiven);
+  $("d_paidPslf").textContent=fmt$(rP.paid);
+  $("d_paidRefi").textContent=fmt$(rR.paid);
+  $("d_refiDone").textContent=s.refiYrs+" yrs as attending";
+  const gap=rR.paid-rP.paid;
+  $("d_loanGap").textContent=fmt$(Math.abs(gap));
+  $("d_loanGapS").textContent=gap>0?"less paid out of pocket on the PSLF path":"less paid on the refinance path";
+  // CH4 LLR
+  const llrSaved=s.attSal*LLR_SAVE*s.llr;$("d_llrSaved").textContent=fmt$(llrSaved);
+  const r0=simDoctor({...s,llr:0});
+  const worth=res.rows[res.rows.length-1].nw - r0.rows[r0.rows.length-1].nw;
+  $("d_llrWorth").textContent=fmt$(Math.max(0,worth));
+  $("d_llrCost").textContent=fmt$(Math.max(0,worth));
+  // CH5 main chart
+  const rows=res.rows;
+  drawStack($("d_mainChart"),rows.map(x=>x.age),[
+    {vals:rows.map(x=>x.pre),color:"var(--deferred)"},
+    {vals:rows.map(x=>x.roth),color:"var(--free)"},
+    {vals:rows.map(x=>x.txb),color:"var(--cash)"}
+  ],{vals:rows.map(x=>x.loan),color:"var(--flag)"});
+  const last=rows[rows.length-1];
+  $("d_nw65").textContent=fmt$(last.nw);
+  $("d_contrib").textContent=fmt$(res.contrib);
+  $("d_growth").textContent=fmt$(Math.max(0,last.pre+last.roth+last.txb-res.contrib));
+}
+bindRange("d_debt",money,()=>{D.debt=+$("d_debt").value;docUI();})();
+bindRange("d_resSal",money,()=>{D.resSal=+$("d_resSal").value;docUI();})();
+bindRange("d_resYrs",yrs,()=>{D.resYrs=+$("d_resYrs").value;docUI();})();
+bindRange("d_resSave",pct,()=>{D.resSave=+$("d_resSave").value/100;docUI();})();
+bindRange("d_refiYrs",yrs,()=>{D.refiYrs=+$("d_refiYrs").value;docUI();})();
+bindRange("d_attSal",money,()=>{D.attSal=+$("d_attSal").value;docUI();})();
+bindRange("d_llr",v=>v+" yrs",()=>{D.llr=+$("d_llr").value;docUI();})();
+bindRange("d_attSave",pct,()=>{D.attSave=+$("d_attSave").value/100;docUI();})();
+seg("d_bucketSeg",v=>{D.bucket=v;docUI();});
+seg("d_pslfSeg",v=>{D.loan=v;$("d_refiRow").style.opacity=v==="refi"?1:.45;docUI();});
+
+/* ══════════════ ENGINEER ══════════════ */
+const E={comp:220000,save:.30,mega:false,spend:80000};
+function simEng(s){
+  const r=ret();let pre=0,roth=0,txb=0;const rows=[];
+  for(let age=23;age<=65;age++){
+    const budget=s.comp*s.save;
+    let pc=Math.min(budget,24500),left=budget-pc;
+    let rc=Math.min(left,7500);left-=rc;
+    if(s.mega){const m=Math.min(left,30000);rc+=m;left-=m;}
+    const tc=Math.max(0,left);
+    pre=pre*(1+r)+pc;roth=roth*(1+r)+rc;txb=txb*(1+Math.max(0,r-0.006))+tc;
+    rows.push({age,nw:pre+roth+txb,pre,roth,txb});
+  }
+  return rows;
+}
+function engUI(){
+  const s={...E};
+  const budget=s.comp*s.save;
+  $("e_perYr").textContent=fmt$(budget)+"/yr";
+  const spill=Math.max(0,budget-24500-7500-(s.mega?30000:0));
+  $("e_spill").textContent=fmt$(Math.max(0,budget-24500-7500))+"/yr";
+  const on=simEng({...s,mega:true}),off=simEng({...s,mega:false});
+  drawChart($("e_forkChart"),[
+    {pts:on.map(x=>[x.age,x.nw]),color:"var(--free)",fill:1},
+    {pts:off.map(x=>[x.age,x.nw]),color:"var(--alt)",dash:"6 5"}
+  ]);
+  $("e_megaGap").textContent=fmt$(on[on.length-1].nw-off[off.length-1].nw);
+  // fire
+  const rows=s.mega?on:off;
+  const target=25*s.spend;$("e_fireNum").textContent=fmt$(target);
+  const hit=rows.find(x=>x.nw>=target);
+  $("e_fireAge").textContent=hit?("Age "+hit.age):"After 65";
+  $("e_nw65").textContent=fmt$(rows[rows.length-1].nw);
+}
+bindRange("e_comp",money,()=>{E.comp=+$("e_comp").value;engUI();})();
+bindRange("e_save",pct,()=>{E.save=+$("e_save").value/100;$("e_save2").value=$("e_save").value;$("e_save2V").textContent=pct(+$("e_save").value);engUI();})();
+bindRange("e_spend",money,()=>{E.spend=+$("e_spend").value;engUI();})();
+bindRange("e_save2",pct,()=>{E.save=+$("e_save2").value/100;$("e_save").value=$("e_save2").value;$("e_saveV").textContent=pct(+$("e_save2").value);engUI();})();
+seg("e_megaSeg",v=>{E.mega=v==="on";engUI();});
+
+/* ══════════════ TEACHER ══════════════ */
+const T={sal:52000,save:.12,doors:"one",surge:.18};
+function simTea(s){
+  const r=ret();let roth=0,pre=0,txb=0;const rows=[];
+  for(let age=23;age<=65;age++){
+    const yr=age-23;
+    const salary=s.sal*Math.pow(1.03,Math.min(yr,30));
+    const lateSurge=age>=55?s.surge:0;
+    const want=salary*(s.save+lateSurge);
+    let rc=Math.min(want,24500),pc2=0,tc=0;
+    const over=Math.max(0,want-rc);
+    if(s.doors==="two"){pc2=Math.min(over,24500);      // 457(b) — second sheltered door, pre-tax
+      tc=fedTax(Math.max(0,salary-STD))-fedTax(Math.max(0,salary-pc2-STD));} // reinvest the deduction
+    else tc=over;                                      // one door: overflow sits taxable, with drag
+    roth=roth*(1+r)+rc;pre=pre*(1+r)+pc2;txb=txb*(1+Math.max(0,r-0.006))+tc;
+    rows.push({age,roth,pre,txb,nw:roth+pre+txb,salary});
+  }
+  return rows;
+}
+function teaUI(){
+  const s={...T};const rows=simTea(s);
+  $("t_perYr").textContent=fmt$(s.sal*s.save)+"/yr";
+  $("t_room").textContent=s.doors==="two"?"$49,000":"$24,500";
+  const two=simTea({...s,doors:"two"}),one=simTea({...s,doors:"one"});
+  $("t_doorGap").textContent=fmt$(Math.max(0,two[two.length-1].nw-one[one.length-1].nw));
+  drawStack($("t_mainChart"),rows.map(x=>x.age),[
+    {vals:rows.map(x=>x.roth),color:"var(--free)"},
+    {vals:rows.map(x=>x.pre),color:"var(--deferred)"},
+    {vals:rows.map(x=>x.txb),color:"var(--cash)"}
+  ],null,{h:260});
+  const last=rows[rows.length-1];
+  $("t_nw65").textContent=fmt$(last.nw);
+  const pension=last.salary*0.5;
+  $("t_pension").textContent=fmt$(pension)+"/yr";
+  $("t_bondEq").textContent=fmt$(pension*25);
+}
+bindRange("t_sal",money,()=>{T.sal=+$("t_sal").value;teaUI();})();
+bindRange("t_save",pct,()=>{T.save=+$("t_save").value/100;teaUI();})();
+bindRange("t_surge",v=>"+"+v+"%",()=>{T.surge=+$("t_surge").value/100;teaUI();})();
+seg("t_doorSeg",v=>{T.doors=v;teaUI();});
+
+/* ══════════════ FOUNDER ══════════════ */
+const F={profit:220000,save:.28,solo:false};
+function simFou(s,noDip){
+  const r=ret();let pre=0,roth=0,txb=0;const rows=[];
+  for(let age=31;age<=65;age++){
+    let profit=s.profit;
+    if(!noDip&&(age===44||age===45))profit*=0.5; // rough patch
+    const budget=profit*s.save;
+    const soloCap=Math.min(24500+0.25*profit,72000);
+    let pc=0,rc=0,tc=0;
+    if(s.solo){pc=Math.min(budget,soloCap);let left=budget-pc;rc=Math.min(left,7500);tc=Math.max(0,left-rc);
+      // reinvest tax savings
+      const ts=fedTax(Math.max(0,profit-STD))-fedTax(Math.max(0,profit-pc-STD));tc+=ts;}
+    else{rc=Math.min(budget,7500);tc=Math.max(0,budget-rc);}
+    pre=pre*(1+r)+pc;roth=roth*(1+r)+rc;txb=txb*(1+Math.max(0,r-0.006))+tc;
+    rows.push({age,nw:pre+roth+txb});
+  }
+  return rows;
+}
+function fouUI(){
+  const s={...F};
+  $("f_buffer").textContent=fmt$(0.75*Math.min(s.profit*(1-s.save),120000));
+  $("f_perYr").textContent=fmt$(s.profit*s.save)+"/yr";
+  const soloCap=Math.min(24500+0.25*s.profit,72000);
+  $("f_room").textContent=s.solo?fmt$(soloCap):"$7,500";
+  $("f_roomS").textContent=s.solo?("$24,500 employee + 25% of profit, capped at $72k"):"an IRA is all he's using";
+  const pcNow=s.solo?Math.min(s.profit*s.save,soloCap):0;
+  const ts=fedTax(Math.max(0,s.profit-STD))-fedTax(Math.max(0,s.profit-pcNow-STD));
+  $("f_taxSaved").textContent=fmt$(s.solo?ts:0)+"/yr";
+  const on=simFou({...s,solo:true}),off=simFou({...s,solo:false});
+  drawChart($("f_forkChart"),[
+    {pts:on.map(x=>[x.age,x.nw]),color:"var(--deferred)",fill:1},
+    {pts:off.map(x=>[x.age,x.nw]),color:"var(--alt)",dash:"6 5"}
+  ]);
+  $("f_gap").textContent=fmt$(on[on.length-1].nw-off[off.length-1].nw);
+  const cur=s.solo?on:off;
+  $("f_nw65").textContent=fmt$(cur[cur.length-1].nw);
+  const smooth=simFou(s,true);
+  $("f_dipCost").textContent=fmt$(smooth[smooth.length-1].nw-cur[cur.length-1].nw);
+}
+bindRange("f_profit",money,()=>{F.profit=+$("f_profit").value;fouUI();})();
+bindRange("f_save",pct,()=>{F.save=+$("f_save").value/100;fouUI();})();
+seg("f_soloSeg",v=>{F.solo=v==="solo";fouUI();});
+
+/* ══════════════ tabs + globals ══════════════ */
+document.querySelectorAll(".path").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll(".path").forEach(x=>{x.classList.remove("active");x.setAttribute("aria-selected","false");});
+  b.classList.add("active");b.setAttribute("aria-selected","true");
+  document.querySelectorAll(".story").forEach(s=>s.classList.remove("on"));
+  document.getElementById("story-"+b.dataset.story).classList.add("on");
+  window.scrollTo({top:document.querySelector("main").offsetTop-8,behavior:"smooth"});
+}));
+$("gRet").addEventListener("input",()=>{$("gRetV").textContent=$("gRet").value+"%";docUI();engUI();teaUI();fouUI();});
+
+/* first paint */
+docUI();engUI();teaUI();fouUI();
+</script>
+<script>
+/* ═══════ hover glossary (shared with the field guide) ═══════ */
+(function(){
+"use strict";
+var GLOSS={
+ "mega-backdoor Roth":"Extra after-tax 401(k) dollars converted to Roth — can add ~$30k+ per year of tax-free savings if your plan allows it.",
+ "mega backdoor":"Extra after-tax 401(k) dollars converted to Roth — can add ~$30k+ per year of tax-free savings if your plan allows it.",
+ "backdoor Roth":"A legal two-step for high earners: contribute to a Traditional IRA (no deduction), then convert it to a Roth. Same result as a normal Roth contribution, no income limit.",
+ "in-plan Roth conversion":"Converting after-tax 401(k) money to Roth inside the same plan — Fidelity can do it automatically every payday.",
+ "after-tax contributions":"A third 401(k) bucket beyond pre-tax and Roth — the raw fuel of the mega-backdoor. Converted to Roth, it becomes tax-free forever.",
+ "pro-rata":"When you convert IRA money, the IRS treats ALL your non-Roth IRAs as one mixed pool — pre-tax balances 'poison' the backdoor Roth.",
+ "Solo 401(k)":"A 401(k) for the self-employed with no employees. You contribute as both employee ($24,500) and employer (25% of profit), up to $72,000.",
+ "SEP-IRA":"A simpler self-employed retirement plan: contribute up to 25% of income, pre-tax. A SEP balance can block the backdoor Roth.",
+ "401(k)":"The standard workplace retirement account: money comes out of each paycheck, often with an employer match. 2026 limit: $24,500 of your own money.",
+ "403(b)":"The 401(k)'s sibling for schools, hospitals, and nonprofits — same limits, same idea.",
+ "457(b)":"A second plan for government and some nonprofit workers — with its OWN separate $24,500 limit, and penalty-free access at any age once you leave the job.",
+ "Roth IRA":"A retirement account you open yourself: pay tax going in, then it grows and comes out completely tax-free. No forced withdrawals, ever.",
+ "Traditional IRA":"A retirement account you open yourself: contributions may be deductible now; withdrawals are taxed later as ordinary income.",
+ "IRA":"Individual Retirement Account — a retirement account you open on your own, separate from any job. 2026 limit: $7,500.",
+ "Roth":"The pay-tax-now style: no deduction today, but the money grows and comes out 100% tax-free in retirement.",
+ "Traditional":"The deduct-now style: contributions skip tax today; you pay ordinary income tax when you withdraw in retirement.",
+ "pre-tax":"The deduct-now style: contributions skip tax today, lowering this year's bill; withdrawals are taxed as ordinary income later.",
+ "HSA":"Health Savings Account — the only triple-tax-free account: deductible in, grows untaxed, tax-free out for medical costs.",
+ "MAGI":"Modified adjusted gross income — your income with a few items added back. The IRS uses it to decide who's over the limits.",
+ "AGI":"Adjusted gross income — your income after certain deductions (like pre-tax 401(k) contributions). Income-driven loan payments are a percentage of it.",
+ "marginal rate":"The tax rate on your NEXT dollar of income — the number that matters for deciding pre-tax vs Roth.",
+ "bracket":"An income band taxed at one rate. Only the dollars inside a band pay that band's rate — earning more never lowers your take-home.",
+ "standard deduction":"Income everyone gets tax-free before brackets apply: $16,100 single in 2026.",
+ "tax drag":"The yearly tax on dividends and gains in a regular account — a small haircut that compounds against you like a fee, for decades.",
+ "index fund":"One low-cost fund that owns the whole market instead of picking stocks. Boring on purpose; it beats most professionals.",
+ "brokerage":"A regular investment account: no tax perks, but also no limits, no income rules, and no withdrawal penalties.",
+ "taxable":"Held in a regular account with no tax shelter — dividends and gains are taxed as you go.",
+ "HYSA":"High-yield savings account — an online savings account paying roughly ten times the big-bank rate.",
+ "T-bills":"Treasury bills — short-term loans to the U.S. government. Safe, liquid, and state-tax-free interest.",
+ "employer match":"Free money your employer adds when you contribute to the plan — an instant 50–100% return. Always take all of it.",
+ "PSLF":"Public Service Loan Forgiveness — after 120 monthly payments while working for a nonprofit or government employer, remaining federal student loans are forgiven tax-free.",
+ "Public Service Loan Forgiveness":"After 120 monthly payments (10 years) while working for a nonprofit or government employer, remaining federal student loans are forgiven, tax-free.",
+ "income-driven repayment":"Federal student-loan payments set as a percentage of your income rather than your loan balance.",
+ "IDR":"Income-driven repayment — federal student-loan payments set as a percentage of your income, not your balance.",
+ "negative amortization":"When payments don't cover the interest, so the balance grows even while you pay.",
+ "refinance":"Replacing federal loans with a private loan at a lower rate — cheaper interest, but it permanently gives up forgiveness programs.",
+ "pension":"A guaranteed income for life from an employer — like owning a bond portfolio you never had to buy.",
+ "4% rule":"A rough guideline: a portfolio of about 25× your annual spending has historically supported withdrawals for ~30 years. A heuristic, not a promise.",
+ "compounding":"Growth earning growth on itself — the snowball. It's why time invested matters more than timing.",
+ "net worth":"Everything you own minus everything you owe."
+};
+function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");}
+var SKIP="SCRIPT,STYLE,H1,H2,H3,H4,BUTTON,INPUT,SELECT,TEXTAREA,A,NAV,SVG";
+var SKIPSEL=".tag,.brk,.term,.seg,.cvv,.lgnd,.eyebrow,.plab,.ctt,.axis,.ch-num,.arc,.glyph,.val,.lab,.cv";
+function skippable(el){
+  for(var e=el;e&&e.nodeType===1;e=e.parentNode){
+    if(SKIP.indexOf(e.tagName)>-1)return true;
+    if(e.matches&&e.matches(SKIPSEL))return true;
+  }
+  return false;
+}
+function wrapFirst(root,term,def){
+  var re=new RegExp("(^|[^A-Za-z0-9_\\-])("+esc(term)+")(?![A-Za-z0-9_\\-])","i");
+  var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
+  var n;
+  while((n=w.nextNode())){
+    if(!n.data||n.data.length<term.length)continue;
+    if(skippable(n.parentNode))continue;
+    var m=re.exec(n.data);
+    if(!m)continue;
+    var idx=m.index+m[1].length;
+    var t2=n.splitText(idx);t2.splitText(m[2].length);
+    var span=document.createElement("span");
+    span.className="term";span.tabIndex=0;span.setAttribute("data-def",def);
+    span.textContent=t2.data;
+    t2.parentNode.replaceChild(span,t2);
+    return true;
+  }
+  return false;
+}
+var terms=Object.keys(GLOSS).sort(function(a,b){return b.length-a.length;});
+try{
+  document.querySelectorAll(".ch, .story-head .sub, header.hero .lead").forEach(function(sec){
+    terms.forEach(function(t){wrapFirst(sec,t,GLOSS[t]);});
+  });
+}catch(e){/* glossary is decorative — never break the page */}
+})();
+</script>
+</body>
+</html>
