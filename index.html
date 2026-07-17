@@ -3,1221 +3,217 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Where Should the Next Dollar Go — A 2026 Field Guide to Retirement & Tax-Advantaged Accounts</title>
+<title>The Long Game — where should your next dollar go?</title>
+<meta name="description" content="A free, plain-English guide to U.S. retirement and tax-advantaged accounts for 2026. Every account does the same thing: it changes when you're taxed. Learn the three buckets, then watch them play out over forty years in four interactive career stories.">
+<meta name="author" content="The Long Game">
+<meta name="theme-color" content="#15202E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Long Game — where should your next dollar go?">
+<meta property="og:description" content="401(k), Roth, HSA, backdoor, mega-backdoor. The jargon makes it sound complicated. It isn't — every account does the same thing: it changes when you're taxed.">
+<meta property="og:site_name" content="The Long Game">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Long Game — where should your next dollar go?">
+<meta name="twitter:description" content="A free, plain-English guide to U.S. retirement accounts for 2026, plus four interactive career stories.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2315202E'/%3E%3Crect x='7' y='8' width='18' height='4' rx='2' fill='%231C6E8C'/%3E%3Crect x='7' y='14' width='18' height='4' rx='2' fill='%232E7D52'/%3E%3Crect x='7' y='20' width='18' height='4' rx='2' fill='%23A9701A'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#15202E;          /* deep slate navy: text + structure */
-    --ink-soft:#41505F;
-    --ink-faint:#6A7682;
-    --paper:#F7F5F0;        /* warm fine-paper */
-    --card:#FFFFFF;
-    --rule:#E2DDD2;
-    --rule-strong:#CFC8B8;
-
-    --deferred:#1C6E8C;     /* PRE-TAX — taxed later */
-    --deferred-tint:#EAF2F5;
-    --free:#2E7D52;         /* ROTH — never taxed again */
-    --free-tint:#EAF4ED;
-    --cash:#A9701A;         /* TAXABLE / CASH — taxed as you go */
-    --cash-tint:#F6EFE1;
-    --flag:#9B2D2D;         /* warnings / traps */
-    --flag-tint:#F6EAE7;
-
-    --maxw:1180px;
-    --reading:760px;
+    --ink:#15202E; --ink-soft:#41505F; --ink-faint:#6A7682;
+    --paper:#F7F5F0; --card:#FFFFFF; --rule:#E2DDD2; --rule-strong:#CFC8B8;
+    --deferred:#1C6E8C; --deferred-tint:#EAF2F5;
+    --free:#2E7D52;    --free-tint:#EAF4ED;
+    --cash:#A9701A;    --cash-tint:#F6EFE1;
+    --flag:#9B2D2D;
+    --maxw:1060px;
   }
-
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{
-    margin:0;background:var(--paper);color:var(--ink);
-    font-family:"IBM Plex Sans",system-ui,sans-serif;
-    font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
-  }
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-
-  /* ---------- type ---------- */
-  h1,h2,h3,h4{font-family:"Newsreader",Georgia,serif;font-weight:500;line-height:1.12;letter-spacing:-.01em;color:var(--ink)}
-  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);font-weight:500}
-  .mono{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
-  .num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;font-weight:500}
+  h1,h2,h3{font-family:"Newsreader",Georgia,serif;font-weight:500;line-height:1.1;letter-spacing:-.015em;margin:0}
   p{margin:0 0 1em}
-  a{color:var(--deferred);text-underline-offset:2px}
-  strong{font-weight:600}
-  .lead{font-size:19px;color:var(--ink-soft);max-width:var(--reading)}
-  .reading{max-width:var(--reading)}
+  a{color:var(--deferred)}
+  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);font-weight:500}
 
-  /* ---------- masthead ---------- */
-  header.mast{
-    border-bottom:1px solid var(--rule);
-    background:
-      radial-gradient(120% 90% at 88% -10%, rgba(28,110,140,.07), transparent 60%),
-      radial-gradient(120% 90% at 8% 0%, rgba(46,125,82,.06), transparent 55%);
-  }
-  .mast-inner{padding:64px 0 40px}
-  .mast .eyebrow{margin-bottom:18px}
-  .mast h1{font-size:clamp(38px,6vw,68px);font-weight:500;margin:0 0 18px;max-width:16ch}
-  .mast h1 em{font-style:italic;color:var(--deferred)}
-  .mast .lead{font-size:clamp(17px,2.2vw,21px)}
+  .skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:10px 16px;border-radius:0 0 8px 0;z-index:100;font-size:14px}
+  .skip:focus{left:0}
 
-  /* three-bucket hero */
-  .buckets{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:40px 0 8px}
-  .bucket{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:20px;position:relative;overflow:hidden}
-  .bucket::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px}
-  .bucket.b-def::before{background:var(--deferred)}
-  .bucket.b-free::before{background:var(--free)}
-  .bucket.b-cash::before{background:var(--cash)}
-  .bucket h3{font-size:21px;margin:0 0 2px}
-  .bucket .sub{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px}
-  .b-def .sub{color:var(--deferred)} .b-free .sub{color:var(--free)} .b-cash .sub{color:var(--cash)}
-  .stage{display:flex;align-items:baseline;gap:8px;font-size:14px;padding:4px 0;border-top:1px dotted var(--rule)}
-  .stage:first-of-type{border-top:none}
-  .stage .k{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-faint);width:74px;flex:none}
-  .stage .v{color:var(--ink-soft)}
-  .stage .v b{color:var(--ink)}
-  .bucket .ex{margin-top:14px;font-size:13px;color:var(--ink-faint);line-height:1.45}
-  .taxed{color:var(--flag);font-weight:600}
-  .untaxed{color:var(--free);font-weight:600}
+  /* ---------- hero ---------- */
+  header.hero{border-bottom:1px solid var(--rule);
+    background:radial-gradient(120% 90% at 88% -10%,rgba(28,110,140,.08),transparent 60%),
+               radial-gradient(120% 90% at 6% 0%,rgba(46,125,82,.07),transparent 55%)}
+  .hero-inner{padding:70px 0 46px;display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+  .hero h1{font-size:clamp(38px,5.6vw,62px);margin:16px 0 18px}
+  .hero h1 em{font-style:italic;color:var(--deferred)}
+  .hero .lead{font-size:clamp(16.5px,2vw,19.5px);color:var(--ink-soft)}
+  .hero .lead b{color:var(--ink);font-weight:600}
+  .free-note{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);margin-top:20px;display:flex;flex-wrap:wrap;gap:6px 14px}
+  .free-note span{display:inline-flex;align-items:center;gap:6px}
+  .free-note span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--free)}
 
-  /* ---------- layout w/ sidebar ---------- */
-  .shell{display:grid;grid-template-columns:248px 1fr;gap:48px;align-items:start;padding:8px 0 80px}
-  nav.toc{position:sticky;top:24px;font-size:14.5px;border-right:1px solid var(--rule);padding-right:24px}
-  nav.toc .eyebrow{margin-bottom:12px}
-  nav.toc ol{list-style:none;margin:0;padding:0;counter-reset:s}
-  nav.toc li{counter-increment:s;margin:0 0 2px}
-  nav.toc a{display:flex;gap:10px;text-decoration:none;color:var(--ink-soft);padding:5px 8px;border-radius:7px;line-height:1.3}
-  nav.toc a::before{content:counter(s,decimal-leading-zero);font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-faint);padding-top:2px}
-  nav.toc a:hover{background:#fff;color:var(--ink)}
-  nav.toc a.active{background:#fff;color:var(--ink);box-shadow:inset 3px 0 0 var(--deferred)}
-  nav.toc .extra{margin-top:14px;padding-top:12px;border-top:1px solid var(--rule)}
-  nav.toc .extra a{padding-left:8px}
-  nav.toc .extra a::before{content:"§";color:var(--ink-faint)}
+  /* ---------- the thesis table ---------- */
+  .thesis{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:20px 22px 16px;box-shadow:0 10px 34px rgba(21,32,46,.06)}
+  .thesis .tt{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px}
+  table.truth{width:100%;border-collapse:collapse;font-size:14px}
+  table.truth th,table.truth td{padding:9px 6px;text-align:center}
+  table.truth thead th{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-faint);font-weight:500;border-bottom:1px solid var(--rule)}
+  table.truth tbody th{text-align:left;font-weight:600;font-size:14.5px;padding-left:0;border-top:1px solid var(--rule);white-space:nowrap}
+  table.truth tbody th small{display:block;font-weight:400;font-size:11.5px;color:var(--ink-faint);letter-spacing:0;text-transform:none;font-family:"IBM Plex Sans",sans-serif;margin-top:1px}
+  table.truth tbody td{border-top:1px solid var(--rule);font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:500}
+  td.ok{color:var(--free)}
+  td.no{color:var(--flag)}
+  tr.hsa th,tr.hsa td{background:var(--free-tint)}
+  tr.hsa th{border-radius:8px 0 0 8px;padding-left:8px}
+  tr.hsa td:last-child{border-radius:0 8px 8px 0}
+  .thesis .punch{font-size:13.5px;color:var(--ink-soft);margin:14px 0 0;padding-top:12px;border-top:1px dashed var(--rule);line-height:1.5}
+  .thesis .punch b{color:var(--ink)}
 
-  .toc-toggle{display:none}
+  /* ---------- the two doors ---------- */
+  main{padding:52px 0 20px}
+  .sect-lab{text-align:center;margin-bottom:22px}
+  .sect-lab h2{font-size:clamp(25px,3.4vw,33px);margin:8px 0 6px}
+  .sect-lab p{color:var(--ink-soft);max-width:56ch;margin:0 auto;font-size:16px}
+  .doors{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .door{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:28px;text-decoration:none;color:inherit;display:flex;flex-direction:column;
+    border-top:5px solid var(--dc);transition:transform .14s ease,box-shadow .14s ease}
+  .door:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(21,32,46,.10)}
+  .door:focus-visible{outline:2px solid var(--dc);outline-offset:3px}
+  .d-learn{--dc:var(--free)} .d-play{--dc:var(--cash)}
+  .door .dk{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--dc);font-weight:600}
+  .door h3{font-size:29px;margin:8px 0 10px}
+  .door .dd{color:var(--ink-soft);font-size:15.5px;margin:0 0 16px;line-height:1.55}
+  .door ul{list-style:none;margin:0 0 18px;padding:0;font-size:14px;color:var(--ink-soft)}
+  .door li{padding-left:18px;position:relative;margin-bottom:5px;line-height:1.45}
+  .door li::before{content:"";position:absolute;left:2px;top:.6em;width:5px;height:5px;border-radius:50%;background:var(--dc);opacity:.55}
+  .door li b{color:var(--ink);font-weight:600}
+  .door .go{margin-top:auto;font-weight:600;font-size:15px;color:var(--dc);display:inline-flex;align-items:center;gap:7px}
+  .door:hover .go .arw{transform:translateX(4px)}
+  .go .arw{transition:transform .14s ease;display:inline-block}
 
-  main{min-width:0}
-  section.s{padding:18px 0 10px;scroll-margin-top:18px;border-top:1px solid var(--rule);margin-top:30px}
-  section.s:first-child{border-top:none;margin-top:6px}
-  .s-head{display:flex;gap:14px;align-items:baseline;margin-bottom:6px}
-  .s-num{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--ink-faint);padding-top:6px}
-  section.s h2{font-size:clamp(26px,3.4vw,36px);margin:0}
-  .s-intro{font-size:18px;color:var(--ink-soft);max-width:var(--reading);margin:4px 0 22px}
-  section.s h3{font-size:22px;margin:30px 0 8px}
-  section.s h4{font-size:16.5px;font-family:"IBM Plex Sans",sans-serif;font-weight:600;margin:20px 0 4px}
+  /* ---------- honest strip ---------- */
+  .honest{margin:44px 0 0;background:var(--ink);color:#C9D3DA;border-radius:14px;padding:24px 28px;font-size:14.5px;line-height:1.6}
+  .honest h3{color:#fff;font-size:19px;margin:0 0 8px}
+  .honest p{margin:0 0 .7em;max-width:78ch}
+  .honest p:last-child{margin:0}
+  .honest b{color:#fff}
+  .honest a{color:#8FC7DE}
 
-  ul.clean{padding-left:0;list-style:none;max-width:var(--reading)}
-  ul.clean li{position:relative;padding-left:20px;margin:0 0 .55em}
-  ul.clean li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--rule-strong)}
-  ol.steps{padding-left:0;list-style:none;counter-reset:n;max-width:var(--reading)}
-  ol.steps>li{counter-increment:n;position:relative;padding-left:44px;margin:0 0 14px}
-  ol.steps>li::before{content:counter(n);position:absolute;left:0;top:-2px;width:30px;height:30px;border-radius:50%;background:var(--ink);color:#fff;font-family:"IBM Plex Mono",monospace;font-size:14px;display:flex;align-items:center;justify-content:center}
-  ol.steps>li.free::before{background:var(--free)}
-  ol.steps>li.cash::before{background:var(--cash)}
-  ol.steps>li.def::before{background:var(--deferred)}
-  ol.steps b{font-weight:600}
-
-  /* ---------- tax tag pills ---------- */
-  .tag{display:inline-flex;align-items:center;gap:6px;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.04em;text-transform:uppercase;font-weight:500;padding:2px 9px 2px 7px;border-radius:99px;border:1px solid;white-space:nowrap;vertical-align:middle}
-  .tag::before{content:"";width:7px;height:7px;border-radius:50%}
-  .tag.def{color:var(--deferred);border-color:#BcdAe4;background:var(--deferred-tint)} .tag.def::before{background:var(--deferred)}
-  .tag.free{color:var(--free);border-color:#BFE0CB;background:var(--free-tint)} .tag.free::before{background:var(--free)}
-  .tag.cash{color:var(--cash);border-color:#E6CFA0;background:var(--cash-tint)} .tag.cash::before{background:var(--cash)}
-  .tag.triple{color:#155e63;border-color:#8fcaca;background:linear-gradient(90deg,var(--free-tint),var(--deferred-tint))} .tag.triple::before{background:linear-gradient(90deg,var(--free),var(--deferred))}
-
-  .legend{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 26px}
-
-  /* ---------- account cards ---------- */
-  .acct{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:22px 24px;margin:0 0 14px}
-  .acct-top{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:4px}
-  .acct-top h3{margin:0;font-size:23px}
-  .acct .who{color:var(--ink-soft);margin:.3em 0 .9em}
-  .acct dl{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;margin:0;font-size:15px}
-  .acct dt{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-faint);padding-top:3px}
-  .acct dd{margin:0;color:var(--ink-soft)}
-  .acct dd b{color:var(--ink)}
-
-  /* ---------- tables ---------- */
-  .tbl-scroll{overflow-x:auto;margin:8px 0 18px;border:1px solid var(--rule);border-radius:12px;background:var(--card)}
-  table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:540px}
-  caption{caption-side:top;text-align:left;font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);padding:14px 16px 0}
-  th,td{padding:11px 16px;text-align:left;border-top:1px solid var(--rule);vertical-align:top}
-  thead th{border-top:none;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);font-weight:500;background:#FbFaF7}
-  tbody tr:hover{background:#FbFaF7}
-  td.r,th.r{text-align:right;font-variant-numeric:tabular-nums;font-family:"IBM Plex Mono",monospace}
-  td b{font-weight:600}
-
-  /* ---------- callouts ---------- */
-  .call{border-radius:12px;padding:18px 20px;margin:18px 0;border:1px solid;max-width:var(--reading)}
-  .call .lab{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;display:block;margin-bottom:5px}
-  .call p:last-child{margin-bottom:0}
-  .call.trap{background:var(--flag-tint);border-color:#E4C2bc}.call.trap .lab{color:var(--flag)}
-  .call.high{background:var(--cash-tint);border-color:#E6CFA0}.call.high .lab{color:var(--cash)}
-  .call.self{background:var(--deferred-tint);border-color:#BcdAe4}.call.self .lab{color:var(--deferred)}
-  .call.key{background:var(--free-tint);border-color:#BFE0CB}.call.key .lab{color:var(--free)}
-  .call.note{background:#fff;border-color:var(--rule-strong)}.call.note .lab{color:var(--ink-faint)}
-
-  /* profiles */
-  .profile{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:24px;margin:0 0 16px;border-left:5px solid var(--ink)}
-  .profile.pB{border-left-color:var(--cash)} .profile.pC{border-left-color:var(--deferred)} .profile.pA{border-left-color:var(--free)}
-  .profile h3{margin:0 0 2px;font-size:22px}
-  .profile .tagline{color:var(--ink-faint);font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.04em;margin-bottom:12px}
-
-  /* cheat sheet */
-  .cheat{background:var(--ink);color:#EAE6DC;border-radius:14px;padding:30px;margin:8px 0 26px}
-  .cheat h2,.cheat h3{color:#fff}
-  .cheat .eyebrow{color:#9fb0b8}
-  .cheat-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:18px}
-  .cheat ol{margin:0;padding-left:20px}
-  .cheat li{margin:0 0 6px}
-  .cheat .mini{width:100%;font-size:13.5px;border-collapse:collapse}
-  .cheat .mini td{border-top:1px solid #2c3a48;padding:7px 0;color:#cfd6dc}
-  .cheat .mini td.r{text-align:right;color:#fff;font-family:"IBM Plex Mono",monospace}
-  .cheat .mini tr:first-child td{border-top:none}
-  .cheat .mini td:first-child{padding-right:14px}
-
-  /* ---------- income tiers (§5) ---------- */
-  .quickwords{display:flex;flex-direction:column;gap:7px;background:#fff;border:1px solid var(--rule);border-radius:11px;padding:15px 18px;margin:0 0 26px;font-size:14.5px;max-width:var(--reading)}
-  .quickwords div{color:var(--ink-soft);padding-left:16px;position:relative}
-  .quickwords div::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--rule-strong)}
-  .quickwords b{color:var(--ink)}
-
-  .flips{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:6px 0 14px}
-  .flip{background:var(--card);border:1px solid var(--rule);border-radius:11px;padding:15px 16px;border-top:4px solid var(--rule-strong)}
-  .flip:nth-child(1){border-top-color:#A9C8B4}
-  .flip:nth-child(2){border-top-color:var(--free)}
-  .flip:nth-child(3){border-top-color:var(--cash)}
-  .flip:nth-child(4){border-top-color:var(--flag)}
-  .flip .at{font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-weight:600;letter-spacing:.01em;color:var(--ink);margin-bottom:7px;line-height:1.3}
-  .flip .what{font-size:13.5px;color:var(--ink-soft);line-height:1.42}
-  .flip .what b{color:var(--ink)}
-  .illus{font-size:14px;color:var(--ink-faint);max-width:var(--reading);margin:0 0 22px}
-
-  .tier{background:var(--card);border:1px solid var(--rule);border-radius:14px;margin:0 0 16px;overflow:hidden}
-  .tier-head{padding:16px 22px;border-bottom:1px solid var(--rule);background:#FbFaF7}
-  .tier-topline{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px}
-  .tier-range{font-family:"Newsreader",serif;font-size:27px;font-weight:500;line-height:1;color:var(--ink)}
-  .brk{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.04em;text-transform:uppercase;padding:3px 10px;border-radius:99px;background:var(--ink);color:#fff;font-weight:500}
-  .tier-headline{font-size:15.5px;color:var(--ink-soft);margin:9px 0 0;line-height:1.5}
-  .tier-headline b{color:var(--ink)}
-  .tier-body{padding:18px 22px}
-  .meet{font-size:14.5px;color:var(--ink-soft);margin:0}
-  .meet .name{font-weight:600;color:var(--ink)}
-  .meet b{color:var(--ink)}
-
-  ol.alloc{list-style:none;margin:14px 0 0;padding:0}
-  ol.alloc>li{display:grid;grid-template-columns:30px 1fr;gap:14px;padding:12px 0;border-top:1px dashed var(--rule)}
-  ol.alloc>li:first-child{border-top:none;padding-top:2px}
-  ol.alloc .mk{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;color:#fff;background:var(--ink-faint)}
-  ol.alloc li.def .mk{background:var(--deferred)}
-  ol.alloc li.free .mk{background:var(--free)}
-  ol.alloc li.cash .mk{background:var(--cash)}
-  ol.alloc li.triple .mk{background:linear-gradient(135deg,var(--free),var(--deferred))}
-  .destline{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
-  ol.alloc .dest{font-weight:600;color:var(--ink);font-size:15.5px}
-  ol.alloc .amt{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--ink-faint);font-weight:500;white-space:nowrap}
-  ol.alloc .why{display:block;color:var(--ink-soft);font-size:14px;margin-top:3px;line-height:1.46}
-  ol.alloc .why b{color:var(--ink);font-weight:600}
-  .tier-idea{margin:16px 0 0;padding:12px 16px;border-radius:9px;background:var(--free-tint);border:1px solid #BFE0CB;font-size:14.5px;color:var(--ink);line-height:1.5}
-  .tier-idea b{font-weight:600}
-
-  footer{border-top:1px solid var(--rule);padding:30px 0 70px;color:var(--ink-faint);font-size:13.5px}
-  footer .reading{max-width:820px}
-
-  /* ---------- site nav (guide <-> interactive) ---------- */
-  .sitenav{background:var(--ink);color:#DCE3E8;font-size:13.5px}
-  .sitenav .wrap{display:flex;align-items:center;gap:18px;padding-top:9px;padding-bottom:9px}
-  .sitenav .brand{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#93A3AE}
-  .sitenav a{color:#DCE3E8;text-decoration:none;padding:5px 12px;border-radius:7px}
-  .sitenav a:hover{background:#243240}
-  .sitenav a.here{background:#fff;color:var(--ink);font-weight:600}
-  .sitenav .hint{margin-left:auto;color:#7f8f9b;font-size:12px}
-  @media (max-width:640px){.sitenav .hint{display:none}}
-
-  /* ---------- hover definitions ---------- */
-  .term{border-bottom:1.5px dotted var(--ink-faint);cursor:help;position:relative;border-radius:2px}
-  .term:focus{outline:2px solid var(--deferred);outline-offset:2px}
-  .term::after{content:attr(data-def);position:absolute;left:50%;transform:translateX(-50%) translateY(4px);bottom:calc(100% + 9px);
-    width:max-content;max-width:min(300px,78vw);background:var(--ink);color:#F2EFE8;padding:10px 13px;border-radius:9px;
-    font-family:"IBM Plex Sans",sans-serif;font-size:13px;line-height:1.5;font-weight:400;font-style:normal;letter-spacing:0;text-transform:none;white-space:normal;text-align:left;
-    box-shadow:0 8px 24px rgba(21,32,46,.25);opacity:0;pointer-events:none;transition:opacity .12s ease,transform .12s ease;z-index:60}
-  .term::before{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:calc(100% + 3px);border:6px solid transparent;border-top-color:var(--ink);opacity:0;transition:opacity .12s ease;z-index:60}
-  .term:hover::after,.term:focus::after{opacity:1;transform:translateX(-50%) translateY(0)}
-  .term:hover::before,.term:focus::before{opacity:1}
-  .gloss-note{font-size:13px;color:var(--ink-faint);border:1px dashed var(--rule-strong);border-radius:9px;padding:9px 14px;display:inline-block;margin:4px 0 0}
-  .gloss-note .term{color:var(--ink)}
-  @media (hover:none){.term{ -webkit-tap-highlight-color:transparent }}
-
-  /* ---------- field manual (Fidelity walkthrough) ---------- */
-  .fm{background:var(--card);border:1px solid var(--rule);border-radius:14px;margin:22px 0 8px;overflow:hidden;scroll-margin-top:18px}
-  .fm-head{background:var(--free-tint);border-bottom:1px solid #BFE0CB;padding:18px 24px}
-  .fm-head .eyebrow{color:var(--free);margin-bottom:5px}
-  .fm-head h3{margin:0;font-size:25px}
-  .fm-head p{margin:8px 0 0;color:var(--ink-soft);font-size:15px;max-width:var(--reading)}
-  .fm-body{padding:8px 24px 20px}
-  .fstep{display:grid;grid-template-columns:38px 1fr;gap:16px;padding:18px 0;border-top:1px dashed var(--rule)}
-  .fstep:first-child{border-top:none}
-  .fstep .fn{width:38px;height:38px;border-radius:50%;background:var(--free);color:#fff;font-family:"IBM Plex Mono",monospace;font-size:16px;font-weight:600;display:flex;align-items:center;justify-content:center}
-  .fstep h4{margin:2px 0 4px;font-family:"IBM Plex Sans",sans-serif;font-weight:600;font-size:16.5px}
-  .fstep p{margin:0 0 6px;color:var(--ink-soft);font-size:15px}
-  .fstep p:last-child{margin-bottom:0}
-  .where{font-family:"IBM Plex Mono",monospace;font-size:12px;background:#F1EEE6;border:1px solid var(--rule);border-radius:7px;padding:6px 10px;display:inline-block;color:var(--ink);margin:2px 0 6px}
-  .where b{font-weight:600}
-  .fm .call{margin:14px 0 4px}
-
-  hr.soft{border:none;border-top:1px solid var(--rule);margin:30px 0}
+  footer{border-top:1px solid var(--rule);margin-top:44px;padding:26px 0 60px;color:var(--ink-faint);font-size:13px}
+  footer .wrap{max-width:820px}
 
   @media (max-width:900px){
-    .shell{grid-template-columns:1fr;gap:0}
-    nav.toc{position:static;border-right:none;border-bottom:1px solid var(--rule);padding:0 0 6px;margin-bottom:8px}
-    .toc-toggle{display:block;width:100%;text-align:left;background:#fff;border:1px solid var(--rule);border-radius:10px;padding:12px 14px;font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);cursor:pointer}
-    nav.toc ol{display:none;padding-top:10px}
-    nav.toc.open ol{display:block}
-    .buckets{grid-template-columns:1fr}
-    .cheat-grid{grid-template-columns:1fr;gap:18px}
-    .acct dl{grid-template-columns:1fr}
-    .acct dt{padding-top:8px}
-    .flips{grid-template-columns:1fr 1fr}
-    .tier-range{font-size:23px}
+    .hero-inner{grid-template-columns:1fr;gap:34px;padding:48px 0 38px}
+    .doors{grid-template-columns:1fr}
   }
-  @media print{
-    nav.toc,.toc-toggle{display:none}
-    body{background:#fff;font-size:11pt}
-    .shell{grid-template-columns:1fr;padding-bottom:0}
-    .acct,.tbl-scroll,.bucket,.call,.profile,.cheat,.tier,.flip{break-inside:avoid}
-    .cheat{background:#fff;color:#000;border:1px solid #000}
-    .cheat h2,.cheat h3,.cheat .mini td.r{color:#000}
-    header.mast{background:#fff}
+  @media (max-width:420px){
+    table.truth thead th{font-size:8.5px}
+    table.truth tbody td{font-size:11px}
+    table.truth th,table.truth td{padding:8px 3px}
+    table.truth tbody th{font-size:13.5px}
   }
 </style>
 </head>
 <body>
 
-<nav class="sitenav" aria-label="Site">
-  <div class="wrap">
-    <span class="brand">The Long Game</span>
-    <a class="here" href="index.html" aria-current="page">Learn — the field guide</a>
-    <a href="the-long-game.html">Play — interactive stories</a>
-    <span class="hint">Keep both files in the same folder and the links just work — locally or hosted.</span>
-  </div>
-</nav>
+<a class="skip" href="#choose">Skip to content</a>
 
-<header class="mast">
-  <div class="wrap mast-inner">
-    <div class="eyebrow">A 2026 field guide · U.S. accounts</div>
-    <h1>Where should the <em>next dollar</em> go?</h1>
-    <p class="lead">Every tax-advantaged account does the same thing — it changes <em>when</em> the government taxes your money. Master that one idea and the whole landscape — 401(k)s, IRAs, HSAs, brokerage, savings — collapses into three buckets and one decision. This guide is the map: every account, the order to fill them, and which lever to pull at each income and each age.</p>
-    <span class="gloss-note">New to this? Any <span class="term" tabindex="0" data-def="Exactly like this — hover or tap a dotted word anywhere on the page for a plain-English definition.">dotted term</span> shows its definition on hover or tap.</span>
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <div class="eyebrow">Free · No sign-up · 2026 figures</div>
+      <h1>Where should your <em>next dollar</em> go?</h1>
+      <p class="lead">401(k), Roth, HSA, backdoor, mega-backdoor — the jargon makes this sound complicated. It isn't. <b>Every one of these accounts does the same single thing: it changes <em>when</em> the government taxes your money.</b> There are only three answers, and they fit in the table beside this. Learn that, and the rest is detail.</p>
+      <div class="free-note">
+        <span>Nothing to buy</span>
+        <span>No accounts to open</span>
+        <span>No data collected</span>
+      </div>
+    </div>
 
-    <div class="buckets" aria-label="The three tax treatments">
-      <div class="bucket b-def">
-        <h3>Tax-deferred</h3>
-        <div class="sub">Pay tax later</div>
-        <div class="stage"><span class="k">Going in</span><span class="v"><b class="untaxed">Deduct now</b> — lowers this year's taxable income</span></div>
-        <div class="stage"><span class="k">Growing</span><span class="v"><b class="untaxed">Untaxed</b> while invested</span></div>
-        <div class="stage"><span class="k">Coming out</span><span class="v"><b class="taxed">Taxed</b> as ordinary income</span></div>
-        <div class="ex">Traditional 401(k)/403(b)/457(b), Traditional IRA, SEP-IRA, Solo 401(k). <em>The bet: your tax rate is lower in retirement.</em></div>
-      </div>
-      <div class="bucket b-free">
-        <h3>Tax-free</h3>
-        <div class="sub">Pay tax now, once</div>
-        <div class="stage"><span class="k">Going in</span><span class="v"><b class="taxed">After-tax</b> — no deduction</span></div>
-        <div class="stage"><span class="k">Growing</span><span class="v"><b class="untaxed">Untaxed</b> while invested</span></div>
-        <div class="stage"><span class="k">Coming out</span><span class="v"><b class="untaxed">Tax-free</b>, forever</span></div>
-        <div class="ex">Roth 401(k), Roth IRA, HSA (for medical), 529 (for school). <em>The bet: same-or-higher rate later, or you just want certainty.</em></div>
-      </div>
-      <div class="bucket b-cash">
-        <h3>Taxable</h3>
-        <div class="sub">Pay tax as you go</div>
-        <div class="stage"><span class="k">Going in</span><span class="v"><b class="taxed">After-tax</b> — no shelter</span></div>
-        <div class="stage"><span class="k">Growing</span><span class="v"><b class="taxed">Taxed</b> yearly on interest &amp; dividends</span></div>
-        <div class="stage"><span class="k">Coming out</span><span class="v"><b class="taxed">Taxed</b> on gains (often lower rate)</span></div>
-        <div class="ex">Brokerage account, high-yield savings, CDs, T-bills. <em>The trade: full flexibility, no rules, no penalties.</em></div>
-      </div>
+    <div class="thesis">
+      <div class="tt">The whole idea, in one table</div>
+      <table class="truth">
+        <thead>
+          <tr><th scope="col"></th><th scope="col">Going in</th><th scope="col">While it grows</th><th scope="col">Coming out</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Pre-tax<small>401(k), Traditional IRA</small></th>
+            <td class="ok">no tax</td><td class="ok">no tax</td><td class="no">TAXED</td>
+          </tr>
+          <tr>
+            <th scope="row">Roth<small>Roth 401(k), Roth IRA</small></th>
+            <td class="no">TAXED</td><td class="ok">no tax</td><td class="ok">no tax</td>
+          </tr>
+          <tr>
+            <th scope="row">Taxable<small>brokerage, savings</small></th>
+            <td class="no">TAXED</td><td class="no">TAXED</td><td class="no">TAXED</td>
+          </tr>
+          <tr class="hsa">
+            <th scope="row">HSA<small>health savings account</small></th>
+            <td class="ok">no tax</td><td class="ok">no tax</td><td class="ok">no tax</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="punch">Read across the rows. <b>Pre-tax</b> pays tax later, <b>Roth</b> pays now and never again, <b>taxable</b> pays the whole way. Then look at the green row: the <b>HSA</b> is the only account in the U.S. tax code that escapes tax at all three moments — which is why it outranks nearly everything, despite its small limit.</p>
     </div>
   </div>
 </header>
 
-<div class="wrap">
-<div class="shell">
+<main class="wrap" id="choose">
+  <div class="sect-lab">
+    <div class="eyebrow">Two ways in</div>
+    <h2>Learn the rules, then watch them play out</h2>
+    <p>One half teaches you the system. The other lets you drag sliders and watch forty years of consequences unfold. Start on either side — they link to each other throughout.</p>
+  </div>
 
-  <nav class="toc" id="toc">
-    <div class="eyebrow">Contents</div>
-    <button class="toc-toggle" id="tocToggle" aria-expanded="false">Jump to section ▾</button>
-    <ol>
-      <li><a href="#model">The mental model</a></li>
-      <li><a href="#accounts">The accounts, one by one</a></li>
-      <li><a href="#limits">2026 limits &amp; income lines</a></li>
-      <li><a href="#waterfall">The funding waterfall</a></li>
-      <li><a href="#income">Strategy by income</a></li>
-      <li><a href="#age">Strategy by age</a></li>
-      <li><a href="#inside">Stocks, bonds &amp; what goes inside</a></li>
-      <li><a href="#cash">Cash &amp; HYSA, in depth</a></li>
-      <li><a href="#advanced">Advanced tax moves</a></li>
-      <li><a href="#vs">Traditional vs Roth</a></li>
-      <li><a href="#spend">Spending it down</a></li>
-      <li><a href="#profiles">Three worked profiles</a></li>
-    </ol>
-    <div class="extra">
-      <a href="#fidelity">Fidelity mega-backdoor, step by step</a>
-      <a href="#cheat">Cheat sheet</a>
-      <a href="#note">What this is &amp; isn't</a>
-    </div>
-  </nav>
-
-  <main>
-
-  <!-- 1 -->
-  <section class="s" id="model">
-    <div class="s-head"><span class="s-num">01</span><h2>The mental model</h2></div>
-    <p class="s-intro">A 401(k) is not an investment. Neither is an IRA or an HSA. They are <em>wrappers</em> — legal containers that hold investments and change how those investments are taxed. There are only three kinds of wrapper.</p>
-
-    <div class="legend">
-      <span class="tag def">Pre-tax</span>
-      <span class="tag free">Roth · tax-free</span>
-      <span class="tag triple">Triple tax-free</span>
-      <span class="tag cash">Taxable</span>
-    </div>
-
-    <p class="reading">Inside any wrapper you can hold the same S&amp;P 500 index fund. What differs is the tax treatment at three moments: when money goes <em>in</em>, while it <em>grows</em>, and when it comes <em>out</em>. The three buckets at the top of this page are the entire taxonomy. Everything below is detail.</p>
-
-    <h3>Three ideas do most of the work</h3>
-
-    <div class="call key">
-      <span class="lab">Idea 1 — Tax-advantaged room is use-it-or-lose-it</span>
-      <p>Each January 1 you get a fresh annual allowance in each account. Don't fill it, and that room is gone <em>permanently</em> — you can't double up next year. A 35-year-old who skips one $7,500 IRA contribution doesn't lose $7,500; at a 7% real return over 30 years they lose roughly <span class="num">$57,000</span> of tax-free growth. The scarce resource isn't money, it's <em>shelter</em>.</p>
-    </div>
-
-    <div class="call key">
-      <span class="lab">Idea 2 — The whole game is one question</span>
-      <p>Is your marginal tax rate <em>higher now or in retirement?</em> If lower later → defer (pre-tax). If higher later → pay now (Roth). Since nobody can know future tax law or their own future income, the durable answer is <strong>tax diversification</strong>: build balances in more than one bucket so you have levers to pull whatever happens.</p>
-    </div>
-
-    <div class="call key">
-      <span class="lab">Idea 3 — Tax drag is the silent fee</span>
-      <p>In a taxable account, every dividend and every rebalance triggers a tax bill, and the money paid to taxes stops compounding. Over decades this "drag" quietly costs more than most fund fees. Sheltering removes it. That — not the upfront deduction — is the deepest reason to use these accounts.</p>
-    </div>
-
-    <p class="reading">One account breaks the pattern. The <strong>HSA</strong> is the only wrapper that can be tax-free at <em>all three</em> moments: deductible going in, untaxed while it grows, and tax-free coming out (for medical costs). Nothing else in the U.S. code does that, which is why it sits near the top of every funding order despite its small limit.</p>
-  </section>
-
-  <!-- 2 -->
-  <section class="s" id="accounts">
-    <div class="s-head"><span class="s-num">02</span><h2>The accounts, one by one</h2></div>
-    <p class="s-intro">Each card shows its tax bucket, who it's for, the 2026 limit, and the rule most likely to trip you up. Tags use the colors from the model above.</p>
-
-    <div class="acct">
-      <div class="acct-top"><h3>Workplace plan — 401(k) / 403(b) / 457(b) / TSP</h3><span class="tag def">Pre-tax</span><span class="tag free">or Roth</span></div>
-      <p class="who">The backbone for most employees. 403(b) is the nonprofit/education version; 457(b) is for government and some nonprofits; TSP is the federal plan. Most modern plans let you choose <em>pre-tax</em> or <em>Roth</em> for each dollar.</p>
-      <dl>
-        <dt>2026 limit</dt><dd><b>$24,500</b> of your own salary deferral (per person, across all your plans). <b>+$8,000</b> catch-up at age 50+; <b>+$11,250</b> "super catch-up" at ages 60–63.</dd>
-        <dt>Match</dt><dd>Employer matching is free money and is the single highest-return move available. Always capture the full match first.</dd>
-        <dt>The 457(b) perk</dt><dd>Governmental 457(b)s have <b>no 10% early-withdrawal penalty</b> after you leave the job — useful for early retirement. A 457(b) limit is <em>separate</em> from a 401(k)/403(b), so some public employees can fund both.</dd>
-        <dt>Watch</dt><dd>Leaving a job? Roll old 401(k)s into your current plan or an IRA so you don't lose track — but see the backdoor-Roth trap in §9 before rolling into an IRA.</dd>
-      </dl>
-    </div>
-
-    <div class="acct">
-      <div class="acct-top"><h3>Traditional IRA</h3><span class="tag def">Pre-tax*</span></div>
-      <p class="who">A personal account anyone with earned income can open. The deduction (the whole point) is income-limited once you're covered by a workplace plan.</p>
-      <dl>
-        <dt>2026 limit</dt><dd><b>$7,500</b> (shared with Roth IRA), <b>+$1,100</b> at 50+. So $8,600 combined if 50+.</dd>
-        <dt>Deduction</dt><dd>Fully deductible if neither you nor your spouse has a workplace plan. If you're <em>covered</em> at work, the deduction phases out (see §3). High earners get <b>no deduction</b> — which is what makes the backdoor Roth (§9) useful.</dd>
-        <dt>Watch</dt><dd>Any pre-tax balance here pollutes the backdoor Roth via the pro-rata rule. Keep it at $0 if you plan to use the backdoor.</dd>
-      </dl>
-    </div>
-
-    <div class="acct">
-      <div class="acct-top"><h3>Roth IRA</h3><span class="tag free">Tax-free</span></div>
-      <p class="who">The most flexible long-term account in the code. After-tax in, tax-free out, <em>no required withdrawals ever</em> for the original owner.</p>
-      <dl>
-        <dt>2026 limit</dt><dd><b>$7,500</b> (shared with Traditional IRA), <b>+$1,100</b> at 50+.</dd>
-        <dt>Income limit</dt><dd>Direct contributions phase out at MAGI <b>$153k–$168k</b> (single) / <b>$242k–$252k</b> (married). Above that, use the <em>backdoor</em> (§9) — there is no income limit on that route.</dd>
-        <dt>Flexibility</dt><dd>Your <em>contributions</em> (not earnings) can be withdrawn anytime, tax- and penalty-free — so a Roth can quietly double as a backstop emergency fund.</dd>
-        <dt>No RMDs</dt><dd>Never forced to withdraw. Ideal money to leave growing, or to leave to heirs.</dd>
-      </dl>
-    </div>
-
-    <div class="acct">
-      <div class="acct-top"><h3>HSA — Health Savings Account</h3><span class="tag triple">Triple tax-free</span></div>
-      <p class="who">The most tax-efficient account that exists, available only if you're on an HSA-eligible high-deductible health plan (HDHP). Treat it as a stealth retirement account, not a spending account.</p>
-      <dl>
-        <dt>2026 limit</dt><dd><b>$4,400</b> self-only / <b>$8,750</b> family, <b>+$1,000</b> at 55+. HDHP must have a deductible ≥ $1,700 (self) / $3,400 (family).</dd>
-        <dt>Triple play</dt><dd>Deductible going in (and, via payroll, also dodges Social Security + Medicare tax), grows untaxed, and comes out tax-free for medical costs — at any age.</dd>
-        <dt>The pro move</dt><dd>Pay medical bills <em>out of pocket</em> now, save the receipts, invest the HSA, and reimburse yourself tax-free decades later. After 65 it also covers Medicare premiums; non-medical withdrawals after 65 are just taxed like a Traditional IRA.</dd>
-        <dt>Watch</dt><dd>Contributions must stop once you enroll in Medicare. Plan the timing.</dd>
-      </dl>
-    </div>
-
-    <div class="acct">
-      <div class="acct-top"><h3>Solo 401(k)</h3><span class="tag def">Pre-tax</span><span class="tag free">or Roth</span></div>
-      <p class="who">For the self-employed with no employees (a consultant, freelancer, or single-owner business). The most powerful shelter available to a one-person business.</p>
-      <dl>
-        <dt>2026 limit</dt><dd>Wear two hats: <b>$24,500</b> as "employee" + up to <b>25% of net self-employment income</b> as "employer," capped at <b>$72,000</b> total (plus the age-50 and 60–63 catch-ups on the employee side).</dd>
-        <dt>Why it wins</dt><dd>It lets a high-earning solo operator shelter far more than a regular employee, and many providers support a Roth option and mega-backdoor after-tax contributions.</dd>
-        <dt>Watch</dt><dd>The "employee" $24,500 is shared with any W-2 401(k) you also have. The 25% employer piece is per-business.</dd>
-      </dl>
-    </div>
-
-    <div class="acct">
-      <div class="acct-top"><h3>SEP-IRA</h3><span class="tag def">Pre-tax</span></div>
-      <p class="who">A simpler self-employed plan. Easier paperwork than a Solo 401(k), but less flexible.</p>
-      <dl>
-        <dt>2026 limit</dt><dd>Up to <b>25% of compensation</b>, max <b>$72,000</b>. No employee-deferral piece and no catch-up.</dd>
-        <dt>vs Solo 401(k)</dt><dd>At lower self-employment income a Solo 401(k) usually shelters <em>more</em> (because of the flat $24,500 employee piece). A SEP-IRA balance also blocks the backdoor Roth via pro-rata. For most solo earners, the Solo 401(k) is the better default.</dd>
-      </dl>
-    </div>
-
-    <div class="acct">
-      <div class="acct-top"><h3>SIMPLE IRA</h3><span class="tag def">Pre-tax</span></div>
-      <p class="who">A starter plan for small employers (≤100 employees). You'll meet it as an employee at a small company.</p>
-      <dl>
-        <dt>2026 limit</dt><dd><b>$17,000</b> (or $18,100 at some employers), <b>+$4,000</b> at 50+; <b>+$5,250</b> at 60–63. Lower than a 401(k) but with a required employer contribution.</dd>
-      </dl>
-    </div>
-
-    <div class="acct">
-      <div class="acct-top"><h3>Taxable brokerage</h3><span class="tag cash">Taxable</span></div>
-      <p class="who">A plain investment account with no contribution limit, no income limit, and no withdrawal rules. The home for everything after the sheltered buckets are full — and for any goal before age 59½.</p>
-      <dl>
-        <dt>Limit</dt><dd>None. Invest as much as you like, take it out anytime.</dd>
-        <dt>Tax</dt><dd>Dividends and interest are taxed yearly. Gains on assets held >1 year get the <em>long-term capital-gains</em> rate (0/15/20%), which is usually well below ordinary rates. Held <1 year, gains are taxed as ordinary income.</dd>
-        <dt>Edge</dt><dd>Inherited assets get a "step-up" in basis, and you can harvest losses (§9). With index funds it can be remarkably tax-efficient.</dd>
-      </dl>
-    </div>
-
-    <div class="acct">
-      <div class="acct-top"><h3>Cash — HYSA, money market, CDs, T-bills, I-bonds</h3><span class="tag cash">Taxable</span></div>
-      <p class="who">Not an investment for growth — a tool for safety and liquidity. Covered in depth in §8.</p>
-      <dl>
-        <dt>Role</dt><dd>Emergency fund (3–6 months of expenses) and any money you'll need within ~2–3 years.</dd>
-        <dt>2026 yields</dt><dd>Top high-yield savings ~<b>4.0–4.4%</b>; Treasury bills track the Fed (~3.5–3.75%); CDs up to ~4.3%.</dd>
-        <dt>Tax</dt><dd>Interest is taxed as ordinary income. T-bills and Treasury money-market funds are <b>exempt from state income tax</b> — a real edge for high earners in taxed states.</dd>
-      </dl>
-    </div>
-
-    <div class="acct">
-      <div class="acct-top"><h3>529 education plan</h3><span class="tag free">Tax-free (school)</span></div>
-      <p class="who">A Roth-like wrapper for education. Relevant once you have kids or a known education goal.</p>
-      <dl>
-        <dt>Limit</dt><dd>No federal annual cap, but contributions are gifts: <b>$19,000/yr</b> per giver is the gift-tax-free amount (or front-load 5 years — ~$95k — at once).</dd>
-        <dt>Tax</dt><dd>Grows untaxed; tax-free for tuition and qualified costs. Many states add a deduction for residents.</dd>
-        <dt>2024+ perk</dt><dd>Up to <b>$35,000</b> of an old 529 can be rolled into the beneficiary's Roth IRA (account must be 15+ years old; other limits apply) — so leftover funds aren't trapped.</dd>
-      </dl>
-    </div>
-  </section>
-
-  <!-- 3 -->
-  <section class="s" id="limits">
-    <div class="s-head"><span class="s-num">03</span><h2>2026 limits &amp; income lines</h2></div>
-    <p class="s-intro">The numbers, in one place. All figures are for tax year 2026 (the return you'll file in early 2027).</p>
-
-    <div class="tbl-scroll">
-      <table>
-        <caption>2026 contribution limits</caption>
-        <thead><tr><th>Account</th><th>Tax bucket</th><th class="r">Base limit</th><th class="r">Catch-up</th><th>Notes</th></tr></thead>
-        <tbody>
-          <tr><td>401(k)/403(b)/457(b)/TSP — your deferral</td><td>Pre-tax / Roth</td><td class="r">$24,500</td><td class="r">+$8,000 (50+)<br>+$11,250 (60–63)</td><td>Per person, across plans</td></tr>
-          <tr><td>401(k) total (you + employer)</td><td>Mixed</td><td class="r">$72,000</td><td class="r">$80,000 / $83,250</td><td>Headroom enables mega-backdoor</td></tr>
-          <tr><td>Traditional IRA</td><td>Pre-tax*</td><td class="r">$7,500</td><td class="r">+$1,100 (50+)</td><td>Shared cap with Roth IRA</td></tr>
-          <tr><td>Roth IRA</td><td>Tax-free</td><td class="r">$7,500</td><td class="r">+$1,100 (50+)</td><td>Income-limited; use backdoor if over</td></tr>
-          <tr><td>HSA — self / family</td><td>Triple</td><td class="r">$4,400 / $8,750</td><td class="r">+$1,000 (55+)</td><td>Requires an HDHP</td></tr>
-          <tr><td>Solo 401(k)</td><td>Pre-tax / Roth</td><td class="r">$24,500 + 25%</td><td class="r">+$8,000 / +$11,250</td><td>Max $72,000 total</td></tr>
-          <tr><td>SEP-IRA</td><td>Pre-tax</td><td class="r">25% of comp</td><td class="r">—</td><td>Max $72,000</td></tr>
-          <tr><td>SIMPLE IRA</td><td>Pre-tax</td><td class="r">$17,000</td><td class="r">+$4,000 / +$5,250</td><td>Small employers</td></tr>
-          <tr><td>529 plan</td><td>Tax-free (school)</td><td class="r">No federal cap</td><td class="r">—</td><td>$19k/yr gift-tax-free</td></tr>
-          <tr><td>Taxable brokerage / cash</td><td>Taxable</td><td class="r">Unlimited</td><td class="r">—</td><td>No rules, full flexibility</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="tbl-scroll">
-      <table>
-        <caption>2026 income lines that change your options</caption>
-        <thead><tr><th>Threshold (by MAGI unless noted)</th><th class="r">Single / HoH</th><th class="r">Married filing jointly</th></tr></thead>
-        <tbody>
-          <tr><td>Roth IRA contribution phases out</td><td class="r">$153k–$168k</td><td class="r">$242k–$252k</td></tr>
-          <tr><td>Traditional IRA deduction phases out <em>(you covered at work)</em></td><td class="r">$81k–$91k</td><td class="r">$129k–$149k</td></tr>
-          <tr><td>Traditional IRA deduction <em>(spouse covered, you're not)</em></td><td class="r">—</td><td class="r">$242k–$252k</td></tr>
-          <tr><td>Net Investment Income Tax (3.8%) &amp; extra Medicare tax (0.9%) begin</td><td class="r">$200k</td><td class="r">$250k</td></tr>
-          <tr><td>0% long-term capital-gains rate up to <em>(taxable income)</em></td><td class="r">$49,450</td><td class="r">$98,900</td></tr>
-          <tr><td>20% capital-gains rate begins <em>(taxable income)</em></td><td class="r">$545,500</td><td class="r">$613,700</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="tbl-scroll">
-      <table>
-        <caption>2026 federal ordinary-income brackets</caption>
-        <thead><tr><th>Rate</th><th class="r">Single</th><th class="r">Married filing jointly</th></tr></thead>
-        <tbody>
-          <tr><td>10%</td><td class="r">$0 – $12,400</td><td class="r">$0 – $24,800</td></tr>
-          <tr><td>12%</td><td class="r">$12,401 – $50,400</td><td class="r">$24,801 – $100,800</td></tr>
-          <tr><td>22%</td><td class="r">$50,401 – $105,700</td><td class="r">$100,801 – $211,400</td></tr>
-          <tr><td>24%</td><td class="r">$105,701 – $201,775</td><td class="r">$211,401 – $403,550</td></tr>
-          <tr><td>32%</td><td class="r">$201,776 – $256,225</td><td class="r">$403,551 – $512,450</td></tr>
-          <tr><td>35%</td><td class="r">$256,226 – $640,600</td><td class="r">$512,451 – $768,700</td></tr>
-          <tr><td>37%</td><td class="r">$640,601 +</td><td class="r">$768,701 +</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="reading" style="font-size:14.5px;color:var(--ink-faint)">Standard deduction for 2026: <span class="num">$16,100</span> single, <span class="num">$32,200</span> married. Brackets are <em>marginal</em> — only the dollars inside a band are taxed at that band's rate.</p>
-
-    <div class="call note">
-      <span class="lab">New for 2026 — the Roth catch-up rule</span>
-      <p>If you earned more than <strong>$150,000</strong> in wages from your employer in the prior year, any age-50+ catch-up contribution must now go in as <strong>Roth</strong> (after-tax), not pre-tax. If your plan offers no Roth option, you simply can't make the catch-up. High earners over 50 should confirm their plan supports Roth catch-up.</p>
-    </div>
-  </section>
-
-  <!-- 4 -->
-  <section class="s" id="waterfall">
-    <div class="s-head"><span class="s-num">04</span><h2>The funding waterfall</h2></div>
-    <p class="s-intro">When a dollar is free to invest, this is the order that maximizes its after-tax value for most people. Work top to bottom; only move down once the rung above is full or doesn't apply.</p>
-
-    <ol class="steps">
-      <li class="cash"><b>Starter emergency fund.</b> One month of expenses in cash before anything else, so a flat tire doesn't become credit-card debt.</li>
-      <li class="def"><b>401(k) up to the full employer match.</b> A 50% or 100% match is an instant, risk-free 50–100% return. Nothing else competes. Capture every matched dollar.</li>
-      <li class="cash"><b>Kill high-interest debt.</b> Anything above ~7–8% (credit cards, some personal loans) is a guaranteed "return" by paying it off that beats the market on a risk-adjusted basis.</li>
-      <li class="free"><b>Max the HSA</b> (if you're on an HDHP). The only triple-tax-free account — punches far above its small limit.</li>
-      <li class="free"><b>Max an IRA.</b> Roth if your income qualifies; otherwise the <em>backdoor</em> Roth (§9). $7,500 of broad, low-cost, tax-advantaged growth.</li>
-      <li class="def"><b>Finish the 401(k)</b> to the full $24,500. Choose pre-tax vs Roth using §10.</li>
-      <li class="cash"><b>Full emergency fund</b> — top up cash to 3–6 months of expenses (more if your income is variable or you're self-employed).</li>
-      <li class="free"><b>Mega-backdoor Roth</b> (if your plan allows after-tax contributions + conversions). Can add tens of thousands of Roth dollars a year. See §9.</li>
-      <li class="cash"><b>Other goals &amp; taxable investing.</b> 529 for kids, a house down payment, or a taxable brokerage for everything beyond the sheltered limits — invested with asset location (§7) and harvested for losses (§9).</li>
-    </ol>
-
-    <div class="call note">
-      <span class="lab">How to bend the order</span>
-      <p>The waterfall is a default, not a law. Saving for a house in 3 years? That money belongs in cash (step 7-ish), not the market. Have a governmental 457(b)? It slots alongside the 401(k) and is especially good for early retirement. Expecting a much lower-income year ahead? Lean Roth now and pre-tax then. The logic underneath — capture free money, kill expensive debt, prefer tax-free growth, keep flexibility — is what to preserve.</p>
-    </div>
-  </section>
-
-  <!-- 5 -->
-  <section class="s" id="income">
-    <div class="s-head"><span class="s-num">05</span><h2>Strategy by income</h2></div>
-    <p class="s-intro">You don't need to follow all of this — find the band that matches your pay and do its list from the top down. Income controls just two things: <b>which tax bucket is the better deal</b> (the more you earn, the more you lean pre-tax), and <b>which doors are open</b> (a few close as you climb — but there's always a legal workaround).</p>
-
-    <div class="quickwords" aria-label="Plain-language definitions">
-      <div><b>Match</b> — free money your employer adds when you put money into your 401(k). Always grab it first.</div>
-      <div><b>Bracket / rate</b> — the percentage of tax you pay on your <em>next</em> dollar earned. It rises as you earn more.</div>
-      <div><b>Phase-out / "the door closes"</b> — above a certain income, the rules no longer let you make a move directly.</div>
-      <div><b>Backdoor</b> — a legal two-step that lets high earners get money into a Roth even when they're "too rich" to do it the normal way.</div>
-    </div>
-
-    <h3>What changes as your income rises</h3>
-    <p class="reading">Four income lines flip your options. Knowing where you sit relative to them tells you which playbook below to use.</p>
-    <div class="flips">
-      <div class="flip"><div class="at">~$50k</div><div class="what">You move into the <b>22% bracket</b>. Pre-tax contributions start to matter more.</div></div>
-      <div class="flip"><div class="at">~$150k single<br>~$240k married</div><div class="what">The normal <b>Roth IRA door begins to close</b>. Switch to the backdoor.</div></div>
-      <div class="flip"><div class="at">$200k single<br>$250k married</div><div class="what">Two <b>extra taxes on investment income</b> switch on (3.8% + 0.9%). Sheltering matters more.</div></div>
-      <div class="flip"><div class="at">~$400k+</div><div class="what">Top <b>35–37% brackets</b>. Max pre-tax and use every Roth workaround there is.</div></div>
-    </div>
-    <p class="illus">Dollar amounts in the examples below are illustrative and shown per month. They assume a 401(k) with some employer match — adjust to your real plan.</p>
-
-    <!-- Tier 1 -->
-    <div class="tier">
-      <div class="tier-head">
-        <div class="tier-topline"><span class="tier-range">Under ~$50k</span><span class="brk">10–12% bracket</span></div>
-        <p class="tier-headline"><b>Go almost all Roth.</b> Your tax rate is the lowest it will ever be — pay the small tax now and never pay it again.</p>
-      </div>
-      <div class="tier-body">
-        <p class="meet"><span class="name">Maya, 24</span> — earns <b>$38k</b>, can save about <b>$250/month</b>.</p>
-        <ol class="alloc">
-          <li class="def"><span class="mk">1</span><div><div class="destline"><span class="dest">401(k) — just enough to get the full match</span><span class="amt">~$95/mo</span></div><span class="why">Her employer adds a matching $95. That's an instant <b>100% return</b> — the best deal in this entire guide. Never leave it on the table.</span></div></li>
-          <li class="free"><span class="mk">2</span><div><div class="destline"><span class="dest">Roth IRA — everything she has left</span><span class="amt">~$155/mo</span></div><span class="why">At a 12% rate, paying tax now is cheap — and the money then grows and comes out <b>completely tax-free</b> for 40+ years.</span></div></li>
-          <li class="cash"><span class="mk">3</span><div><div class="destline"><span class="dest">A small cash cushion</span><span class="amt">build to ~1 month</span></div><span class="why">So a surprise bill doesn't turn into credit-card debt.</span></div></li>
-        </ol>
-        <p class="tier-idea"><b>Bonus:</b> at this income she likely qualifies for the <b>Saver's Credit</b> — the government hands back up to $1,000 at tax time just for contributing. Free money on top of free money.</p>
-      </div>
-    </div>
-
-    <!-- Tier 2 -->
-    <div class="tier">
-      <div class="tier-head">
-        <div class="tier-topline"><span class="tier-range">~$50k – $100k</span><span class="brk">22% bracket</span></div>
-        <p class="tier-headline"><b>Still mostly Roth — and build the habit.</b> Automate it so the money is saved before you can spend it.</p>
-      </div>
-      <div class="tier-body">
-        <p class="meet"><span class="name">Devon, 29</span> — a nurse earning <b>$72k</b>, can save about <b>$1,100/month</b>.</p>
-        <ol class="alloc">
-          <li class="def"><span class="mk">1</span><div><div class="destline"><span class="dest">401(k) up to the full match</span><span class="amt">~$360/mo</span></div><span class="why">Free money first, always. The employer chips in on top.</span></div></li>
-          <li class="free"><span class="mk">2</span><div><div class="destline"><span class="dest">Max a Roth IRA</span><span class="amt">$625/mo · $7,500/yr</span></div><span class="why">A 22% rate is still low. Lock it in and let it grow tax-free.</span></div></li>
-          <li class="triple"><span class="mk">3</span><div><div class="destline"><span class="dest">Max an HSA — if on a high-deductible health plan</span><span class="amt">~$115/mo</span></div><span class="why">The single best tax deal there is: <b>no tax going in, growing, or coming out</b> for medical costs. Invest it — don't spend it.</span></div></li>
-        </ol>
-        <p class="tier-idea"><b>The idea:</b> capture the match, then pour into Roth accounts while your rate is still modest. Don't overthink the investments — one low-cost target-date fund is a perfectly good choice (see §7).</p>
-      </div>
-    </div>
-
-    <!-- Tier 3 -->
-    <div class="tier">
-      <div class="tier-head">
-        <div class="tier-topline"><span class="tier-range">~$100k – $200k</span><span class="brk">22–24% bracket</span></div>
-        <p class="tier-headline"><b>The crossover.</b> Start splitting between pre-tax and Roth — and watch for the Roth IRA door near $150k.</p>
-      </div>
-      <div class="tier-body">
-        <p class="meet"><span class="name">Priya, 35</span> — an engineer earning <b>$140k</b>, can save about <b>$2,400/month</b>.</p>
-        <ol class="alloc">
-          <li class="def"><span class="mk">1</span><div><div class="destline"><span class="dest">401(k) up to the full match</span><span class="amt">~$525/mo</span></div><span class="why">Same rule as ever — grab the free money first.</span></div></li>
-          <li class="triple"><span class="mk">2</span><div><div class="destline"><span class="dest">Max the HSA</span><span class="amt">~$365/mo</span></div><span class="why">Triple tax-free. It jumps the queue because nothing beats its tax treatment.</span></div></li>
-          <li class="free"><span class="mk">3</span><div><div class="destline"><span class="dest">Max a Roth IRA</span><span class="amt">$625/mo</span></div><span class="why">Still allowed at $140k — but above ~$150k the door starts closing. If a raise pushes her over, she switches to the <b>backdoor</b> (next tier).</span></div></li>
-          <li class="def"><span class="mk">4</span><div><div class="destline"><span class="dest">Fill the rest of the 401(k)</span><span class="amt">toward $24,500/yr</span></div><span class="why">Now split it: some <b>pre-tax</b> for a tax break today, some <b>Roth</b> for tax-free money later. That mix hedges against not knowing future tax rates.</span></div></li>
-          <li class="cash"><span class="mk">5</span><div><div class="destline"><span class="dest">Anything extra → taxable brokerage</span><span class="amt">leftover</span></div><span class="why">No limits, fully flexible, and reachable before retirement.</span></div></li>
-        </ol>
-        <p class="tier-idea"><b>The idea:</b> you've climbed into the 24% bracket, so the upfront tax break from pre-tax dollars is now genuinely valuable — start mixing buckets instead of going all-Roth.</p>
-      </div>
-    </div>
-
-    <!-- Tier 4 -->
-    <div class="tier">
-      <div class="tier-head">
-        <div class="tier-topline"><span class="tier-range">~$200k – $400k</span><span class="brk">24–32% bracket</span></div>
-        <p class="tier-headline"><b>Lean pre-tax, and go through the backdoor.</b> The normal Roth door is shut, so you take the legal back route.</p>
-      </div>
-      <div class="tier-body">
-        <p class="meet"><span class="name">Marcus, 42</span> — earns <b>$280k</b>, can save about <b>$5,000/month</b>.</p>
-        <ol class="alloc">
-          <li class="def"><span class="mk">1</span><div><div class="destline"><span class="dest">Max the 401(k) — pre-tax</span><span class="amt">~$2,040/mo · $24,500/yr</span></div><span class="why">At a ~32% rate, every pre-tax dollar cuts this year's tax bill by about <b>32 cents</b>. The deduction is worth a lot right now.</span></div></li>
-          <li class="triple"><span class="mk">2</span><div><div class="destline"><span class="dest">Max the HSA</span><span class="amt">~$365 (or ~$730 family)</span></div><span class="why">Still the best deal; still jumps the line.</span></div></li>
-          <li class="free"><span class="mk">3</span><div><div class="destline"><span class="dest">Backdoor Roth IRA</span><span class="amt">$7,500/yr</span></div><span class="why">He earns too much to add to a Roth directly, so he uses the <b>backdoor</b>: put money in a Traditional IRA, then convert it to a Roth. Same result, no income limit. (One trap to clear first — see §9.)</span></div></li>
-          <li class="free"><span class="mk">4</span><div><div class="destline"><span class="dest">Mega-backdoor Roth — if his plan allows it</span><span class="amt">up to tens of $k/yr</span></div><span class="why">Some 401(k)s let you add extra after-tax money and convert it to Roth, piling on far more tax-free savings. Worth a 5-minute call to his plan to check.</span></div></li>
-          <li class="cash"><span class="mk">5</span><div><div class="destline"><span class="dest">Taxable brokerage — the overflow</span><span class="amt">leftover</span></div><span class="why">Invested with smart "asset location" (§7) and yearly loss-harvesting (§9) to keep the tax bill down.</span></div></li>
-        </ol>
-        <p class="tier-idea"><b>Heads-up:</b> once income passes <b>$200k single / $250k married</b>, two extra taxes on investment income switch on (a 3.8% surtax and a 0.9% Medicare tax) — one more reason to keep as much as possible inside tax-sheltered accounts.</p>
-      </div>
-    </div>
-
-    <!-- Tier 5: high earner -->
-    <div class="tier">
-      <div class="tier-head">
-        <div class="tier-topline"><span class="tier-range">$400k +</span><span class="brk">35–37% bracket</span></div>
-        <p class="tier-headline"><b>The kitchen sink.</b> Use every shelter and every legal Roth route — and if you have business income, the ceiling goes up dramatically.</p>
-      </div>
-      <div class="tier-body">
-        <p class="meet"><span class="name">At this level</span> the tax break from pre-tax dollars is worth the most it ever will (35–37 cents back per dollar), and the goal is simply to shelter the maximum.</p>
-        <ol class="alloc">
-          <li class="def"><span class="mk">1</span><div><div class="destline"><span class="dest">Max every pre-tax dollar</span><span class="amt">$24,500 + employer</span></div><span class="why">Full 401(k). With self-employment income, add a <b>Solo 401(k) or SEP</b> — that alone can shelter up to <b>$72,000</b> (see overlay below).</span></div></li>
-          <li class="free"><span class="mk">2</span><div><div class="destline"><span class="dest">Backdoor Roth — for both spouses</span><span class="amt">$7,500 each</span></div><span class="why">Two backdoors if married. Clear the §9 trap first.</span></div></li>
-          <li class="free"><span class="mk">3</span><div><div class="destline"><span class="dest">Mega-backdoor Roth</span><span class="amt">max the plan allows</span></div><span class="why">Often the single largest source of new Roth money for a high earner.</span></div></li>
-          <li class="triple"><span class="mk">4</span><div><div class="destline"><span class="dest">Max the HSA</span><span class="amt">$4,400 / $8,750</span></div><span class="why">Always.</span></div></li>
-          <li class="cash"><span class="mk">5</span><div><div class="destline"><span class="dest">Taxable brokerage, run deliberately</span><span class="amt">the rest</span></div><span class="why">Asset location, yearly tax-loss harvesting, and donating appreciated stock instead of cash (§9).</span></div></li>
-          <li class="free"><span class="mk">6</span><div><div class="destline"><span class="dest">Goals &amp; giving</span><span class="amt">as desired</span></div><span class="why">529s for education, and a donor-advised fund to make charitable giving tax-efficient.</span></div></li>
-        </ol>
-        <p class="tier-idea"><b>If you're self-employed and earning well:</b> look into a <b>cash-balance (defined-benefit) plan</b> — it can shelter six figures a year on top of a Solo 401(k).</p>
-      </div>
-    </div>
-
-    <div class="call self">
-      <span class="lab">Self-employment overlay — applies at any income</span>
-      <p>The moment you have 1099 or business income, a <strong>Solo 401(k)</strong> opens up — letting you shelter up to <span class="num">$72,000</span> a year, far more than an employee's $24,500. You contribute both as the "employee" ($24,500) and as the "employer" (up to 25% of your net profit). It's the biggest single lever a consultant or business owner has, and it stacks on top of any regular-job 401(k) match. Two things to remember: the $24,500 employee piece is shared with any W-2 401(k) you also have, and a SEP or SIMPLE IRA balance can block your backdoor Roth (§9) — a Solo 401(k) sidesteps that.</p>
-    </div>
-  </section>
-
-  <!-- 6 -->
-  <section class="s" id="age">
-    <div class="s-head"><span class="s-num">06</span><h2>Strategy by age</h2></div>
-    <p class="s-intro">Income sets the bucket; age sets the <em>tactics</em> — how aggressive the investments are, which catch-ups unlock, and when the rare planning windows open.</p>
-
-    <h3>20s — time is the whole advantage</h3>
-    <ul class="clean">
-      <li>Decades of compounding make this the best era for <span class="tag free">Roth</span>: low bracket now, tax-free growth for 40+ years. A dollar at 25 is worth many times a dollar at 45.</li>
-      <li>Grab the match, build a starter emergency fund, and hold ~90–100% stocks — you have time to ride out every crash.</li>
-      <li>The amount matters less than starting. Even $100/month, begun now, becomes serious money.</li>
-    </ul>
-
-    <h3>30s — earnings rise, complexity arrives</h3>
-    <ul class="clean">
-      <li>Keep maxing what you can; begin shifting some contributions to <span class="tag def">pre-tax</span> as your bracket climbs.</li>
-      <li>Use the HSA as a stealth retirement account. Marriage and kids bring a new filing status, a possible spousal IRA, and 529s.</li>
-      <li>Still mostly stocks — retirement is decades away.</li>
-    </ul>
-
-    <h3>40s — peak saving, peak pre-tax value</h3>
-    <ul class="clean">
-      <li>Often your highest-earning, highest-bracket years, so the pre-tax deduction is worth the most. Max everything; run backdoor and mega-backdoor Roth if you're a high earner.</li>
-      <li>Begin a gentle glide toward a few bonds, but stay stock-heavy — you still have 20+ years.</li>
-      <li>Guard against lifestyle creep: raises should mostly raise your savings rate.</li>
-    </ul>
-
-    <h3>50s — catch-ups unlock</h3>
-    <ul class="clean">
-      <li>At 50 you can add <strong>+$8,000</strong> to the 401(k) and <strong>+$1,100</strong> to an IRA every year. Use them.</li>
-      <li>Map your actual retirement income now; start de-risking modestly toward your target mix.</li>
-      <li>If you're a high earner over 50, remember the new rule: your catch-up may be required to be Roth (§3).</li>
-    </ul>
-
-    <h3>60s — the super catch-up and the conversion window</h3>
-    <ul class="clean">
-      <li>At ages <strong>60–63</strong> the 401(k) catch-up jumps to <strong>+$11,250</strong> — a brief, larger window to top up.</li>
-      <li><strong>The golden window:</strong> after you stop working but before Social Security and Required Minimum Distributions begin, your taxable income is often unusually low. These are the prime years to <em>convert</em> pre-tax money to Roth at low rates and to realize gains in the 0% bracket (§9, §11).</li>
-      <li>HSA contributions must end when you enroll in Medicare, but you can keep spending the balance tax-free.</li>
-    </ul>
-
-    <h3>70s and beyond — RMDs and giving</h3>
-    <ul class="clean">
-      <li><strong>Required Minimum Distributions</strong> begin at age <strong>73</strong> (rising to 75 in 2033): the IRS forces taxable withdrawals from pre-tax accounts. Plan ahead so they don't spike your bracket or your Medicare premiums.</li>
-      <li>From age 70½ you can make <strong>Qualified Charitable Distributions</strong> — send IRA money straight to charity (up to ~$108k/yr), satisfying the RMD with zero tax.</li>
-      <li>Roth accounts have <em>no</em> RMDs — leave them growing, or pass them to heirs as a tax-free inheritance.</li>
-    </ul>
-  </section>
-
-  <!-- 7 -->
-  <section class="s" id="inside">
-    <div class="s-head"><span class="s-num">07</span><h2>Stocks, bonds &amp; what goes inside</h2></div>
-    <p class="s-intro">The accounts are wrappers; the investments inside them are the engine. Choosing a 401(k) does nothing until you pick what it holds — a surprising number of accounts sit in cash by default.</p>
-
-    <div class="tbl-scroll">
-      <table>
-        <caption>Long-run expectations — rough, historical, not guarantees</caption>
-        <thead><tr><th>Asset</th><th class="r">~Nominal return / yr</th><th class="r">~After ~2.7% inflation</th><th>Behaves like</th></tr></thead>
-        <tbody>
-          <tr><td>U.S. stocks (broad index)</td><td class="r">~10%</td><td class="r">~7%</td><td>High growth, high volatility — the long-term wealth builder</td></tr>
-          <tr><td>Bonds (investment-grade)</td><td class="r">~4–5%</td><td class="r">~1–2%</td><td>Ballast — steadier, cushions stock crashes</td></tr>
-          <tr><td>Cash / T-bills / HYSA</td><td class="r">~3.5–4.4% <em>(today)</em></td><td class="r">~0–1%</td><td>Safety &amp; liquidity — roughly keeps pace with inflation, doesn't build wealth</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h3>Stocks vs. a high-yield savings account</h3>
-    <p class="reading">This is the comparison people get stuck on. A HYSA paying ~4% feels great after years of near-zero rates — but after tax and ~2.7% inflation, its <em>real</em> return is close to zero. Stocks have a far higher <em>expected</em> return, but can fall 30–50% in a bad year. The deciding factor isn't which is "better" — it's your <strong>time horizon</strong>:</p>
-    <ul class="clean">
-      <li><strong>Need it within ~2–3 years</strong> (emergency fund, near-term house, a wedding) → cash. The market's short-term swings are too large to risk.</li>
-      <li><strong>Won't touch it for 10+ years</strong> (retirement) → stocks. Historically, every 20-year holding period for a broad U.S. index has ended positive in real terms — though the past never guarantees the future.</li>
-      <li><strong>In between</strong> → a blend, sliding toward cash/bonds as the date nears.</li>
-    </ul>
-
-    <h3>Keep the investments boring</h3>
-    <ul class="clean">
-      <li><strong>Low-cost index funds</strong> (total U.S. market, total international, total bond) capture the market's return for a tiny fee. Fees compound against you exactly like tax drag — a 1% annual fee can quietly eat ~25% of a lifetime's growth.</li>
-      <li><strong>Target-date funds</strong> bundle a diversified, automatically-de-risking mix into one fund matched to your retirement year — a fine all-in-one default, especially inside a 401(k).</li>
-      <li>Diversification and low cost beat stock-picking for almost everyone, almost always.</li>
-    </ul>
-
-    <div class="call key">
-      <span class="lab">Asset location — the free lunch most people miss</span>
-      <p>Once you hold investments across all three buckets, <em>which</em> bucket holds <em>which</em> asset changes your tax bill with zero change in risk:</p>
-      <ul class="clean" style="margin-top:8px">
-        <li>Put <strong>tax-inefficient</strong> assets (bonds, REITs — they spit out taxable income) in <span class="tag def">tax-deferred</span> accounts, where that income is shielded.</li>
-        <li>Put <strong>tax-efficient</strong> assets (broad stock index funds — low dividends, gains you control) in the <span class="tag cash">taxable</span> account.</li>
-        <li>Put your <strong>highest-growth</strong> assets in the <span class="tag free">Roth</span>, where decades of growth come out entirely tax-free.</li>
+  <div class="doors">
+    <a class="door d-learn" href="guide.html">
+      <div class="dk">The field guide</div>
+      <h3>Learn the rules</h3>
+      <p class="dd">Every account in plain English, the order to fund them, and what to do at your income and your age. Built to be skimmed, not read cover to cover.</p>
+      <ul>
+        <li>All 2026 limits, brackets, and income cutoffs in one place</li>
+        <li>The funding waterfall — where your next dollar actually goes</li>
+        <li>Worked examples at every income, from $38k to $400k+</li>
+        <li>A step-by-step <b>Fidelity mega-backdoor Roth</b> walkthrough</li>
+        <li>Hover any term you don't know for a plain-English definition</li>
       </ul>
-    </div>
-  </section>
+      <span class="go">Open the guide <span class="arw">→</span></span>
+    </a>
 
-  <!-- 8 -->
-  <section class="s" id="cash">
-    <div class="s-head"><span class="s-num">08</span><h2>Cash &amp; HYSA, in depth</h2></div>
-    <p class="s-intro">Cash has exactly two jobs: keep you safe and keep you liquid. It is not where wealth is built — holding too much is its own quiet mistake.</p>
-
-    <h3>What cash is for</h3>
-    <ul class="clean">
-      <li><strong>Emergency fund:</strong> 3–6 months of essential expenses (6–12 if your income is variable or self-employed). This is insurance, not an investment — its job is to exist, not to grow.</li>
-      <li><strong>Short-term goals:</strong> anything you'll spend within ~2–3 years.</li>
-      <li><strong>Dry powder:</strong> a modest reserve so you never have to sell investments at a bad moment.</li>
-    </ul>
-
-    <h3>The cash menu (June 2026)</h3>
-    <div class="tbl-scroll">
-      <table>
-        <caption>Where to park cash</caption>
-        <thead><tr><th>Vehicle</th><th class="r">~Yield now</th><th>Liquidity</th><th>Best for</th></tr></thead>
-        <tbody>
-          <tr><td>High-yield savings (HYSA)</td><td class="r">4.0–4.4%</td><td>Instant (a few transfers/mo)</td><td>The default home for an emergency fund</td></tr>
-          <tr><td>Money-market fund</td><td class="r">~3.5–4%</td><td>~1 day</td><td>Cash held inside a brokerage</td></tr>
-          <tr><td>Treasury bills (T-bills)</td><td class="r">~3.5–3.75%</td><td>Sell anytime / hold to maturity</td><td>High earners — interest is <b>state-tax-free</b></td></tr>
-          <tr><td>CDs</td><td class="r">up to ~4.3%</td><td>Locked (early-exit penalty)</td><td>Locking a rate for a known date</td></tr>
-          <tr><td>I-bonds</td><td class="r">Inflation-linked</td><td>Locked 1 yr; penalty before 5</td><td>A long-term inflation hedge (purchase limits apply)</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="reading" style="font-size:14.5px;color:var(--ink-faint)">The national-average savings rate is about <span class="num">0.38%</span>, and the largest banks often pay <span class="num">0.01%</span>. Leaving an emergency fund in a big-bank checking account quietly forfeits ~4% a year — easy money for a 10-minute transfer to an online HYSA.</p>
-
-    <div class="call high">
-      <span class="lab">High earner, taxed state → use Treasuries for cash</span>
-      <p>Interest from a HYSA or CD is taxed as ordinary income at both the federal and state level. <strong>T-bills and Treasury money-market funds are exempt from state income tax.</strong> In a high-tax state, a slightly-lower-headline Treasury yield often beats a HYSA after tax. (In a no- or low-income-tax state, the difference largely disappears — a HYSA's convenience may win.)</p>
-    </div>
-
-    <div class="call trap">
-      <span class="lab">The cash-drag mistake</span>
-      <p>Beyond your emergency fund and near-term goals, large idle cash balances slowly <em>lose</em> purchasing power: ~4% interest minus tax minus ~2.7% inflation leaves almost nothing real. Cash earmarked for a goal a decade away is money quietly shrinking. Decide what each pile of cash is <em>for</em> — and invest anything with a long horizon.</p>
-    </div>
-  </section>
-
-  <!-- 9 -->
-  <section class="s" id="advanced">
-    <div class="s-head"><span class="s-num">09</span><h2>Advanced tax moves</h2></div>
-    <p class="s-intro">Once the basics are humming, these are the levers that move real money — most relevant to high earners and the self-employed.</p>
-
-    <h3>Backdoor Roth IRA</h3>
-    <p class="reading">If your income is over the Roth limit, you can't contribute directly — but there's no income limit on <em>converting</em>. So you contribute (non-deductible) to a Traditional IRA, then convert it to Roth shortly after. The result is the same as a Roth contribution. Both spouses can do it.</p>
-    <div class="call trap">
-      <span class="lab">The pro-rata trap — read before rolling a 401(k) into an IRA</span>
-      <p>The IRS treats <em>all</em> your non-Roth IRAs as one pool when you convert. If you hold <strong>any</strong> pre-tax IRA money — including a <strong>rollover IRA</strong> from an old 401(k), or a SEP/SIMPLE IRA — your backdoor conversion is taxed <em>proportionally</em>. You can't convert only the after-tax dollars.</p>
-      <p><strong>The fix:</strong> before doing a backdoor Roth, move that pre-tax IRA balance <em>into</em> a 401(k) or Solo 401(k) that accepts roll-ins (401(k)s aren't counted in the pro-rata math), emptying your IRA to <span class="num">$0</span> by December 31 of the conversion year. Clear the rollover IRA first, then run the backdoor cleanly.</p>
-    </div>
-
-    <h3>Mega-backdoor Roth</h3>
-    <p class="reading">A way to push tens of thousands more into Roth each year — <em>if</em> your 401(k) allows (a) after-tax (non-Roth) contributions and (b) in-plan Roth conversions or in-service withdrawals. You fill the gap between your $24,500 deferral + employer match and the $72,000 total limit with after-tax dollars, then immediately convert them to Roth. Confirm both features with your plan administrator; many plans support one but not the other.</p>
-
-    <div class="fm" id="fidelity">
-      <div class="fm-head">
-        <div class="eyebrow">Field manual · do it for real</div>
-        <h3>The mega-backdoor Roth on Fidelity, step by step</h3>
-        <p>Most large-company 401(k)s live at Fidelity NetBenefits, so here's the actual click-path. The whole setup is about 20 minutes, most of it one phone call — and once it's on, it runs itself every paycheck.</p>
-      </div>
-      <div class="fm-body">
-
-        <div class="fstep"><span class="fn">1</span><div>
-          <h4>Confirm your plan has both switches</h4>
-          <p>Your plan must allow <b>after-tax contributions</b> (a third bucket, separate from pre-tax and Roth) <em>and</em> a way to convert them — either <b>in-plan Roth conversion</b> or <b>in-service withdrawal</b> to a Roth IRA. Not all plans have both; some have neither.</p>
-          <span class="where">NetBenefits → your 401(k) → <b>Plan Information / Summary Plan Description</b> — or just call the Fidelity workplace number on the site and ask both questions directly</span>
-          <p>If the answer is no to either, stop here — there's nothing to set up (but it's worth asking HR to add it; plans do).</p>
-        </div></div>
-
-        <div class="fstep"><span class="fn">2</span><div>
-          <h4>Do the math for your after-tax amount</h4>
-          <p>Your ceiling: <b>$72,000 (2026) − your $24,500 deferral − everything your employer contributes</b>. Example: max deferral + a $12,000 match leaves <b>$35,500</b> of after-tax room. Divide by your remaining paychecks to get a per-paycheck percentage.</p>
-          <p>Make sure your regular pre-tax/Roth contribution is set to hit its own max first — after-tax dollars are the <em>overflow</em>, not a replacement.</p>
-        </div></div>
-
-        <div class="fstep"><span class="fn">3</span><div>
-          <h4>Turn on after-tax contributions</h4>
-          <span class="where">NetBenefits → <b>Contributions</b> → Contribution Amount → set the <b>"After-tax"</b> percentage</span>
-          <p>It appears as its own line next to your pre-tax and Roth percentages. If you don't see an after-tax line at all, your plan doesn't offer it (see step 1).</p>
-        </div></div>
-
-        <div class="fstep"><span class="fn">4</span><div>
-          <h4>Switch on automatic conversion — the step people miss</h4>
-          <p>Without this, after-tax money just sits there growing <em>taxable</em> earnings, which defeats the point. You want Fidelity to convert every after-tax dollar to Roth <b>the same day it lands</b>.</p>
-          <span class="where">Some plans: NetBenefits → your plan → a <b>"Convert to Roth"</b> link · Many plans: call the Fidelity workplace-plan phone line and say: <b>"Please enable automatic Roth in-plan conversion of my after-tax contributions."</b></span>
-          <p>The rep flips a flag on your account. From then on, conversion is daily and automatic — no per-paycheck phone calls.</p>
-        </div></div>
-
-        <div class="fstep"><span class="fn">5</span><div>
-          <h4>Verify after your next paycheck</h4>
-          <span class="where">NetBenefits → your plan → Balances → <b>"Sources"</b> — look for a <b>"Roth In-Plan Conversion"</b> line</span>
-          <p>If that source shows a balance matching your after-tax contribution, it's working. If the money is sitting in an "After-tax" source instead, the conversion flag isn't on — call back.</p>
-        </div></div>
-
-        <div class="fstep"><span class="fn">6</span><div>
-          <h4>Know the tax paperwork (it's light)</h4>
-          <p>Your after-tax contributions are never taxed again — only the sliver of <b>earnings between contribution and conversion</b> is taxable, and with same-day automatic conversion that's pennies. Each year Fidelity sends a <b>Form 1099-R</b> reporting the conversions; it flows into your return with little or no tax due. Nothing to file when you contribute.</p>
-        </div></div>
-
-      </div>
-    </div>
-
-    <div class="call note">
-      <span class="lab">Variations &amp; caveats</span>
-      <p><strong>Roth IRA instead of Roth 401(k):</strong> if your plan allows in-service withdrawals, you can periodically roll the after-tax money to a Roth IRA at Fidelity instead — more investment choice, but usually a manual request each time rather than automatic. <strong>Self-employed:</strong> Fidelity's off-the-shelf Solo 401(k) generally doesn't include after-tax contributions, so no mega-backdoor by default — third-party plan-document providers can add it; confirm current features with Fidelity before assuming. <strong>Every plan differs:</strong> menus move and rules vary by employer, so treat this as the map, and the rep on the phone as the ground truth.</p>
-    </div>
-
-    <h3>Tax-loss &amp; tax-gain harvesting</h3>
-    <ul class="clean">
-      <li><strong>Loss harvesting:</strong> in a taxable account, sell an investment that's down to "bank" the loss, then buy a similar (not identical) fund to stay invested. Losses offset capital gains plus up to $3,000 of ordinary income a year, and unused losses carry forward forever. Avoid the <strong>wash-sale rule</strong> — don't rebuy the same security within 30 days.</li>
-      <li><strong>Gain harvesting:</strong> in a year your taxable income sits in the 0% capital-gains bracket, deliberately sell winners and rebuy them — realizing gains at <em>0%</em> and resetting your cost basis higher.</li>
-    </ul>
-
-    <h3>Roth conversion ladder</h3>
-    <p class="reading">In low-income years — especially the gap between leaving work and starting RMDs/Social Security — convert chunks of pre-tax money to Roth, deliberately "filling up" the low brackets (e.g., converting just enough to reach the top of the 12% or 22% band). This pays tax now at a low rate, shrinks the future RMDs that would otherwise be taxed at a high rate, and builds tax-free Roth balances.</p>
-
-    <h3>HSA as a stealth IRA</h3>
-    <p class="reading">Covered in §2: pay medical costs out of pocket, invest the HSA, save receipts, and reimburse yourself tax-free years later. It's the only way to get money that was never taxed going <em>in</em> and is never taxed coming <em>out</em>.</p>
-
-    <h3>Charitable leverage</h3>
-    <ul class="clean">
-      <li><strong>Donate appreciated stock</strong> instead of cash: you skip the capital-gains tax <em>and</em> deduct the full value.</li>
-      <li><strong>Donor-advised fund:</strong> "bunch" several years of giving into one high-income year for a big deduction, then grant to charities over time.</li>
-      <li><strong>QCD</strong> at 70½: route RMD dollars straight to charity, tax-free (§6).</li>
-    </ul>
-
-    <div class="call self">
-      <span class="lab">State-tax timing — a relocation or income dip is an opportunity</span>
-      <p>A pre-tax deduction is worth your <em>combined</em> federal + state marginal rate. Moving from a high-tax state (e.g., California's top rate ~13.3%) to a low- or no-income-tax state (e.g., Arizona's flat 2.5%) sharply cuts the value of <em>new</em> pre-tax deductions — and makes <strong>Roth conversions much cheaper</strong>, since you'll pay little or no state tax on the converted amount. If a move or a low-income transition year is on the horizon, that's often the ideal time to convert pre-tax balances to Roth.</p>
-    </div>
-  </section>
-
-  <!-- 10 -->
-  <section class="s" id="vs">
-    <div class="s-head"><span class="s-num">10</span><h2>Traditional vs Roth</h2></div>
-    <p class="s-intro">The recurring fork: deduct now and pay tax later, or pay now and never again? It comes down to comparing your marginal rate today against your expected rate in retirement.</p>
-
-    <div class="tbl-scroll">
-      <table>
-        <caption>Which way to lean</caption>
-        <thead><tr><th>Favor <span class="tag free">Roth</span> when…</th><th>Favor <span class="tag def">pre-tax</span> when…</th></tr></thead>
-        <tbody>
-          <tr><td>You're young or in a low bracket now (10–22%)</td><td>You're in a high bracket now (32–37%)</td></tr>
-          <tr><td>You expect higher tax rates (yours or the country's) later</td><td>You expect a clearly lower bracket in retirement</td></tr>
-          <tr><td>You want no RMDs and maximum future flexibility</td><td>You live in a high-tax state now (deduct at a high state rate)</td></tr>
-          <tr><td>You're a heavy saver — the after-tax limit shelters effectively more</td><td>You'll retire to a low-tax state (defer state tax now, pay little later)</td></tr>
-          <tr><td>You're in a low- or no-income-tax state today</td><td>You need the deduction to free up cash to invest at all</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="call key">
-      <span class="lab">In practice: most high earners do both</span>
-      <p>The common high-income build is <strong>pre-tax 401(k)</strong> (deduct at 32–37% now) <em>plus</em> a <strong>backdoor Roth IRA</strong> and <strong>mega-backdoor Roth</strong> (tax-free later). That deliberately creates balances in two buckets, so in retirement you can blend withdrawals to control your bracket year by year. Tax diversification isn't indecision — it's the hedge against not knowing future tax law.</p>
-    </div>
-  </section>
-
-  <!-- 11 -->
-  <section class="s" id="spend">
-    <div class="s-head"><span class="s-num">11</span><h2>Spending it down</h2></div>
-    <p class="s-intro">Accumulation gets the attention; the withdrawal phase quietly determines how much of it you keep. The same pot of money produces very different lifetime tax bills depending on the order you draw from each bucket.</p>
-
-    <h3>The three pools, and the order to tap them</h3>
-    <ul class="clean">
-      <li><strong>Conventional order:</strong> spend <span class="tag cash">taxable</span> first → then <span class="tag def">tax-deferred</span> → leave <span class="tag free">Roth</span> for last, so the tax-free account compounds the longest.</li>
-      <li><strong>Usually better:</strong> blend across pools each year to "fill up" the low brackets — and use the low-income years before RMDs to run Roth conversions (§9). Draining only tax-deferred accounts late in life can trigger a painful RMD spike.</li>
-    </ul>
-
-    <h3>The 4% guideline</h3>
-    <p class="reading">A rough rule of thumb: withdrawing about <strong>4% of your portfolio in year one</strong>, then adjusting for inflation, has historically lasted ~30 years across most market histories. It's a planning heuristic, not a promise — it depends on your mix, fees, sequence of returns, and how flexible your spending can be. Use it to size a target, then adjust to real life.</p>
-
-    <h3>Forced withdrawals and surcharges</h3>
-    <ul class="clean">
-      <li><strong>RMDs at 73</strong> (75 from 2033) force taxable distributions from pre-tax accounts whether you need the money or not — the reason to shrink those balances earlier via conversions. Roth accounts have none.</li>
-      <li><strong>IRMAA:</strong> Medicare Part B/D premiums rise with income, on a ~2-year lookback. A big conversion or RMD can bump premiums — coordinate the timing.</li>
-      <li><strong>Social Security timing:</strong> delaying benefits raises the monthly amount; claiming interacts with your other income and taxes. Worth modeling alongside your withdrawal plan.</li>
-    </ul>
-  </section>
-
-  <!-- 12 -->
-  <section class="s" id="profiles">
-    <div class="s-head"><span class="s-num">12</span><h2>Three worked profiles</h2></div>
-    <p class="s-intro">The same framework, applied to three common situations. Find the one nearest yours and adapt.</p>
-
-    <div class="profile pA">
-      <h3>A · Early-career employee</h3>
-      <div class="tagline">~26 years old · $70k salary · standard W-2 job</div>
-      <p>Bracket is low and the horizon is enormous — optimize for tax-free growth and the savings habit.</p>
-      <ul class="clean">
-        <li>Contribute to the 401(k) up to the full match, as <span class="tag free">Roth</span> if offered.</li>
-        <li>Open and max a <strong>Roth IRA</strong> ($7,500), invested in a low-cost total-market index or a target-date fund.</li>
-        <li>If on an HDHP, max the <strong>HSA</strong> and invest it. Build a 3–6 month cash emergency fund in a HYSA.</li>
-        <li>Hold ~90–100% stocks and largely ignore the headlines.</li>
+    <a class="door d-play" href="the-long-game.html">
+      <div class="dk">Interactive stories</div>
+      <h3>See what it's worth</h3>
+      <p class="dd">Four careers, four sets of forks. Move a slider and a forty-year simulation re-runs live, so you can see what each choice actually costs or earns.</p>
+      <ul>
+        <li><b>The Physician</b> — debt, residency, and the PSLF question</li>
+        <li><b>The Engineer</b> — the five-minute question worth six figures</li>
+        <li><b>The Teacher</b> — the second retirement account nobody mentions</li>
+        <li><b>The Founder</b> — the biggest tax shelter in the code</li>
+        <li>Runs entirely in your browser; nothing saved, nothing sent</li>
       </ul>
-    </div>
+      <span class="go">Pick a life <span class="arw">→</span></span>
+    </a>
+  </div>
 
-    <div class="profile pB">
-      <h3>B · High-income W-2 household</h3>
-      <div class="tagline">~$300k combined · married · top of the 24–32% range</div>
-      <p>Over the Roth and Traditional-deduction limits — this is backdoor territory, with a focus on sheltering investment income.</p>
-      <ul class="clean">
-        <li>Max both 401(k)s <span class="tag def">pre-tax</span> (deduction is valuable here) and capture every match.</li>
-        <li><strong>Backdoor Roth</strong> for <em>each</em> spouse, every year. Max the <strong>HSA</strong>.</li>
-        <li>Use the <strong>mega-backdoor Roth</strong> if either plan supports after-tax + conversions.</li>
-        <li>Invest the surplus in a <strong>taxable</strong> account with asset location (bonds in the 401(k), index funds taxable) and harvest losses annually. NIIT applies above $250k — another reason to shelter.</li>
-        <li>Open <strong>529s</strong> for kids.</li>
-      </ul>
-    </div>
-
-    <div class="profile pC">
-      <h3>C · Going independent &amp; relocating to a low-tax state</h3>
-      <div class="tagline">High earner launching a consultancy · moving from a high-tax to a low/no-tax state · marrying another high earner</div>
-      <p>A transition year is full of levers — new business plans unlock far more shelter, and changing income and state tax open rare conversion windows.</p>
-      <ul class="clean">
-        <li><strong>Open a Solo 401(k)</strong> for the consulting income — shelter up to <span class="num">$72,000</span> (employee $24,500 + 25% of net profit), far beyond an employee's limit. Compare against a SEP-IRA, but the Solo 401(k) usually wins and keeps the backdoor clean.</li>
-        <li><strong>Clear any rollover/SEP IRA first.</strong> Before running the backdoor Roth, roll that pre-tax IRA into the Solo 401(k) (if it accepts roll-ins) to zero out the IRA and dodge the <strong>pro-rata trap</strong> (§9). Then do the backdoor cleanly — for both spouses.</li>
-        <li><strong>Time Roth conversions.</strong> A lower-income transition year, especially <em>after</em> the move to a low-tax state, is the cheapest moment to convert pre-tax balances to Roth — you pay little or no state tax on the conversion.</li>
-        <li><strong>Max the HSA</strong> if on an HDHP. Hold a larger cash buffer (6–12 months) since self-employment income is lumpy; favor <strong>T-bills/Treasury money-market</strong> for that cash.</li>
-        <li><strong>Coordinate as a household</strong> once married: a new joint filing status shifts every bracket and phase-out, and a future cash-balance plan can shelter six figures if business income grows.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- cheat sheet -->
-  <section class="s" id="cheat" style="border-top:none">
-    <div class="cheat">
-      <div class="eyebrow">One-page reference</div>
-      <h2 style="font-size:30px;margin:6px 0 4px">The cheat sheet</h2>
-      <div class="cheat-grid">
-        <div>
-          <h3 style="font-size:18px;margin:0 0 8px">Funding order</h3>
-          <ol>
-            <li>Starter cash (1 month)</li>
-            <li>401(k) to the full match</li>
-            <li>Kill &gt;7–8% debt</li>
-            <li>Max HSA</li>
-            <li>Max IRA (Roth / backdoor)</li>
-            <li>Finish the 401(k) ($24,500)</li>
-            <li>Full emergency fund (3–6 mo)</li>
-            <li>Mega-backdoor Roth</li>
-            <li>Taxable + 529 + goals</li>
-          </ol>
-        </div>
-        <div>
-          <h3 style="font-size:18px;margin:0 0 8px">2026 numbers</h3>
-          <table class="mini">
-            <tr><td>401(k) deferral</td><td class="r">$24,500</td></tr>
-            <tr><td>401(k) catch-up 50+ / 60–63</td><td class="r">+$8k / +$11.25k</td></tr>
-            <tr><td>IRA (Roth or Trad)</td><td class="r">$7,500</td></tr>
-            <tr><td>HSA self / family</td><td class="r">$4,400 / $8,750</td></tr>
-            <tr><td>401(k) total (you+employer)</td><td class="r">$72,000</td></tr>
-            <tr><td>Roth IRA cutoff (S / MFJ)</td><td class="r">$168k / $252k</td></tr>
-            <tr><td>NIIT starts (S / MFJ)</td><td class="r">$200k / $250k</td></tr>
-            <tr><td>Top bracket starts (S / MFJ)</td><td class="r">$640.6k / $768.7k</td></tr>
-          </table>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- note -->
-  <section class="s" id="note">
-    <div class="s-head"><span class="s-num">§</span><h2>What this is &amp; isn't</h2></div>
-    <p class="reading">This is an educational reference, not personalized financial or tax advice — I'm not a financial advisor or a CPA, and the right move always depends on the full picture of your income, goals, state, and risk tolerance. The figures are for tax year 2026 and were drawn from the IRS and major institutions as of June 2026; contribution limits, brackets, and phase-outs are adjusted annually, so re-check the current year's numbers before acting. For anything with real money or real consequences — especially backdoor and mega-backdoor mechanics, conversions, and self-employed plan setup — it's worth confirming the specifics with a fee-only fiduciary advisor and a CPA who can see your whole return.</p>
-  </section>
-
-  </main>
-</div>
-</div>
+  <div class="honest">
+    <h3>What this is, and what it isn't</h3>
+    <p>A free educational reference — the explanation most people never got. It is <b>not financial or tax advice</b>. Nobody here is your advisor or your CPA, and the right move always depends on your whole picture: income, goals, state, debts, and what lets you sleep at night.</p>
+    <p>All figures are for <b>tax year 2026</b>, checked against IRS sources in July 2026. Limits and brackets change every year, so verify the current numbers before you act. For the moves with real consequences — Roth conversions, the backdoor's pro-rata trap, self-employed plan setup — talk to a fee-only fiduciary advisor and a CPA who can see your actual return.</p>
+    <p>The simulations are deliberately simplified: one steady return, 2026 rules held constant, today's dollars. They exist to make <b>decisions</b> visible, not to predict your future.</p>
+  </div>
+</main>
 
 <footer>
-  <div class="wrap reading">
-    <p>Field guide to U.S. retirement &amp; tax-advantaged accounts · figures for tax year 2026 · sources include IRS Revenue Procedure 2025-32, IRS Notice 2025-67, and IRS Publication 590-A. Educational use only.</p>
+  <div class="wrap">
+    <p>The Long Game · A field guide to U.S. retirement and tax-advantaged accounts · Figures for tax year 2026, last reviewed July 2026 · Sources include IRS Revenue Procedure 2025-32, Notice 2025-67, and Publication 590-A · Educational use only.</p>
   </div>
 </footer>
 
-<script>
-  // mobile TOC toggle
-  (function(){
-    var t=document.getElementById('toc'), b=document.getElementById('tocToggle');
-    if(b){b.addEventListener('click',function(){
-      var open=t.classList.toggle('open');
-      b.setAttribute('aria-expanded',open);
-      b.textContent=open?'Hide sections ▴':'Jump to section ▾';
-    });
-    // collapse after choosing on mobile
-    t.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){
-      if(window.matchMedia('(max-width:900px)').matches){t.classList.remove('open');b.setAttribute('aria-expanded',false);b.textContent='Jump to section ▾';}
-    });});
-    }
-  })();
-
-  // scrollspy for active section
-  (function(){
-    if(!('IntersectionObserver' in window))return;
-    var links={}; document.querySelectorAll('nav.toc a').forEach(function(a){
-      var id=a.getAttribute('href').slice(1); links[id]=a;
-    });
-    var obs=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        var a=links[e.target.id]; if(!a)return;
-        if(e.isIntersecting){
-          Object.values(links).forEach(function(x){x.classList.remove('active')});
-          a.classList.add('active');
-        }
-      });
-    },{rootMargin:'-10% 0px -80% 0px',threshold:0});
-    document.querySelectorAll('section.s[id]').forEach(function(s){obs.observe(s)});
-  })();
-</script>
-<script>
-/* ═══════ hover glossary ═══════ */
-(function(){
-"use strict";
-var GLOSS={
- "mega-backdoor Roth":"Extra after-tax 401(k) dollars converted to Roth — can add ~$30k+ per year of tax-free savings if your plan allows it.",
- "backdoor Roth":"A legal two-step for high earners: contribute to a Traditional IRA (no deduction), then convert it to a Roth. Same result as a normal Roth contribution, no income limit.",
- "Roth conversion":"Moving money from a pre-tax account into a Roth. You pay income tax on the amount that year; it's tax-free forever after.",
- "in-plan conversion":"Converting after-tax 401(k) money to Roth inside the same plan — Fidelity can do it automatically every payday.",
- "in-service withdrawal":"Taking money out of your 401(k) while still employed there — some plans allow it for rolling after-tax dollars to a Roth IRA.",
- "after-tax contributions":"A third 401(k) bucket beyond pre-tax and Roth — the raw fuel of the mega-backdoor. On its own it's mediocre; converted to Roth it's gold.",
- "pro-rata rule":"When you convert IRA money, the IRS treats ALL your non-Roth IRAs as one mixed pool — you can't convert just the after-tax part. Pre-tax balances 'poison' the backdoor.",
- "tax-loss harvesting":"Selling an investment that's down to bank the loss (which offsets other taxes), then buying a similar fund so you stay invested.",
- "wash-sale rule":"If you rebuy the same investment within 30 days of selling it for a loss, the IRS cancels the loss.",
- "asset location":"Putting each kind of investment in the account where it's taxed least — bonds in pre-tax, stock index funds in taxable, highest growth in Roth.",
- "Solo 401(k)":"A 401(k) for the self-employed with no employees. You contribute as both employee ($24,500) and employer (25% of profit), up to $72,000.",
- "SEP-IRA":"A simpler self-employed retirement plan: contribute up to 25% of income, pre-tax. Easier than a Solo 401(k) but less flexible.",
- "SIMPLE IRA":"A starter retirement plan small employers offer — lower limits than a 401(k), with a required employer contribution.",
- "401(k)":"The standard workplace retirement account: money comes out of each paycheck, often with an employer match. 2026 limit: $24,500 of your own money.",
- "403(b)":"The 401(k)'s sibling for schools, hospitals, and nonprofits — same limits, same idea.",
- "457(b)":"A second plan for government and some nonprofit workers — with its OWN separate $24,500 limit, and penalty-free access at any age once you leave the job.",
- "TSP":"The federal government's version of a 401(k) (Thrift Savings Plan).",
- "Roth IRA":"A retirement account you open yourself: pay tax on money going in, then it grows and comes out completely tax-free. No forced withdrawals, ever.",
- "Traditional IRA":"A retirement account you open yourself: contributions may be tax-deductible now; withdrawals are taxed later as ordinary income.",
- "IRA":"Individual Retirement Account — a retirement account you open on your own, separate from any job. 2026 limit: $7,500.",
- "Roth":"The pay-tax-now style: no deduction today, but the money grows and comes out 100% tax-free in retirement.",
- "pre-tax":"The deduct-now style: contributions skip tax today, lowering this year's bill; you pay ordinary income tax when you withdraw in retirement.",
- "tax-deferred":"Same as pre-tax: no tax now or while growing — the tax bill comes when the money is withdrawn.",
- "HSA":"Health Savings Account — the only triple-tax-free account: deductible going in, grows untaxed, tax-free out for medical costs. Requires a high-deductible health plan.",
- "HDHP":"High-deductible health plan — the specific insurance type that makes you eligible to fund an HSA.",
- "MAGI":"Modified adjusted gross income — your income with a few items added back. The IRS uses it to decide who's over the limits.",
- "AGI":"Adjusted gross income — your income after certain deductions (like pre-tax 401(k) contributions). Many rules, including student-loan payments, key off it.",
- "marginal rate":"The tax rate on your NEXT dollar of income — the number that matters for deciding pre-tax vs Roth.",
- "tax bracket":"An income band taxed at one rate. Only the dollars inside a band pay that band's rate — earning more never lowers your take-home.",
- "standard deduction":"Income everyone gets tax-free before brackets apply: $16,100 single / $32,200 married in 2026.",
- "capital gains":"Profit from selling an investment. Held over a year, it's taxed at special lower rates (0%, 15%, or 20%).",
- "capital-gains":"Profit from selling an investment. Held over a year, it's taxed at special lower rates (0%, 15%, or 20%).",
- "dividends":"Cash that companies or funds pay their shareholders — taxed every year in a regular brokerage account.",
- "index fund":"One low-cost fund that owns the whole market instead of picking stocks. Boring on purpose; it beats most professionals.",
- "target-date fund":"An all-in-one fund matched to your retirement year that automatically shifts from stocks toward bonds as the date nears.",
- "brokerage":"A regular investment account: no tax perks, but also no limits, no income rules, and no withdrawal penalties.",
- "HYSA":"High-yield savings account — an online savings account paying roughly ten times the big-bank rate (~4% vs ~0.4% today).",
- "T-bills":"Treasury bills — short-term loans to the U.S. government. Safe, liquid, and the interest is exempt from state income tax.",
- "money market":"A fund holding ultra-short, ultra-safe debt — a common parking spot for cash inside a brokerage.",
- "employer match":"Free money your employer adds when you contribute to the plan — an instant 50–100% return. Always take all of it.",
- "RMD":"Required minimum distribution — starting at age 73, the IRS forces you to withdraw (and pay tax on) some of your pre-tax accounts each year. Roth accounts are exempt.",
- "Required Minimum Distributions":"Starting at age 73, the IRS forces annual taxable withdrawals from pre-tax accounts, needed or not. Roth accounts are exempt.",
- "NIIT":"Net Investment Income Tax — an extra 3.8% on investment income once income passes $200k single / $250k married.",
- "PSLF":"Public Service Loan Forgiveness — after 120 monthly payments while working for a nonprofit or government employer, remaining federal student loans are forgiven tax-free.",
- "IDR":"Income-driven repayment — federal student-loan payments set as a percentage of your income rather than your balance.",
- "income-driven repayment":"Federal student-loan payments set as a percentage of your income rather than your loan balance — the foundation PSLF is built on.",
- "IRMAA":"A Medicare premium surcharge at higher incomes — big withdrawals or conversions in retirement can bump it, on a two-year lookback.",
- "QCD":"Qualified charitable distribution — from age 70½, sending IRA money directly to charity, which satisfies the RMD with zero tax.",
- "529":"An education savings account: grows untaxed and comes out tax-free for tuition and school costs. Leftovers can partly roll to a Roth IRA.",
- "donor-advised fund":"A charitable account: donate (and deduct) a lump sum now, then grant it to charities over the years — great for 'bunching' giving into a high-income year.",
- "cost basis":"What you originally paid for an investment — you're only taxed on the sale price minus this.",
- "step-up":"At death, heirs' cost basis resets to the current market value — built-in gains in a taxable account are simply erased.",
- "compounding":"Growth earning growth on itself — the snowball. It's why time invested matters more than timing.",
- "1099-R":"The tax form reporting retirement-account distributions and conversions — Fidelity sends it automatically; it flows into your return.",
- "FICA":"The Social Security + Medicare payroll taxes taken from every paycheck — HSA payroll contributions uniquely dodge these too.",
- "Saver's Credit":"A government tax credit (up to $1,000) for lower-income workers who contribute to retirement accounts — free money on top of your own savings."
-};
-function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");}
-var SKIP="SCRIPT,STYLE,H1,H2,H3,H4,BUTTON,INPUT,SELECT,TEXTAREA,A,NAV";
-var SKIPSEL=".tag,.brk,.term,.seg,.cvv,.cheat,.lgnd,.eyebrow,.plab,.ctt,.where,.mono,.num,.s-num,.ch-num,.gloss-note";
-function skippable(el){
-  for(var e=el;e&&e.nodeType===1;e=e.parentNode){
-    if(SKIP.indexOf(e.tagName)>-1)return true;
-    if(e.matches&&e.matches(SKIPSEL))return true;
-  }
-  return false;
-}
-function wrapFirst(root,term,def){
-  var re=new RegExp("(^|[^A-Za-z0-9_\\-])("+esc(term)+")(?![A-Za-z0-9_\\-])","i");
-  var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
-  var n;
-  while((n=w.nextNode())){
-    if(!n.data||n.data.length<term.length)continue;
-    if(skippable(n.parentNode))continue;
-    var m=re.exec(n.data);
-    if(!m)continue;
-    var idx=m.index+m[1].length;
-    var t2=n.splitText(idx);t2.splitText(m[2].length);
-    var span=document.createElement("span");
-    span.className="term";span.tabIndex=0;span.setAttribute("data-def",def);
-    span.textContent=t2.data;
-    t2.parentNode.replaceChild(span,t2);
-    return true;
-  }
-  return false;
-}
-var terms=Object.keys(GLOSS).sort(function(a,b){return b.length-a.length;});
-var CONTAINERS="section.s, header.mast .lead, .ch, .story-head .sub, header.hero .lead";
-try{
-  document.querySelectorAll(CONTAINERS).forEach(function(sec){
-    terms.forEach(function(t){wrapFirst(sec,t,GLOSS[t]);});
-  });
-}catch(e){/* glossary is decorative — never break the page */}
-})();
-</script>
 </body>
 </html>
