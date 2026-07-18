@@ -3,30 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Long Game — where should your next dollar go?</title>
-<meta name="description" content="A free, plain-English guide to U.S. retirement and tax-advantaged accounts for 2026. Every account does the same thing: it changes when you're taxed. Learn the three buckets, then watch them play out over forty years in four interactive career stories.">
+<title>Where Should Your Next Dollar Go?</title>
+<meta name="description" content="A free, plain-English guide to retirement and tax-advantaged accounts for 2026. Money has three tax treatments. Learn them once and every account makes sense.">
 <meta name="author" content="The Long Game">
 <meta name="theme-color" content="#15202E">
 <meta property="og:type" content="website">
-<meta property="og:title" content="The Long Game — where should your next dollar go?">
-<meta property="og:description" content="401(k), Roth, HSA, backdoor, mega-backdoor. The jargon makes it sound complicated. It isn't — every account does the same thing: it changes when you're taxed.">
+<meta property="og:title" content="Where Should Your Next Dollar Go?">
+<meta property="og:description" content="Money has three tax treatments. Learn them once and every account makes sense. Free, plain English, 2026 figures.">
 <meta property="og:site_name" content="The Long Game">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The Long Game — where should your next dollar go?">
-<meta name="twitter:description" content="A free, plain-English guide to U.S. retirement accounts for 2026, plus four interactive career stories.">
+<meta name="twitter:title" content="Where Should Your Next Dollar Go?">
+<meta name="twitter:description" content="Money has three tax treatments. Learn them once and every account makes sense.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2315202E'/%3E%3Crect x='7' y='8' width='18' height='4' rx='2' fill='%231C6E8C'/%3E%3Crect x='7' y='14' width='18' height='4' rx='2' fill='%232E7D52'/%3E%3Crect x='7' y='20' width='18' height='4' rx='2' fill='%23A9701A'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#15202E; --ink-soft:#41505F; --ink-faint:#6A7682;
     --paper:#F7F5F0; --card:#FFFFFF; --rule:#E2DDD2; --rule-strong:#CFC8B8;
-    --deferred:#1C6E8C; --deferred-tint:#EAF2F5;
-    --free:#2E7D52;    --free-tint:#EAF4ED;
-    --cash:#A9701A;    --cash-tint:#F6EFE1;
-    --flag:#9B2D2D;
-    --maxw:1060px;
+    --deferred:#1C6E8C; --free:#2E7D52; --cash:#A9701A; --flag:#9B2D2D;
+    --free-tint:#EAF4ED;
+    --maxw:1080px;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -34,107 +32,154 @@
   body{margin:0;background:var(--paper);color:var(--ink);
     font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-  h1,h2,h3{font-family:"Newsreader",Georgia,serif;font-weight:500;line-height:1.1;letter-spacing:-.015em;margin:0}
+  h1,h2,h3{font-family:"Newsreader",Georgia,serif;font-weight:500;line-height:1.08;letter-spacing:-.018em;margin:0}
   p{margin:0 0 1em}
   a{color:var(--deferred)}
   .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);font-weight:500}
 
-  .skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:10px 16px;border-radius:0 0 8px 0;z-index:100;font-size:14px}
+  .skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:10px 16px;border-radius:0 0 8px 0;z-index:200;font-size:14px}
   .skip:focus{left:0}
 
-  /* ---------- hero ---------- */
-  header.hero{border-bottom:1px solid var(--rule);
-    background:radial-gradient(120% 90% at 88% -10%,rgba(28,110,140,.08),transparent 60%),
-               radial-gradient(120% 90% at 6% 0%,rgba(46,125,82,.07),transparent 55%)}
-  .hero-inner{padding:70px 0 46px;display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
-  .hero h1{font-size:clamp(38px,5.6vw,62px);margin:16px 0 18px}
-  .hero h1 em{font-style:italic;color:var(--deferred)}
-  .hero .lead{font-size:clamp(16.5px,2vw,19.5px);color:var(--ink-soft)}
-  .hero .lead b{color:var(--ink);font-weight:600}
-  .free-note{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);margin-top:20px;display:flex;flex-wrap:wrap;gap:6px 14px}
-  .free-note span{display:inline-flex;align-items:center;gap:6px}
-  .free-note span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--free)}
+  /* ---------- sticky nav + progress ---------- */
+  .sitenav{position:sticky;top:0;z-index:100;background:rgba(21,32,46,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#DCE3E8;font-size:13.5px}
+  .sitenav .bar{position:absolute;left:0;top:0;height:3px;width:100%;background:linear-gradient(90deg,var(--deferred),var(--free),var(--cash));transform-origin:0 50%;transform:scaleX(0)}
+  .sitenav .wrap{display:flex;align-items:center;gap:16px;padding-top:11px;padding-bottom:11px}
+  .sitenav a{color:#DCE3E8;text-decoration:none;padding:5px 12px;border-radius:7px}
+  .sitenav a:hover{background:#243240}
+  .sitenav a.brand{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#93A3AE;padding-left:0}
+  .sitenav a.brand:hover{background:none;color:#fff}
+  .sitenav .sp{flex:1}
 
-  /* ---------- the thesis table ---------- */
-  .thesis{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:20px 22px 16px;box-shadow:0 10px 34px rgba(21,32,46,.06)}
-  .thesis .tt{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px}
+  /* ---------- hero ---------- */
+  header.hero{border-bottom:1px solid var(--rule);overflow:hidden;position:relative;
+    background:radial-gradient(120% 100% at 88% -10%,rgba(28,110,140,.09),transparent 58%),
+               radial-gradient(120% 100% at 4% 4%,rgba(46,125,82,.08),transparent 54%),
+               radial-gradient(90% 90% at 55% 110%,rgba(169,112,26,.07),transparent 60%)}
+  .hero-inner{padding:84px 0 64px;display:grid;grid-template-columns:1.02fr .98fr;gap:56px;align-items:center}
+  .hero h1{font-size:clamp(42px,6.4vw,76px)}
+  .hero h1 em{font-style:italic;color:var(--deferred)}
+  .hero .lead{font-size:clamp(17px,2.1vw,20.5px);color:var(--ink-soft);margin:20px 0 26px;max-width:34ch}
+  .hero .lead b{color:var(--ink);font-weight:600}
+  .cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+  .cta{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:#fff;text-decoration:none;
+    font-weight:600;font-size:16.5px;padding:15px 26px;border-radius:12px;box-shadow:0 10px 26px rgba(21,32,46,.22);
+    transition:transform .14s ease,box-shadow .14s ease}
+  .cta:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(21,32,46,.28)}
+  .cta .arw{transition:transform .14s ease}
+  .cta:hover .arw{transform:translateX(4px)}
+  .cta-alt{font-size:14.5px;color:var(--ink-faint)}
+  .cta-alt a{color:var(--ink-soft);font-weight:600}
+  .trust{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);margin-top:26px;display:flex;flex-wrap:wrap;gap:6px 16px}
+  .trust span{display:inline-flex;align-items:center;gap:6px}
+  .trust span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--free)}
+
+  /* ---------- the one-idea card ---------- */
+  .thesis{background:var(--card);border:1px solid var(--rule);border-radius:18px;padding:24px 26px 20px;
+    box-shadow:0 22px 60px rgba(21,32,46,.10)}
+  .thesis .tt{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:16px}
   table.truth{width:100%;border-collapse:collapse;font-size:14px}
-  table.truth th,table.truth td{padding:9px 6px;text-align:center}
+  table.truth th,table.truth td{padding:11px 6px;text-align:center}
   table.truth thead th{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-faint);font-weight:500;border-bottom:1px solid var(--rule)}
-  table.truth tbody th{text-align:left;font-weight:600;font-size:14.5px;padding-left:0;border-top:1px solid var(--rule);white-space:nowrap}
-  table.truth tbody th small{display:block;font-weight:400;font-size:11.5px;color:var(--ink-faint);letter-spacing:0;text-transform:none;font-family:"IBM Plex Sans",sans-serif;margin-top:1px}
-  table.truth tbody td{border-top:1px solid var(--rule);font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:500}
-  td.ok{color:var(--free)}
-  td.no{color:var(--flag)}
+  table.truth tbody th{text-align:left;font-weight:600;font-size:15px;padding-left:0;border-top:1px solid var(--rule);white-space:nowrap}
+  table.truth tbody th small{display:block;font-weight:400;font-size:11.5px;color:var(--ink-faint);font-family:"IBM Plex Sans",sans-serif;margin-top:1px}
+  table.truth tbody td{border-top:1px solid var(--rule);font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600}
+  td.ok{color:var(--free)} td.no{color:var(--flag)}
   tr.hsa th,tr.hsa td{background:var(--free-tint)}
-  tr.hsa th{border-radius:8px 0 0 8px;padding-left:8px}
-  tr.hsa td:last-child{border-radius:0 8px 8px 0}
-  .thesis .punch{font-size:13.5px;color:var(--ink-soft);margin:14px 0 0;padding-top:12px;border-top:1px dashed var(--rule);line-height:1.5}
+  tr.hsa th{border-radius:9px 0 0 9px;padding-left:9px}
+  tr.hsa td:last-child{border-radius:0 9px 9px 0}
+  .thesis .punch{font-size:13.5px;color:var(--ink-soft);margin:15px 0 0;padding-top:13px;border-top:1px dashed var(--rule);line-height:1.55}
   .thesis .punch b{color:var(--ink)}
 
-  /* ---------- the two doors ---------- */
-  main{padding:52px 0 20px}
-  .sect-lab{text-align:center;margin-bottom:22px}
-  .sect-lab h2{font-size:clamp(25px,3.4vw,33px);margin:8px 0 6px}
-  .sect-lab p{color:var(--ink-soft);max-width:56ch;margin:0 auto;font-size:16px}
-  .doors{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-  .door{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:28px;text-decoration:none;color:inherit;display:flex;flex-direction:column;
-    border-top:5px solid var(--dc);transition:transform .14s ease,box-shadow .14s ease}
-  .door:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(21,32,46,.10)}
-  .door:focus-visible{outline:2px solid var(--dc);outline-offset:3px}
-  .d-learn{--dc:var(--free)} .d-play{--dc:var(--cash)}
-  .door .dk{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--dc);font-weight:600}
-  .door h3{font-size:29px;margin:8px 0 10px}
-  .door .dd{color:var(--ink-soft);font-size:15.5px;margin:0 0 16px;line-height:1.55}
-  .door ul{list-style:none;margin:0 0 18px;padding:0;font-size:14px;color:var(--ink-soft)}
-  .door li{padding-left:18px;position:relative;margin-bottom:5px;line-height:1.45}
-  .door li::before{content:"";position:absolute;left:2px;top:.6em;width:5px;height:5px;border-radius:50%;background:var(--dc);opacity:.55}
-  .door li b{color:var(--ink);font-weight:600}
-  .door .go{margin-top:auto;font-weight:600;font-size:15px;color:var(--dc);display:inline-flex;align-items:center;gap:7px}
-  .door:hover .go .arw{transform:translateX(4px)}
-  .go .arw{transition:transform .14s ease;display:inline-block}
+  /* ---------- five things ---------- */
+  .five{padding:64px 0 8px}
+  .five .sect{text-align:center;margin-bottom:30px}
+  .five h2{font-size:clamp(27px,3.6vw,38px);margin:8px 0 8px}
+  .five .sect p{color:var(--ink-soft);max-width:52ch;margin:0 auto;font-size:16.5px}
+  .steps5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;counter-reset:st}
+  .st{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:18px 16px 16px;position:relative;counter-increment:st;border-top:4px solid var(--sc,var(--rule-strong))}
+  .st::before{content:counter(st);position:absolute;top:-15px;left:14px;width:30px;height:30px;border-radius:50%;
+    background:var(--sc,var(--ink));color:#fff;font-family:"IBM Plex Mono",monospace;font-size:14px;font-weight:600;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(21,32,46,.18)}
+  .st b{display:block;font-size:15.5px;margin:8px 0 4px}
+  .st span{font-size:13px;color:var(--ink-soft);line-height:1.45;display:block}
+  .s1{--sc:var(--free)} .s2{--sc:var(--flag)} .s3{--sc:#155e63} .s4{--sc:var(--free)} .s5{--sc:var(--deferred)}
+  .five .after{text-align:center;margin-top:22px;font-size:14.5px;color:var(--ink-faint)}
+  .five .after a{font-weight:600}
 
-  /* ---------- honest strip ---------- */
-  .honest{margin:44px 0 0;background:var(--ink);color:#C9D3DA;border-radius:14px;padding:24px 28px;font-size:14.5px;line-height:1.6}
-  .honest h3{color:#fff;font-size:19px;margin:0 0 8px}
-  .honest p{margin:0 0 .7em;max-width:78ch}
-  .honest p:last-child{margin:0}
-  .honest b{color:#fff}
-  .honest a{color:#8FC7DE}
+  /* ---------- play banner ---------- */
+  .playband{margin:56px 0 0}
+  .play{display:grid;grid-template-columns:1fr auto;gap:26px;align-items:center;background:var(--ink);color:#D8E0E6;
+    border-radius:18px;padding:30px 34px;text-decoration:none;transition:transform .14s ease,box-shadow .14s ease;
+    background-image:radial-gradient(90% 140% at 100% 0%,rgba(169,112,26,.28),transparent 55%),radial-gradient(70% 120% at 0% 100%,rgba(28,110,140,.30),transparent 55%)}
+  .play:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(21,32,46,.30)}
+  .play .pk{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:#E2B36A;font-weight:600}
+  .play h3{color:#fff;font-size:clamp(23px,3vw,30px);margin:6px 0 8px}
+  .play p{margin:0;font-size:15px;max-width:62ch;line-height:1.55}
+  .play .go{font-weight:600;font-size:15.5px;color:#fff;white-space:nowrap;display:inline-flex;align-items:center;gap:9px;
+    border:1.5px solid rgba(255,255,255,.35);padding:12px 20px;border-radius:11px}
+  .play:hover .go{background:rgba(255,255,255,.10)}
 
-  footer{border-top:1px solid var(--rule);margin-top:44px;padding:26px 0 60px;color:var(--ink-faint);font-size:13px}
+  /* ---------- honest ---------- */
+  .honest{margin:56px 0 0;border-top:1px solid var(--rule);padding-top:30px;color:var(--ink-soft);font-size:14.5px;line-height:1.6}
+  .honest h3{font-size:19px;margin:0 0 8px;color:var(--ink)}
+  .honest p{max-width:76ch;margin:0 0 .7em}
+  .honest b{color:var(--ink)}
+
+  footer{border-top:1px solid var(--rule);margin-top:52px;padding:26px 0 60px;color:var(--ink-faint);font-size:13px}
   footer .wrap{max-width:820px}
 
-  @media (max-width:900px){
-    .hero-inner{grid-template-columns:1fr;gap:34px;padding:48px 0 38px}
-    .doors{grid-template-columns:1fr}
+  /* entrance */
+  .rise{opacity:0;transform:translateY(14px);animation:rise .7s ease forwards}
+  .d1{animation-delay:.05s}.d2{animation-delay:.15s}.d3{animation-delay:.28s}
+  @keyframes rise{to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.rise{opacity:1;transform:none;animation:none}}
+
+  @media (max-width:940px){
+    .hero-inner{grid-template-columns:1fr;gap:38px;padding:56px 0 44px}
+    .steps5{grid-template-columns:1fr 1fr;gap:20px 12px}
+    .steps5 .s5{grid-column:1 / -1}
+    .play{grid-template-columns:1fr;padding:26px}
   }
-  @media (max-width:420px){
+  @media (max-width:520px){
+    .steps5{grid-template-columns:1fr;gap:22px}
     table.truth thead th{font-size:8.5px}
-    table.truth tbody td{font-size:11px}
-    table.truth th,table.truth td{padding:8px 3px}
+    table.truth th,table.truth td{padding:9px 3px}
     table.truth tbody th{font-size:13.5px}
   }
 </style>
 </head>
 <body>
 
-<a class="skip" href="#choose">Skip to content</a>
+<a class="skip" href="#idea">Skip to content</a>
+
+<nav class="sitenav" aria-label="Site">
+  <div class="bar" id="pbar"></div>
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-current="page">The Long Game</a>
+    <span class="sp"></span>
+    <a href="guide.html">The guide</a>
+    <a href="the-long-game.html">The stories</a>
+  </div>
+</nav>
 
 <header class="hero">
   <div class="wrap hero-inner">
-    <div>
-      <div class="eyebrow">Free · No sign-up · 2026 figures</div>
+    <div class="rise d1">
+      <div class="eyebrow">Free · Plain English · 2026 figures</div>
       <h1>Where should your <em>next dollar</em> go?</h1>
-      <p class="lead">401(k), Roth, HSA, backdoor, mega-backdoor — the jargon makes this sound complicated. It isn't. <b>Every one of these accounts does the same single thing: it changes <em>when</em> the government taxes your money.</b> There are only three answers, and they fit in the table beside this. Learn that, and the rest is detail.</p>
-      <div class="free-note">
+      <p class="lead">Retirement accounts sound complicated. They are not. <b>Every account answers one question: when does the tax hit?</b> There are only three answers. This site teaches you all three, then shows you exactly what to do.</p>
+      <div class="cta-row">
+        <a class="cta" href="guide.html">Start the guide <span class="arw">→</span></a>
+        <span class="cta-alt">10 minutes to the core idea. <a href="the-long-game.html">Or see it play out first.</a></span>
+      </div>
+      <div class="trust">
         <span>Nothing to buy</span>
-        <span>No accounts to open</span>
+        <span>No sign-up</span>
         <span>No data collected</span>
       </div>
     </div>
 
-    <div class="thesis">
+    <div class="thesis rise d2" id="idea">
       <div class="tt">The whole idea, in one table</div>
       <table class="truth">
         <thead>
@@ -159,54 +204,46 @@
           </tr>
         </tbody>
       </table>
-      <p class="punch">Read across the rows. <b>Pre-tax</b> pays tax later, <b>Roth</b> pays now and never again, <b>taxable</b> pays the whole way. Then look at the green row: the <b>HSA</b> is the only account in the U.S. tax code that escapes tax at all three moments — which is why it outranks nearly everything, despite its small limit.</p>
+      <p class="punch">Read each row left to right. Every account pays tax at some point. Except one. The green row is the <b>HSA</b>, the only account that never gets taxed at any step. That is why it beats almost everything, even with its small limit.</p>
     </div>
   </div>
 </header>
 
-<main class="wrap" id="choose">
-  <div class="sect-lab">
-    <div class="eyebrow">Two ways in</div>
-    <h2>Learn the rules, then watch them play out</h2>
-    <p>One half teaches you the system. The other lets you drag sliders and watch forty years of consequences unfold. Start on either side — they link to each other throughout.</p>
-  </div>
+<main class="wrap">
 
-  <div class="doors">
-    <a class="door d-learn" href="guide.html">
-      <div class="dk">The field guide</div>
-      <h3>Learn the rules</h3>
-      <p class="dd">Every account in plain English, the order to fund them, and what to do at your income and your age. Built to be skimmed, not read cover to cover.</p>
-      <ul>
-        <li>All 2026 limits, brackets, and income cutoffs in one place</li>
-        <li>The funding waterfall — where your next dollar actually goes</li>
-        <li>Worked examples at every income, from $38k to $400k+</li>
-        <li>A step-by-step <b>Fidelity mega-backdoor Roth</b> walkthrough</li>
-        <li>Hover any term you don't know for a plain-English definition</li>
-      </ul>
-      <span class="go">Open the guide <span class="arw">→</span></span>
-    </a>
+  <section class="five">
+    <div class="sect">
+      <div class="eyebrow">The short version</div>
+      <h2>If you only remember five things</h2>
+      <p>This is the order most people should send their money. The full guide explains every step. But even alone, this list puts you ahead of most of the country.</p>
+    </div>
+    <div class="steps5">
+      <div class="st s1"><b>Grab the match</b><span>Put enough in your 401(k) to get every dollar your employer matches. It is free money. Nothing else comes close.</span></div>
+      <div class="st s2"><b>Kill expensive debt</b><span>Pay off anything charging over 7%, like credit cards. Paying it off is a guaranteed win.</span></div>
+      <div class="st s3"><b>Fill the HSA</b><span>If your health plan qualifies, max it and invest it. It is the only account that is never taxed.</span></div>
+      <div class="st s4"><b>Fill a Roth IRA</b><span>Up to $7,500 a year. Pay tax once, then it grows tax-free forever. High earner? There is a legal side door.</span></div>
+      <div class="st s5"><b>Finish the 401(k)</b><span>Work toward the full $24,500. Anything beyond that goes into a regular investing account.</span></div>
+    </div>
+    <p class="after">That is the skeleton. <a href="guide.html">The guide</a> adds the numbers, the traps, and what to do at your exact income and age.</p>
+  </section>
 
-    <a class="door d-play" href="the-long-game.html">
-      <div class="dk">Interactive stories</div>
-      <h3>See what it's worth</h3>
-      <p class="dd">Four careers, four sets of forks. Move a slider and a forty-year simulation re-runs live, so you can see what each choice actually costs or earns.</p>
-      <ul>
-        <li><b>The Physician</b> — debt, residency, and the PSLF question</li>
-        <li><b>The Engineer</b> — the five-minute question worth six figures</li>
-        <li><b>The Teacher</b> — the second retirement account nobody mentions</li>
-        <li><b>The Founder</b> — the biggest tax shelter in the code</li>
-        <li>Runs entirely in your browser; nothing saved, nothing sent</li>
-      </ul>
+  <div class="playband">
+    <a class="play" href="the-long-game.html">
+      <div>
+        <div class="pk">Interactive · runs in your browser</div>
+        <h3>Watch forty years unfold</h3>
+        <p>Four careers: a doctor, an engineer, a teacher, a founder. Drag the sliders at each of life's money forks and watch two futures split apart on the same chart. Nothing is saved or sent anywhere.</p>
+      </div>
       <span class="go">Pick a life <span class="arw">→</span></span>
     </a>
   </div>
 
   <div class="honest">
-    <h3>What this is, and what it isn't</h3>
-    <p>A free educational reference — the explanation most people never got. It is <b>not financial or tax advice</b>. Nobody here is your advisor or your CPA, and the right move always depends on your whole picture: income, goals, state, debts, and what lets you sleep at night.</p>
-    <p>All figures are for <b>tax year 2026</b>, checked against IRS sources in July 2026. Limits and brackets change every year, so verify the current numbers before you act. For the moves with real consequences — Roth conversions, the backdoor's pro-rata trap, self-employed plan setup — talk to a fee-only fiduciary advisor and a CPA who can see your actual return.</p>
-    <p>The simulations are deliberately simplified: one steady return, 2026 rules held constant, today's dollars. They exist to make <b>decisions</b> visible, not to predict your future.</p>
+    <h3>What this is, and what it is not</h3>
+    <p>A free educational reference. The explanation most people never got. It is <b>not financial or tax advice</b>. Nobody here knows your full picture: your income, your goals, your state, your debts, what lets you sleep at night.</p>
+    <p>All figures are for <b>tax year 2026</b>, checked against IRS sources in July 2026. Limits change every year, so verify before you act. For the big moves, talk to a fee-only fiduciary advisor and a CPA who can see your actual return.</p>
   </div>
+
 </main>
 
 <footer>
@@ -215,5 +252,16 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  var bar=document.getElementById('pbar');
+  function upd(){
+    var h=document.documentElement;
+    var max=h.scrollHeight-h.clientHeight;
+    bar.style.transform='scaleX('+(max>0?(h.scrollTop||document.body.scrollTop)/max:0)+')';
+  }
+  addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();
+})();
+</script>
 </body>
 </html>
